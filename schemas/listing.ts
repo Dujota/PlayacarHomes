@@ -1,9 +1,9 @@
-import { DocumentTextIcon } from '@sanity/icons'
-import { format, parseISO } from 'date-fns'
-import { description } from 'lib/demo.data'
-import { defineField, defineType } from 'sanity'
+import { DocumentTextIcon } from '@sanity/icons';
+import { format, parseISO } from 'date-fns';
+import { description } from 'lib/demo.data';
+import { defineField, defineType } from 'sanity';
 
-import authorType from './author'
+import authorType from './author';
 
 /**
  * This file is the schema definition for a post.
@@ -63,8 +63,7 @@ export default defineType({
       title: 'Excerpt',
       type: 'text',
       group: 'content',
-      description:
-        'This will display on listing tiles as a preview of the listing',
+      description: 'This will display on listing tiles as a preview of the listing',
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -125,12 +124,9 @@ export default defineType({
       media: 'coverImage',
     },
     prepare({ title, media, author, date }) {
-      const subtitles = [
-        author && `by ${author}`,
-        date && `on ${format(parseISO(date), 'LLL d, yyyy')}`,
-      ].filter(Boolean)
+      const subtitles = [author && `by ${author}`, date && `on ${format(parseISO(date), 'LLL d, yyyy')}`].filter(Boolean);
 
-      return { title, media, subtitle: subtitles.join(' ') }
+      return { title, media, subtitle: subtitles.join(' ') };
     },
   },
-})
+});

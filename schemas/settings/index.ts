@@ -1,8 +1,8 @@
-import { CogIcon } from '@sanity/icons'
-import * as demo from 'lib/demo.data'
-import { defineArrayMember, defineField, defineType } from 'sanity'
+import { CogIcon } from '@sanity/icons';
+import * as demo from 'lib/demo.data';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 
-import OpenGraphInput from './OpenGraphInput'
+import OpenGraphInput from './OpenGraphInput';
 
 export default defineType({
   name: 'settings',
@@ -23,8 +23,7 @@ export default defineType({
     }),
     defineField({
       name: 'description',
-      description:
-        'Used both for the <meta> description tag for SEO, and the blog subheader.',
+      description: 'Used both for the <meta> description tag for SEO, and the blog subheader.',
       title: 'Description',
       type: 'array',
       initialValue: demo.description,
@@ -58,8 +57,7 @@ export default defineType({
     defineField({
       name: 'ogImage',
       title: 'Open Graph Image',
-      description:
-        'Used for social media previews when linking to the index page.',
+      description: 'Used for social media previews when linking to the index page.',
       type: 'object',
       components: {
         input: OpenGraphInput as any,
@@ -74,4 +72,4 @@ export default defineType({
       ],
     }),
   ],
-})
+});

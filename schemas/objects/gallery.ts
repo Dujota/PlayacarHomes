@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'gallery',
@@ -57,13 +57,13 @@ export default defineType({
       image: 'images.0',
     },
     prepare(selection) {
-      const { images, image } = selection
+      const { images, image } = selection;
 
       return {
         title: `Gallery block of ${Object.keys(images).length} images`,
         subtitle: `Alt text: ${image.alt}`,
         media: image,
-      }
+      };
     },
   },
-})
+});
