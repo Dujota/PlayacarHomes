@@ -1,6 +1,5 @@
 import { DocumentTextIcon } from '@sanity/icons';
 import { format, parseISO } from 'date-fns';
-import { description } from 'lib/demo.data';
 import { defineField, defineType } from 'sanity';
 
 import authorType from './author';
@@ -24,6 +23,7 @@ export default defineType({
   type: 'document',
   groups: [
     { name: 'content', title: 'Content' },
+    { name: 'detail', title: 'Details' },
     { name: 'media', title: 'Media' },
     { name: 'metadata', title: 'Metadata' },
     { name: 'seo', title: 'SEO' },
@@ -48,6 +48,13 @@ export default defineType({
       },
       group: 'seo',
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'featured',
+      title: 'Featured',
+      type: 'boolean',
+      group: 'content',
+      description: 'Add the featured status of the listing',
     }),
     defineField({
       name: 'Description',
@@ -114,6 +121,129 @@ export default defineType({
       title: 'Image',
       type: 'image',
       group: ['seo', 'media'],
+    }),
+    // Details of the listing
+    defineField({
+      name: 'price',
+      title: 'Price',
+      type: 'number',
+      group: 'detail',
+      description: 'Add the price of the listing',
+    }),
+    defineField({
+      name: 'bedrooms',
+      title: 'Bedrooms',
+      type: 'number',
+      group: 'detail',
+      description: 'Add the number of bedrooms',
+    }),
+    defineField({
+      name: 'bathrooms',
+      title: 'Bathrooms',
+      type: 'number',
+      group: 'detail',
+      description: 'Add the number of bathrooms',
+    }),
+    defineField({
+      name: 'area',
+      title: 'Area',
+      type: 'number',
+      group: 'detail',
+      description: 'Add the area of the listing',
+    }),
+    defineField({
+      name: 'location',
+      title: 'Location',
+      type: 'geopoint',
+      group: 'detail',
+      description: 'Add the location of the listing',
+    }),
+    defineField({
+      name: 'amenities',
+      title: 'Amenities',
+      type: 'array',
+      of: [{ type: 'string' }],
+      group: 'detail',
+      description: 'Add the amenities of the listing',
+    }),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{ type: 'string' }],
+      group: 'detail',
+      description: 'Add the tags of the listing',
+    }),
+    defineField({
+      name: 'status',
+      title: 'Status',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Active', value: 'active' },
+          { title: 'Sold', value: 'sold' },
+          { title: 'Rented', value: 'rented' },
+        ],
+      },
+      group: 'detail',
+      description: 'Add the status of the listing',
+    }),
+    // add fields for association fee, type of property, postal code, neighbourhood, style,
+    defineField({
+      name: 'associationFee',
+      title: 'Association Fee',
+      type: 'number',
+      group: 'detail',
+      description: 'Add the association fee of the listing',
+    }),
+    defineField({
+      name: 'typeOfProperty',
+      title: 'Type of Property',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'House', value: 'house' },
+          { title: 'Condo', value: 'condo' },
+          { title: 'Townhouse', value: 'townhouse' },
+          { title: 'Apartment', value: 'apartment' },
+          { title: 'Villa', value: 'villa' },
+          { title: 'Land', value: 'land' },
+          { title: 'Commercial', value: 'commercial' },
+        ],
+      },
+      group: 'detail',
+      description: 'Add the type of property of the listing',
+    }),
+    defineField({
+      name: 'postalCode',
+      title: 'Postal Code',
+      type: 'string',
+      group: 'detail',
+      description: 'Add the postal code of the listing',
+    }),
+    defineField({
+      name: 'neighbourhood',
+      title: 'Neighbourhood',
+      type: 'string',
+      group: 'detail',
+      description: 'Add the neighbourhood of the listing',
+    }),
+    defineField({
+      name: 'style',
+      title: 'Style',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Residential', value: 'residential' },
+          { title: 'Commercial', value: 'commercial' },
+          { title: 'Industrial', value: 'industrial' },
+          { title: 'Farm', value: 'farm' },
+          { title: 'Multi-family', value: 'multi-family' },
+          { title: 'Other', value: 'other' },
+        ],
+      },
+      group: 'detail',
+      description: 'Add the style of the listing',
     }),
   ],
   preview: {
