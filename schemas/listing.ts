@@ -26,7 +26,7 @@ export default defineType({
     { name: 'content', title: 'Content' },
     { name: 'media', title: 'Media' },
     { name: 'metadata', title: 'Metadata' },
-    { name: 'seo', title: 'SEO' }
+    { name: 'seo', title: 'SEO' },
   ],
   fields: [
     defineField({
@@ -34,19 +34,19 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
-      group:"content"
+      group: 'content',
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: "This will be the url (e.g. /listing/3-bedroom-playacar)",
+      description: 'This will be the url (e.g. /listing/3-bedroom-playacar)',
       options: {
         source: 'title',
         maxLength: 96,
         isUnique: (value, context) => context.defaultIsUnique(value, context),
       },
-      group:"seo",
+      group: 'seo',
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -55,15 +55,16 @@ export default defineType({
       type: 'array',
       of: [{ type: 'block' }],
       description: 'Add a general description for the listing',
-      group:"content",
+      group: 'content',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
-      group:"content",
-      description: "This will display on listing tiles as a preview of the listing",
+      group: 'content',
+      description:
+        'This will display on listing tiles as a preview of the listing',
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -73,33 +74,48 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      group:"media",
-      description:"This will be the main image for the listing"
+      group: 'media',
+      description: 'This will be the main image for the listing',
     }),
     defineField({
       name: 'date',
       title: 'Date',
       type: 'datetime',
       initialValue: () => new Date().toISOString(),
-      group:"content"
+      group: 'content',
     }),
     defineField({
-      name:'gallery',
+      name: 'gallery',
       title: 'Image Gallery',
       type: 'gallery',
       description: 'Add images to the gallery',
-      group:"media"
+      group: 'media',
     }),
     defineField({
       name: 'author',
       title: 'Author',
       type: 'reference',
       to: [{ type: authorType.name }],
-      group:"content"
+      group: 'content',
     }),
-    defineField({name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'}),
-    defineField({name: 'seoKeywords', title: 'Keywords', type: 'string', group: 'seo'}),
-    defineField({name: 'seoImage', title: 'Image', type: 'image', group: ['seo', 'media']}),
+    defineField({
+      name: 'seoTitle',
+      title: 'SEO title',
+      type: 'string',
+      group: 'seo',
+    }),
+    defineField({
+      name: 'seoKeywords',
+      title: 'Keywords',
+      type: 'string',
+      group: 'seo',
+    }),
+    defineField({
+      name: 'seoImage',
+      title: 'Image',
+      type: 'image',
+      group: ['seo', 'media'],
+    }),
   ],
   preview: {
     select: {

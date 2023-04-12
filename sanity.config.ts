@@ -17,7 +17,6 @@ import galleryObject from 'schemas/objects/gallery'
 import postType from 'schemas/post'
 import settingsType from 'schemas/settings'
 
-
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Playacar Homes Realty'
 

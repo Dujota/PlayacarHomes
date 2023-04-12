@@ -1,55 +1,42 @@
-import { apiVersion, dataset, projectId, useCdn } from 'lib/sanity.api'
-import {
-  indexQuery,
-  type Post,
-  postAndMoreStoriesQuery,
-  postBySlugQuery,
-  postSlugsQuery,
-  type Settings,
-  settingsQuery,
-} from 'lib/sanity.queries'
-import { createClient } from 'next-sanity'
+import { apiVersion, dataset, projectId, useCdn } from 'lib/sanity.api';
+import { indexQuery, type Post, postAndMoreStoriesQuery, postBySlugQuery, postSlugsQuery, type Settings, settingsQuery } from 'lib/sanity.queries';
+import { createClient } from 'next-sanity';
 
 /**
  * Checks if it's safe to create a client instance, as `@sanity/client` will throw an error if `projectId` is false
  */
-const client = projectId
-  ? createClient({ projectId, dataset, apiVersion, useCdn })
-  : null
+const client = projectId ? createClient({ projectId, dataset, apiVersion, useCdn }) : null;
 
 export async function getSettings(): Promise<Settings> {
   if (client) {
-    return (await client.fetch(settingsQuery)) || {}
+    return (await client.fetch(settingsQuery)) || {};
   }
-  return {}
+  return {};
 }
 
 export async function getAllPosts(): Promise<Post[]> {
   if (client) {
-    return (await client.fetch(indexQuery)) || []
+    return (await client.fetch(indexQuery)) || [];
   }
-  return []
+  return [];
 }
 
 export async function getAllPostsSlugs(): Promise<Pick<Post, 'slug'>[]> {
   if (client) {
-    const slugs = (await client.fetch<string[]>(postSlugsQuery)) || []
-    return slugs.map((slug) => ({ slug }))
+    const slugs = (await client.fetch<string[]>(postSlugsQuery)) || [];
+    return slugs.map((slug) => ({ slug }));
   }
-  return []
+  return [];
 }
 
 export async function getPostBySlug(slug: string): Promise<Post> {
   if (client) {
-    return (await client.fetch(postBySlugQuery, { slug })) || ({} as any)
+    return (await client.fetch(postBySlugQuery, { slug })) || ({} as any);
   }
-  return {} as any
+  return {} as any;
 }
 
-export async function getPostAndMoreStories(
-  slug: string,
-  token?: string | null
-): Promise<{ post: Post; morePosts: Post[] }> {
+export async function getPostAndMoreStories(slug: string, token?: string | null): Promise<{ post: Post; morePosts: Post[] }> {
   if (projectId) {
     const client = createClient({
       projectId,
@@ -57,8 +44,8 @@ export async function getPostAndMoreStories(
       apiVersion,
       useCdn,
       token: token || undefined,
-    })
-    return await client.fetch(postAndMoreStoriesQuery, { slug })
+    });
+    return await client.fetch(postAndMoreStoriesQuery, { slug });
   }
-  return { post: null, morePosts: [] }
+  return { post: null, morePosts: [] };
 }

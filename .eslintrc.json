@@ -1,9 +1,21 @@
 {
-  "extends": "next",
+  "root": true,
+  "extends": ["next", "plugin:prettier/recommended"],
   "plugins": ["simple-import-sort"],
   "rules": {
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
-    "react-hooks/exhaustive-deps": "error"
+    "react-hooks/exhaustive-deps": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "endOfLine": "auto",
+        "tabWidth": 2,
+        "printWidth": 180,
+        "semi": true,
+        "jsxSingleQuote": true
+      }
+    ]
   }
 }
