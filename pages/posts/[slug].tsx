@@ -1,7 +1,8 @@
 import { PreviewSuspense } from '@sanity/preview-kit';
 import PostPage from 'components/Post/PostPage';
 import { getAllPostsSlugs, getPostAndMoreStories, getSettings } from 'lib/sanity.client';
-import { Post, Settings } from 'lib/sanity.queries';
+import { Post } from 'lib/sanity.queries/blog';
+import { Settings } from 'lib/sanity.queries/settings';
 import { GetStaticProps } from 'next';
 import { lazy } from 'react';
 

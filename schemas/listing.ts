@@ -2,7 +2,9 @@ import { DocumentTextIcon } from '@sanity/icons';
 import { format, parseISO } from 'date-fns';
 import { defineField, defineType } from 'sanity';
 
+import agentType from './agent';
 import authorType from './author';
+import contactType from './objects/contact';
 
 /**
  * This file is the schema definition for a post.
@@ -57,8 +59,8 @@ export default defineType({
       description: 'Add the featured status of the listing',
     }),
     defineField({
-      name: 'Description',
-      title: 'description',
+      name: 'description',
+      title: 'Description',
       type: 'array',
       of: [{ type: 'block' }],
       description: 'Add a general description for the listing',
@@ -104,6 +106,21 @@ export default defineType({
       to: [{ type: authorType.name }],
       group: 'content',
     }),
+    defineField({
+      name: 'agent',
+      title: 'Agent',
+      type: 'reference',
+      to: [{ type: agentType.name }],
+      group: 'detail',
+    }),
+    defineField({
+      name: 'contact',
+      title: 'Contact Information',
+      description: 'Add the contact information for the listing if it is different from the agent',
+      type: 'contact',
+      group: 'detail',
+    }),
+    // SEO fields
     defineField({
       name: 'seoTitle',
       title: 'SEO title',
@@ -249,14 +266,65 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      slug: 'slug.current',
+      featured: 'featured',
+      description: 'description',
+      excerpt: 'excerpt',
+      coverImage: 'coverImage',
       date: 'date',
-      media: 'coverImage',
+      gallery: 'gallery',
+      author: 'author.name',
+      seoTitle: 'seoTitle',
+      seoKeywords: 'seoKeywords',
+      seoImage: 'seoImage',
+      price: 'price',
+      bedrooms: 'bedrooms',
+      bathrooms: 'bathrooms',
+      area: 'area',
+      location: 'location',
+      amenities: 'amenities',
+      tags: 'tags',
+      status: 'status',
+      associationFee: 'associationFee',
+      typeOfProperty: 'typeOfProperty',
+      postalCode: 'postalCode',
+      neighbourhood: 'neighbourhood',
+      style: 'style',
+      agentName: 'agent.name',
+      agentContact: 'agent.contact',
+      contact: 'contact',
     },
-    prepare({ title, media, author, date }) {
-      const subtitles = [author && `by ${author}`, date && `on ${format(parseISO(date), 'LLL d, yyyy')}`].filter(Boolean);
+    prepare(selection) {
+      const { title, slug, date, author, coverImage, ...rest } = selection;
 
-      return { title, media, subtitle: subtitles.join(' ') };
+      // Format the date
+      const formattedDate = date ? format(parseISO(date), 'LLL d, yyyy') : '';
+
+      // Create a subtitle
+      const subtitles = [author && `by ${author}`, formattedDate].filter(Boolean).join(' ');
+
+      return {
+        title,
+        media: coverImage,
+        subtitle: subtitles,
+        extendedPreview: rest,
+      };
     },
   },
 });
+
+// OLD
+
+// preview: {
+//   select: {
+//     title: 'title',
+//     author: 'author.name',
+//     date: 'date',
+//     media: 'coverImage',
+//   },
+//   prepare({ title, media, author, date }) {
+//     const subtitles = [author && `by ${author}`, date && `on ${format(parseISO(date), 'LLL d, yyyy')}`].filter(Boolean);
+
+//     return { title, media, subtitle: subtitles.join(' ') };
+//   },
+// },

@@ -8,7 +8,8 @@ import PostPageHead from 'components/Post/PostPageHead';
 import PostTitle from 'components/Post/PostTitle';
 import SectionSeparator from 'components/SectionSeparator';
 import * as demo from 'lib/demo.data';
-import type { Post, Settings } from 'lib/sanity.queries';
+import type { Post } from 'lib/sanity.queries/blog';
+import type { Settings } from 'lib/sanity.queries/settings';
 import { notFound } from 'next/navigation';
 
 export interface PostPageProps {

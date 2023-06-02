@@ -1,5 +1,5 @@
 import { apiVersion, dataset, previewSecretId, projectId, useCdn } from 'lib/sanity.api';
-import { postBySlugQuery } from 'lib/sanity.queries';
+import { postBySlugQuery } from 'lib/sanity.queries/blog';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { PageConfig } from 'next/types';
 import { createClient } from 'next-sanity';

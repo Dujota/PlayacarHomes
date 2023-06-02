@@ -1,14 +1,15 @@
 import { PreviewSuspense } from '@sanity/preview-kit';
-import IndexPage from 'components/Blog/IndexPage';
-import { getAllPosts, getSettings } from 'lib/sanity.client';
-import { Post, Settings } from 'lib/sanity.queries';
+import ListingsIndexPage from 'components/Listings/ListingsIndexPage';
+import { getAllListings, getSettings } from 'lib/sanity.client';
+import { Listing } from 'lib/sanity.queries/listings';
+import { Settings } from 'lib/sanity.queries/settings';
 import { GetStaticProps } from 'next';
 import { lazy } from 'react';
 
-const PreviewIndexPage = lazy(() => import('components/Blog/PreviewIndexPage'));
+const PreviewListingsIndexPage = lazy(() => import('components/Listings/PreviewListingsIndexPage'));
 
 interface PageProps {
-  posts: Post[];
+  listings: Listing[];
   settings: Settings;
   preview: boolean;
   token: string | null;
@@ -23,27 +24,27 @@ interface PreviewData {
 }
 
 export default function Page(props: PageProps) {
-  const { posts, settings, preview, token } = props;
+  const { listings, settings, preview, token } = props;
 
   if (preview) {
     return (
-      <PreviewSuspense fallback={<IndexPage loading preview posts={posts} settings={settings} />}>
-        <PreviewIndexPage token={token} />
+      <PreviewSuspense fallback={<ListingsIndexPage loading preview listings={listings} settings={settings} />}>
+        <PreviewListingsIndexPage token={token} />
       </PreviewSuspense>
     );
   }
 
-  return <IndexPage posts={posts} settings={settings} />;
+  return <ListingsIndexPage listings={listings} settings={settings} />;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = async (ctx) => {
   const { preview = false, previewData = {} } = ctx;
 
-  const [settings, posts = []] = await Promise.all([getSettings(), getAllPosts()]);
+  const [settings, listings = []] = await Promise.all([getSettings(), getAllListings()]);
 
   return {
     props: {
-      posts,
+      listings,
       settings,
       preview,
       token: previewData.token ?? null,

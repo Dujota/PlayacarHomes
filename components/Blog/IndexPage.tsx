@@ -6,7 +6,8 @@ import HeroPost from 'components/Post/HeroPost';
 import MoreStories from 'components/Post/MoreStories';
 import IntroTemplate from 'intro-template';
 import * as demo from 'lib/demo.data';
-import type { Post, Settings } from 'lib/sanity.queries';
+import type { Post } from 'lib/sanity.queries/blog';
+import type { Settings } from 'lib/sanity.queries/settings';
 
 export interface IndexPageProps {
   preview?: boolean;
