@@ -28,6 +28,7 @@
     "sanity": "3.8.2",
     "sanity-plugin-asset-source-unsplash": "1.0.6",
     "suspend-react": "0.0.9",
+    "swiper": "^9.3.2",
     "swr": "2.1.1"
   },
   "devDependencies": {
