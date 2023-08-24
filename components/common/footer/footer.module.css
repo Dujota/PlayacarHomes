@@ -1,0 +1,176 @@
+.icon {
+  flex: 1;
+  position: relative;
+  max-height: 100%;
+  width: 4.5rem;
+}
+.p,
+.phoneNumber {
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  width: 25.19rem;
+}
+.phoneNumber {
+  font-weight: 500;
+}
+.p {
+  font-size: var(--font-size-base);
+  color: var(--grey);
+}
+.contact,
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+.infoCard {
+  height: 11rem;
+  align-items: center;
+  gap: var(--gap-13xl);
+}
+.contactInformationContainer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-base);
+  text-align: center;
+  color: var(--black);
+}
+.logoIcon {
+  position: relative;
+  width: 19.88rem;
+  height: 2.75rem;
+  object-fit: cover;
+}
+.missionStatement {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  line-height: 170%;
+  display: inline-block;
+  width: 28.75rem;
+}
+.icon3 {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.socials {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-13xl);
+}
+.contentContainer,
+.socialContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.socialContainer {
+  height: 8.38rem;
+  justify-content: flex-start;
+  gap: var(--gap-13xl);
+}
+.contentContainer {
+  overflow: hidden;
+  justify-content: center;
+  gap: var(--gap-11xl);
+}
+.buy {
+  cursor: pointer;
+}
+.buy,
+.getAnEstimate {
+  text-decoration: none;
+  position: relative;
+  font-weight: 500;
+  color: inherit;
+}
+.footerNavContainer1,
+.footerNavContainer2 {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-16xl);
+}
+.footerNavContainer,
+.footerNavLinksContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-162xl);
+}
+.footerNavLinksContainer {
+  color: var(--black);
+}
+.footerNavContainer {
+  align-self: stretch;
+  overflow: hidden;
+  flex-wrap: wrap;
+  font-size: var(--font-size-mini);
+}
+.copyrightPlayacarHomes {
+  margin: 0;
+  position: relative;
+  font-weight: 300;
+}
+.copyright,
+.footer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+}
+.footer {
+  background: linear-gradient(83.59deg, #fcfcfd, rgba(252, 252, 253, 0.83));
+  box-shadow: 0-20px 64px -32px rgba(15, 15, 15, 0.1);
+  backdrop-filter: blur(32px);
+  border: 1px solid var(--color-gray);
+  flex-direction: column;
+  padding: var(--padding-71xl) var(--padding-0) var(--padding-3xs);
+  justify-content: flex-start;
+  gap: var(--gap-56xl);
+  text-align: left;
+  font-size: var(--font-size-2xl);
+  color: var(--grey);
+  font-family: var(--font-poppins);
+}
+@media screen and (max-width: 960px) {
+  .footerNavContainer {
+    align-self: stretch;
+    width: auto;
+    gap: var(--gap-61xl);
+  }
+}
+@media screen and (max-width: 420px) {
+  .missionStatement {
+    width: 100%;
+  }
+  .contentContainer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+  }
+  .footerNavContainer1 {
+    gap: var(--gap-16xl);
+  }
+  .footerNavLinksContainer {
+    flex: 1;
+    gap: var(--gap-31xl);
+  }
+}

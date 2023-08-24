@@ -28,7 +28,7 @@ const listingFields = groq`
   neighbourhood,
   style,
   "agent": agent->{name, picture, "contact": contact->{phone, email}},
-  "contact": contact->{phone, email},
+  contact
 `;
 
 export const listingsIndexQuery = groq`

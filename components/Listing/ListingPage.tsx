@@ -44,7 +44,7 @@ export default function ListingPage(props: ListingPageProps) {
           ) : (
             <>
               <article>
-                <ListingHeader title={listing.title} coverImage={listing.coverImage} price={listing.price} author={listing.author} agent={listing.agent} />
+                {/* <ListingHeader title={listing.title} coverImage={listing.coverImage} price={listing.price} author={listing.author} agent={listing.agent} /> */}
                 <ListingBody listing={listing} />
               </article>
               <SectionSeparator />
