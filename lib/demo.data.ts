@@ -252,3 +252,21 @@ export const featuredBlogPostsMock = [
     },
   },
 ];
+
+// Why Us Section
+export const infoCardsMock = [
+  {
+    title: 'Personalized Approach',
+    description: 'We prioritize building meaningful relationships with our clients. We take the time to listen and understand your needs, ensuring a personalized experience.',
+  },
+  {
+    title: 'Diverse Property Portfolio',
+    description:
+      'Our extensive portfolio of properties in the Cancun Mexico area caters to a range of preferences and budgets, from stunning beachfront villas to charming condos.',
+  },
+  {
+    title: 'Transparent & Trustworthy',
+    description:
+      'We believe in transparency and maintain the highest ethical standards. You can trust us to provide accurate information, honest advice, and guide you through every step.',
+  },
+];

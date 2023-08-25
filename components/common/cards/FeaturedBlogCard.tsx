@@ -2,18 +2,28 @@ import { urlForImage } from 'lib/sanity.image';
 import Image from 'next/image';
 import Link from 'next/link';
 
+interface BlogAsset {
+  _ref: string;
+  _type: string;
+}
+
+interface Author {
+  name: string;
+  picture: {
+    _type: string;
+    asset: BlogAsset;
+  };
+}
+
 export interface Blog {
   slug: string;
-  author: string | null;
+  author: Author | null;
   _id: string;
   title: string;
   date: string;
   excerpt: string;
   coverImage: {
-    asset: {
-      _ref: string;
-      _type: string;
-    };
+    asset: BlogAsset;
     _type: string;
   };
 }

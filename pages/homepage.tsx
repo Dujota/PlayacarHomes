@@ -1,6 +1,7 @@
 import FeaturedPropertyCardBanner from 'components/common/banners/FeaturedPropertyBanner';
 import LatestNewsBanner from 'components/common/banners/LatestNewsBanner';
 import Newsletter from 'components/common/NewsLetter';
+import WhyUsSection from 'components/common/WhyUs';
 // import CustomerTestimonials from '../components/customer-testimonials';
 // import FeaturedPropertyBanner from '../components/featured-property-banner';
 // import HomeSearch from '../components/home-search';
@@ -74,7 +75,7 @@ const Homepage: NextPage = () => {
           propertyImageSizeLabel2='/icon--square-meters2.svg'
           propertyDimensions2='/frame2.svg'
         /> */}
-        {/* <WhyUsSection /> */}
+        <WhyUsSection />
         {/* <FeaturedPropertyBanner
           sectionTitle='Recently Visited Properties'
           propertyImageName='/card-image1@2x.png'
