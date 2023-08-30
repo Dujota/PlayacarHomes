@@ -1,4 +1,4 @@
-import ListingsMeta from 'components/Listings/ListingsMeta';
+import ListingsMeta from 'components/Listings/starter/ListingsMeta';
 import { urlForImage } from 'lib/sanity.image';
 import { Listing } from 'lib/sanity.queries/listings';
 import { Settings } from 'lib/sanity.queries/settings';

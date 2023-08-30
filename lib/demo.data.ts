@@ -208,6 +208,199 @@ export const featuredListingsMock = [
   },
 ];
 
+// listings index page
+export const listingsIndexMock = [
+  {
+    slug: 'bamboa-apartment-3-bedroom',
+    featured: null,
+    bedrooms: 1,
+    area: 99,
+    tags: null,
+    postalCode: '77712',
+    _id: 'f8eb98d0-d272-4e57-8200-297d0f994127',
+    title: 'Bamboa Apartment 3 bedroom',
+    coverImage: {
+      _type: 'image',
+      asset: {
+        _ref: 'image-dc09655c020956547ea1bc4839eb9e2e34442def-3622x5208-jpg',
+        _type: 'reference',
+      },
+    },
+    price: 3124214,
+    bathrooms: 2,
+    location: null,
+    neighbourhood: 'Playacar Fase 2',
+  },
+  {
+    _id: '5d596d18-8c3c-4910-9516-34a46f6fdd1a',
+    bathrooms: 4,
+    tags: ['quiet', 'spacious'],
+    postalCode: '77717',
+    bedrooms: 4,
+    area: 299,
+    location: null,
+    title: 'Club real 4 bedroom',
+    slug: 'club-real-4-bedroom',
+    featured: true,
+    coverImage: {
+      _type: 'image',
+      asset: {
+        _ref: 'image-0c7516c6e02a931318631ba9314a2a49f182a6f7-4000x6000-jpg',
+        _type: 'reference',
+      },
+    },
+    price: 313123,
+    neighbourhood: 'club real',
+  },
+  {
+    slug: 'bamboa-apartment-3-bedroom',
+    featured: null,
+    bedrooms: 1,
+    area: 99,
+    tags: null,
+    postalCode: '77712',
+    _id: 'f8eb98d0-d272-4e57-8200-297d0f994127',
+    title: 'Bamboa Apartment 3 bedroom',
+    coverImage: {
+      _type: 'image',
+      asset: {
+        _ref: 'image-dc09655c020956547ea1bc4839eb9e2e34442def-3622x5208-jpg',
+        _type: 'reference',
+      },
+    },
+    price: 3124214,
+    bathrooms: 2,
+    location: null,
+    neighbourhood: 'Playacar Fase 2',
+  },
+  {
+    _id: '5d596d18-8c3c-4910-9516-34a46f6fdd1a',
+    bathrooms: 4,
+    tags: ['quiet', 'spacious'],
+    postalCode: '77717',
+    bedrooms: 4,
+    area: 299,
+    location: null,
+    title: 'Club real 4 bedroom',
+    slug: 'club-real-4-bedroom',
+    featured: null,
+    coverImage: {
+      _type: 'image',
+      asset: {
+        _ref: 'image-0c7516c6e02a931318631ba9314a2a49f182a6f7-4000x6000-jpg',
+        _type: 'reference',
+      },
+    },
+    price: 313123,
+    neighbourhood: 'club real',
+  },
+  {
+    slug: 'bamboa-apartment-3-bedroom',
+    featured: null,
+    bedrooms: 1,
+    area: 99,
+    tags: null,
+    postalCode: '77712',
+    _id: 'f8eb98d0-d272-4e57-8200-297d0f994127',
+    title: 'Bamboa Apartment 3 bedroom',
+    coverImage: {
+      _type: 'image',
+      asset: {
+        _ref: 'image-dc09655c020956547ea1bc4839eb9e2e34442def-3622x5208-jpg',
+        _type: 'reference',
+      },
+    },
+    price: 3124214,
+    bathrooms: 2,
+    location: null,
+    neighbourhood: 'Playacar Fase 2',
+  },
+  {
+    _id: '5d596d18-8c3c-4910-9516-34a46f6fdd1a',
+    bathrooms: 4,
+    tags: ['quiet', 'spacious'],
+    postalCode: '77717',
+    bedrooms: 4,
+    area: 299,
+    location: null,
+    title: 'Club real 4 bedroom',
+    slug: 'club-real-4-bedroom',
+    featured: null,
+    coverImage: {
+      _type: 'image',
+      asset: {
+        _ref: 'image-0c7516c6e02a931318631ba9314a2a49f182a6f7-4000x6000-jpg',
+        _type: 'reference',
+      },
+    },
+    price: 313123,
+    neighbourhood: 'club real',
+  },
+  {
+    slug: 'bamboa-apartment-3-bedroom',
+    featured: null,
+    bedrooms: 1,
+    area: 99,
+    tags: null,
+    postalCode: '77712',
+    _id: 'f8eb98d0-d272-4e57-8200-297d0f994127',
+    title: 'Bamboa Apartment 3 bedroom',
+    coverImage: {
+      _type: 'image',
+      asset: {
+        _ref: 'image-dc09655c020956547ea1bc4839eb9e2e34442def-3622x5208-jpg',
+        _type: 'reference',
+      },
+    },
+    price: 3124214,
+    bathrooms: 2,
+    location: null,
+    neighbourhood: 'Playacar Fase 2',
+  },
+  {
+    _id: '5d596d18-8c3c-4910-9516-34a46f6fdd1a',
+    bathrooms: 4,
+    tags: ['quiet', 'spacious'],
+    postalCode: '77717',
+    bedrooms: 4,
+    area: 299,
+    location: null,
+    title: 'Club real 4 bedroom',
+    slug: 'club-real-4-bedroom',
+    featured: null,
+    coverImage: {
+      _type: 'image',
+      asset: {
+        _ref: 'image-0c7516c6e02a931318631ba9314a2a49f182a6f7-4000x6000-jpg',
+        _type: 'reference',
+      },
+    },
+    price: 313123,
+    neighbourhood: 'club real',
+  },
+  {
+    slug: 'bamboa-apartment-3-bedroom',
+    featured: null,
+    bedrooms: 1,
+    area: 3999,
+    tags: null,
+    postalCode: '77712',
+    _id: 'f8eb98d0-d272-4e57-8200-297d0f994127',
+    title: 'Bamboa Apartment 3 bedroom',
+    coverImage: {
+      _type: 'image',
+      asset: {
+        _ref: 'image-dc09655c020956547ea1bc4839eb9e2e34442def-3622x5208-jpg',
+        _type: 'reference',
+      },
+    },
+    price: 3124214,
+    bathrooms: 2,
+    location: null,
+    neighbourhood: 'Playacar Fase 2',
+  },
+];
+
 // BLOG
 
 export const featuredBlogPostsMock = [
@@ -268,5 +461,20 @@ export const infoCardsMock = [
     title: 'Transparent & Trustworthy',
     description:
       'We believe in transparency and maintain the highest ethical standards. You can trust us to provide accurate information, honest advice, and guide you through every step.',
+  },
+];
+
+export const statsMock = [
+  {
+    stat: '7.4%',
+    description: 'Property Return Rate',
+  },
+  {
+    stat: '3,856',
+    description: 'Property in Sell & Rent',
+  },
+  {
+    stat: '2,540',
+    description: 'Daily Completed Transactions',
   },
 ];

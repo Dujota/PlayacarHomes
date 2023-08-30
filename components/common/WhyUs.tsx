@@ -1,11 +1,12 @@
-import { infoCardsMock } from 'lib/demo.data';
+import { infoCardsMock, statsMock } from 'lib/demo.data';
 
+import StatsBanner from './banners/StatsBanner';
 import WhyUsInfoCards from './cards/WhyUsInfoCards';
 
 const WhyUsSection = () => {
   return (
     <section
-      className='font-poppins flex flex-col items-center justify-center self-stretch overflow-hidden bg-whitesmoke-100 text-left text-[2.25rem] text-black sm:box-border sm:w-auto sm:flex-row sm:self-stretch sm:p-[0rem] md:w-auto md:self-stretch lg:box-border lg:px-[0rem] lg:pb-[0rem] lg:pt-[0rem]'
+      className='font-poppins flex flex-col items-center justify-center self-stretch overflow-hidden bg-whitesmoke-100 px-10 py-10 text-left text-[2.25rem] text-black sm:box-border sm:w-auto sm:flex-row sm:self-stretch md:w-auto md:self-stretch lg:box-border'
       id='why-us'
     >
       <div className='flex flex-col items-center justify-start gap-[5rem] overflow-hidden sm:flex-1 md:box-border md:w-auto md:items-center md:justify-center md:gap-[2.5rem] md:pl-[0rem] md:[align-self:unset]'>
@@ -29,31 +30,7 @@ const WhyUsSection = () => {
         </div>
 
         {/* Stats Container */}
-        <div className='flex flex-row flex-wrap items-center justify-center gap-[3rem] text-center text-blue sm:gap-[2.5rem] md:w-auto md:items-start md:justify-center md:gap-[0.63rem] md:[align-self:unset] lg:box-border lg:items-center lg:justify-center lg:pb-[2rem] lg:pt-[2rem]'>
-          {/* Stat */}
-          <div className='flex flex-col items-center justify-start gap-[0.5rem] lg:w-auto lg:[align-self:unset]'>
-            <div className='relative inline-block w-[18.75rem] font-semibold'>7.4%</div>
-            <div className='relative inline-block w-[18.75rem] text-[0.94rem] text-grey'>Property Return Rate</div>
-          </div>
-
-          {/* Vertical Line */}
-          <div className='relative box-border h-[4.13rem] w-[0.06rem] border-r-[1px] border-solid border-lightslategray sm:hidden' />
-
-          {/* Stat */}
-          <div className='flex flex-col items-center justify-start gap-[0.5rem]'>
-            <div className='relative inline-block w-[18.75rem] font-semibold'>3,856</div>
-            <div className='relative inline-block w-[18.75rem] text-[0.94rem] text-grey'>{`Property in Sell & Rent`}</div>
-          </div>
-
-          {/* Vertical Line */}
-          <div className='relative box-border h-[4.13rem] w-[0.06rem] border-r-[1px] border-solid border-lightslategray sm:hidden' />
-
-          {/* Stat */}
-          <div className='flex flex-col items-center justify-start gap-[0.5rem]'>
-            <div className='relative inline-block w-[18.75rem] font-semibold'>2,540</div>
-            <div className='relative inline-block w-[18.75rem] text-[0.94rem] text-grey'>Daily Completed Transactions</div>
-          </div>
-        </div>
+        <StatsBanner stats={statsMock} />
       </div>
     </section>
   );
@@ -110,3 +87,36 @@ export default WhyUsSection;
 //    </div>
 //  </div>
 // </div>
+//<div className='flex flex-row flex-wrap items-center justify-center gap-[3rem] text-center text-blue sm:gap-[2.5rem] md:w-auto md:items-start md:justify-center md:gap-[0.63rem] md:[align-self:unset] lg:box-border lg:items-center lg:justify-center lg:pb-[2rem] lg:pt-[2rem]'>
+//{/* Stat */}
+//{
+/* <div className='flex flex-col items-center justify-start gap-[0.5rem] lg:w-auto lg:[align-self:unset]'>
+  <div className='relative inline-block w-[18.75rem] font-semibold'>7.4%</div>
+  <div className='relative inline-block w-[18.75rem] text-[0.94rem] text-grey'>Property Return Rate</div>
+</div> */
+//}
+
+//{/* Vertical Line */}
+//{/* <div className='relative box-border h-[4.13rem] w-[0.06rem] border-r-[1px] border-solid border-lightslategray sm:hidden' /> */}
+
+//{/* Stat */}
+{
+  /* <div className='flex flex-col items-center justify-start gap-[0.5rem]'>
+  <div className='relative inline-block w-[18.75rem] font-semibold'>3,856</div>
+  <div className='relative inline-block w-[18.75rem] text-[0.94rem] text-grey'>{`Property in Sell & Rent`}</div>
+</div> */
+}
+
+// {/* Vertical Line */}
+{
+  /* <div className='relative box-border h-[4.13rem] w-[0.06rem] border-r-[1px] border-solid border-lightslategray sm:hidden' /> */
+}
+
+// {/* Stat */}
+{
+  /* <div className='flex flex-col items-center justify-start gap-[0.5rem]'>
+  <div className='relative inline-block w-[18.75rem] font-semibold'>2,540</div>
+  <div className='relative inline-block w-[18.75rem] text-[0.94rem] text-grey'>Daily Completed Transactions</div>
+</div>
+</div> */
+}

@@ -1,9 +1,9 @@
 import FeaturedListing from 'components/Listing/FeaturedListing';
 import MoreListings from 'components/Listing/MoreListings';
-import ListingsContainer from 'components/Listings/ListingsContainer';
-import ListingsHeader from 'components/Listings/ListingsHeader';
-import ListingsIndexPageHead from 'components/Listings/ListingsIndexPageHead';
-import ListingsLayout from 'components/Listings/ListingsLayout';
+import ListingsContainer from 'components/Listings/starter/ListingsContainer';
+import ListingsHeader from 'components/Listings/starter/ListingsHeader';
+import ListingsIndexPageHead from 'components/Listings/starter/ListingsIndexPageHead';
+import ListingsLayout from 'components/Listings/starter/ListingsLayout';
 import type { Listing } from 'lib/sanity.queries/listings';
 import type { Settings } from 'lib/sanity.queries/settings';
 

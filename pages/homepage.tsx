@@ -60,21 +60,6 @@ const Homepage: NextPage = () => {
           </div>
         </section>
         <FeaturedPropertyCardBanner title='Popular Properties For You' listings={featuredListingsMock} />
-        {/* <FeaturedPropertyBanner
-          sectionTitle='Popular Properties For You'
-          propertyImageName='/card-image@2x.png'
-          propertyDimensions='/frame2.svg'
-          propertyIconName='/icons8location-12.svg'
-          propertyImageSize='/icon--bed3.svg'
-          propertyLabel='/icon--bath2.svg'
-          propertyCode='/icon--square-meters2.svg'
-          propertyImageId='/card-image@2x.png'
-          propertyImageSizeLabel='/icons8location-12.svg'
-          propertyImageId2='/icon--bed3.svg'
-          propertyImageDimensions='/icon--bath2.svg'
-          propertyImageSizeLabel2='/icon--square-meters2.svg'
-          propertyDimensions2='/frame2.svg'
-        /> */}
         <WhyUsSection />
         {/* <FeaturedPropertyBanner
           sectionTitle='Recently Visited Properties'

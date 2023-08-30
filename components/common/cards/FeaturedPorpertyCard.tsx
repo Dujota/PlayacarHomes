@@ -2,8 +2,8 @@ import { urlForImage } from 'lib/sanity.image';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import CardLineBreak from '../dividers/CardLineBreak';
 import PropertyCardDetailIcon from '../icons/PropertyCardDetailIcon';
-import CardLineBreak from './CardLineBreak';
 import PropertyCardDetails, { PropertyCardDetailsProps } from './FeaturedPropertyCardDetails';
 
 export type FeaturedPropertyCardProps = {
@@ -19,7 +19,7 @@ const FeaturedPropertyCard: React.FC<FeaturedPropertyCardProps> = ({ details }) 
         <Image
           width={600}
           height={600}
-          className='absolute left-[0rem] top-[0rem] h-[21.13rem] w-[32.19rem] object-cover sm:w-[25rem] sm:min-w-[18.75rem] sm:max-w-[25rem]'
+          className='absolute left-[0rem] top-[0rem] h-[21.13rem] w-[32.19rem] object-fill sm:w-[25rem] sm:min-w-[18.75rem] sm:max-w-[25rem]'
           alt={title}
           src={urlForImage(source).height(1000).width(2000).url()}
         />

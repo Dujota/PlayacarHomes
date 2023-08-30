@@ -3,9 +3,9 @@ import ListingHeader from 'components/Listing/ListingHeader';
 import ListingPageHead from 'components/Listing/ListingPageHead';
 import ListingTitle from 'components/Listing/ListingTitle';
 import MoreListings from 'components/Listing/MoreListings';
-import ListingsContainer from 'components/Listings/ListingsContainer';
-import ListingsHeader from 'components/Listings/ListingsHeader';
-import Layout from 'components/Listings/ListingsLayout';
+import ListingsContainer from 'components/Listings/starter/ListingsContainer';
+import ListingsHeader from 'components/Listings/starter/ListingsHeader';
+import Layout from 'components/Listings/starter/ListingsLayout';
 import SectionSeparator from 'components/SectionSeparator';
 import * as demo from 'lib/demo.data'; // remove this line
 import type { Listing } from 'lib/sanity.queries/listings';
