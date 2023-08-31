@@ -1,6 +1,7 @@
 import CTAButton from '../buttons/CTAButton';
+// import FeaturedBlogCard from '../cards/FeaturedBlogCard';
+import BlogCard from '../cards/BlogCard';
 import type { Blog } from '../cards/FeaturedBlogCard';
-import FeaturedBlogCard from '../cards/FeaturedBlogCard';
 import SectionHeader from '../headers/SectionHeader';
 
 interface LatestNewsBannerProps {
@@ -26,9 +27,9 @@ const LatestNewsBanner = ({
           <h2 className='font-inherit relative m-0 font-medium text-inherit sm:w-auto sm:flex-1 sm:self-stretch'>{title}</h2>
           <p className='relative m-0 self-stretch text-[1rem] font-light leading-[190%] text-grey sm:flex-1'>{description}</p>
         </div> */}
-        <div className='flex flex-row flex-wrap items-center justify-center gap-[1rem] overflow-hidden text-[1.19rem] sm:gap-[2rem]'>
+        <div className='flex flex-row flex-wrap items-center justify-center gap-[5rem] overflow-hidden text-[1.19rem] sm:gap-[2rem]'>
           {featuredBlogCards.map((blog) => (
-            <FeaturedBlogCard key={blog._id} blog={blog} />
+            <BlogCard key={blog._id} blog={blog} featured={true} />
           ))}
         </div>
         <CTAButton label={ctaLabel} href={ctaHref} />

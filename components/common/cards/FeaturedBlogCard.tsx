@@ -35,8 +35,8 @@ interface FeaturedBlogCardProps {
 const FeaturedBlogCard = ({ blog }: FeaturedBlogCardProps) => {
   const { title, slug, coverImage: source } = blog;
   return (
-    <Link href={`/blog/${slug}`}>
-      <div className='font-poppins flex h-[30.69rem] w-[38.25rem] flex-col items-center justify-center gap-[1rem] text-center text-[1.19rem] text-black sm:w-[25rem] sm:min-w-[18.75rem] sm:max-w-[25rem]'>
+    <div className='font-poppins flex h-[30.69rem] w-[38.25rem] flex-col items-center justify-center gap-[1rem] text-center text-[1.19rem] text-black sm:w-[25rem] sm:min-w-[18.75rem] sm:max-w-[25rem]'>
+      <Link href={`/blog/${slug}`}>
         <Image
           width={500}
           height={500}
@@ -48,8 +48,8 @@ const FeaturedBlogCard = ({ blog }: FeaturedBlogCardProps) => {
           <p className='relative m-0 inline-block w-[22.5rem] font-medium leading-[140%]'>{title}</p>
           <p className='relative m-0 inline-block w-[22.5rem] text-[0.94rem] font-light leading-[160%] text-grey'>{blog.excerpt}</p>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 
