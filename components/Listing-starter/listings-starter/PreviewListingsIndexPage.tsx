@@ -1,4 +1,4 @@
-import ListingsIndexPage from 'components/listings/starter/ListingsIndexPage';
+import ListingsIndexPage from 'components/Listing-starter/listings-starter/ListingsIndexPage';
 import { usePreview } from 'lib/sanity.preview';
 import { type Listing, listingsIndexQuery } from 'lib/sanity.queries/listings';
 import { type Settings, settingsQuery } from 'lib/sanity.queries/settings';
