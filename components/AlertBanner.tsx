@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import Container from 'components/Blog/BlogContainer';
+import Container from 'components/blog/BlogContainer';
 
 export default function Alert({ preview, loading }: { preview?: boolean; loading?: boolean }) {
   if (!preview) return null;

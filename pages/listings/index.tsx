@@ -1,6 +1,7 @@
-import ListingSearchForm from 'components/common/forms/ListingSearchForm';
+// import ListingSearchForm from 'components/common/forms/ListingSearchForm';
+import PageTitle from 'components/common/headers/PageTitle';
 import Newsletter from 'components/common/NewsLetter';
-import ListingsCardGridContainer from 'components/Listings/ListingsCardContainer';
+import PropertyList from 'components/listings/PropertyList';
 import { listingsIndexMock } from 'lib/demo.data';
 import type { NextPage } from 'next';
 
@@ -12,10 +13,9 @@ const PropertyListingsIndexPage: NextPage = () => {
   return (
     <div className='relative flex w-full flex-col items-center justify-center gap-[6.5rem] overflow-hidden bg-white'>
       <main className='font-poppins flex flex-col items-center justify-center gap-[4.94rem] self-stretch text-center text-[2.25rem] text-black'>
-        <h1 className='font-inherit relative m-0 self-stretch font-medium text-inherit'>{pageTitle}</h1>
+        <PageTitle title={pageTitle} />
         {/* <ListingindexSearch /> */}
-
-        <ListingsCardGridContainer listings={listingsIndexMock} />
+        <PropertyList listings={listingsIndexMock} />
         <Newsletter />
       </main>
     </div>

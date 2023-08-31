@@ -434,8 +434,7 @@ export const featuredBlogPostsMock = [
     _id: '350b4b55-d753-4734-b1cc-95123301d714',
     title: 'How to immigrate to Mx',
     date: '2023-04-04T16:32:07.327Z',
-    excerpt:
-      "A man felt Chuck Norris' beard once and broke every bone in his body, Chuck Norris can text using his walkie talkie and without batteries. Contrary to popular belief, America is not a democracy, it is a Chucktatorship.",
+    excerpt: "A man felt Chuck Norris' beard once and broke every bone in his body, Chuck Norris can text using his walkie talkie and without batteries.",
     coverImage: {
       asset: {
         _ref: 'image-8250368078ce0351207f2fd3d1cdad2a7c0bc198-8640x5760-jpg',
@@ -445,6 +444,89 @@ export const featuredBlogPostsMock = [
     },
   },
 ];
+
+export const blogPostWithAuthorMock = {
+  _id: '6248c323-8998-44dd-86c2-2e2b92704a8d',
+  title: 'Test Post',
+  date: '2023-04-04T14:45:08.496Z',
+  excerpt: 'Contrary to popular belief, America is not a democracy, it is a Chucktatorship, Chuck Norris does not sleep.',
+  coverImage: {
+    _type: 'image',
+    asset: {
+      _ref: 'image-e2a81b9c4a5e51bbb9f0924cff52203dfbee9da8-5184x3456-jpg',
+      _type: 'reference',
+    },
+  },
+  slug: 'test-post',
+  author: {
+    name: 'Test User',
+    picture: {
+      _type: 'image',
+      asset: {
+        _ref: 'image-bdeb5b5baaeb0f1647c3ea3969d398550933de05-3315x4144-jpg',
+        _type: 'reference',
+      },
+    },
+  },
+  content: [
+    {
+      _type: 'block',
+      style: 'normal',
+      _key: '7e6a7d1c8e4d',
+      markDefs: [],
+      children: [
+        {
+          _type: 'span',
+          marks: [],
+          text: "When Chuck Norris sends in his taxes, he sends blank forms and includes only a picture of himself, crouched and ready to attack. Chuck Norris has not had to pay taxes, ever. Chuck Norris is so fast, he can run around the world and punch himself in the back of the head, Chuck Norris is the only man to ever defeat a brick wall in a game of tennis, Chuck Norris is currently suing NBC, claiming Law and Order are trademarked names for his left and right legs. Chuck Norris can call Ali G's Julie \"A slag\", Chuck Norris will attain statehood in 2009. His state flower will be the Magnolia. Contrary to popular belief, Chuck Norris, not the box jellyfish of northern Australia, is the most venomous creature on earth. Chuck Norris invented Kentucky Fried Chicken's famous secret recipe, with eleven herbs and spices. But nobody ever mentions the twelfth ingredient: Fear Contrary to popular belief, Chuck Norris, not the box jellyfish of northern Australia, is the most venomous creature on earth, Guns don't kill people. Chuck Norris kills people. Chuck Norris once roundhouse kicked someone so hard that his foot broke the speed of light, went back in time, and killed Amelia Earhart while she was flying over the Pacific Ocean, When Google has a question... It ChuckNorriss it The Great Wall of China was originally created to keep Chuck Norris out. It failed miserably, Imagine an infinitely powerful bomb, capable of destroying a universe. That's small in comparison to a round-house kick from Chuck Norris.",
+          _key: '7e90225f26bc0',
+        },
+      ],
+    },
+    {
+      markDefs: [],
+      children: [
+        {
+          _type: 'span',
+          marks: [],
+          text: "Chuck Norris can win a game of Connect Four in only three moves, Outer space exists because it's afraid to be on the same planet with Chuck Norris. Contrary to popular belief, America is not a democracy, it is a Chucktatorship, Chuck Norris doesn't read books. He stares them down until he gets the information he wants Chuck Norris does not get frostbite. Chuck Norris bites frost. Chuck Norris is currently suing NBC, claiming Law and Order are trademarked names for his left and right legs, Chuck Norris invented Kentucky Fried Chicken's famous secret recipe, with eleven herbs and spices. But nobody ever mentions the twelfth ingredient: Fear Guns don't kill people. Chuck Norris kills people Chuck Norris Turns his grass emo so it will cut itself When Chuck Norris donates blood, he breaks the Bank. There is no chin behind Chuck Norris' beard. There is only another fist Chuck Norris once said he hated moles. Thats why they live underground.",
+          _key: '2eacc578049d0',
+        },
+      ],
+      _type: 'block',
+      style: 'normal',
+      _key: 'c0f790ffe45f',
+    },
+    {
+      markDefs: [],
+      children: [
+        {
+          _type: 'span',
+          marks: [],
+          text: "Chuck Norris is currently suing NBC, claiming Law and Order are trademarked names for his left and right legs. Chuck Norris is so fast, he can run around the world and punch himself in the back of the head Most people have 23 pairs of chromosomes. Chuck Norris has 72... and they're all poisonous, Most people have 23 pairs of chromosomes. Chuck Norris has 72... and they're all poisonous, Remember the Soviet Union? They decided to quit after watching a DeltaForce marathon on Satellite TV, Chuck Norris does not get frostbite. Chuck Norris bites frost, Police label anyone attacking Chuck Norris as a Code 45-11... a suicide.",
+          _key: 'b4495d2c30e40',
+        },
+      ],
+      _type: 'block',
+      style: 'normal',
+      _key: '02600a41d355',
+    },
+    {
+      _key: '7b9e6a0fec60',
+      markDefs: [],
+      children: [
+        {
+          _key: 'ead0235b15700',
+          _type: 'span',
+          marks: [],
+          text: "Contrary to popular belief, America is not a democracy, it is a Chucktatorship, Chuck Norris does not sleep. He waits Chuck Norris can describe the taste of water, Chuck Norris doesn't churn butter. He roundhouse kicks the cows and the butter comes straight out. If Chuck Norris were president, he would protect the secret service.",
+        },
+      ],
+      _type: 'block',
+      style: 'normal',
+    },
+  ],
+};
 
 // Why Us Section
 export const infoCardsMock = [

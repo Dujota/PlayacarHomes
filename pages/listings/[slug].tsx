@@ -1,12 +1,12 @@
 import { PreviewSuspense } from '@sanity/preview-kit';
-import ListingPage from 'components/Listing/ListingPage';
+import ListingPage from 'components/Listing-starter/ListingPage';
 import { getAllListingsSlugs, getListingAndMoreListings, getSettings } from 'lib/sanity.client';
 import { Listing } from 'lib/sanity.queries/listings';
 import { Settings } from 'lib/sanity.queries/settings';
 import { GetStaticProps } from 'next';
 import { lazy } from 'react';
 
-const PreviewListingPage = lazy(() => import('components/Listing/PreviewListingPage'));
+const PreviewListingPage = lazy(() => import('components/Listing-starter/PreviewListingPage'));
 
 interface PageProps {
   listing: Listing;

@@ -1,14 +1,14 @@
 export const footerNavLinks = [
-  { href: '/property-listings-index-page', text: 'Buy' },
-  { href: '/property-listings-index-page', text: 'Rent' },
-  { href: '/property-listings-index-page', text: 'Commercial' },
-  { href: '/blog-landing-page', text: 'Blog' },
+  { href: '/listings?q=buy', text: 'Buy' },
+  { href: '/listings?q=rent', text: 'Rent' },
+  { href: '/listings?q=commercial', text: 'Commercial' },
+  { href: '/blog', text: 'Blog' },
   { href: '#contact', text: 'Get An Estimate' },
 ];
 
 export const footerNavAltLinks = [
   { href: '#about', text: 'About Playacar Homes' },
-  { href: '/blog-landing-page', text: 'FAQs' },
+  { href: '/blog', text: 'FAQs' },
   { href: '#contact', text: 'Contact' },
   { href: '#privacy-policy', text: 'Privacy Policy' },
   { href: '#toc', text: 'Terms & Conditions' },
@@ -25,9 +25,9 @@ export const socialIcons = ['/facebook.svg', '/instagram.svg', '/twitter.svg', '
 export const currentYear = new Date().getFullYear();
 
 export const navBarLinks = [
-  { label: 'Buy', href: '/property-listings-index-page?q=buy' },
-  { label: 'Rent', href: '/property-listings-index-page?q=rent' },
-  { label: 'Blog', href: '/blog-landing-page' },
+  { label: 'Buy', href: '/listings?q=buy' },
+  { label: 'Rent', href: '/listings?q=rent' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '#contact' },
 ];
 

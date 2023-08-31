@@ -15,7 +15,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ icon, title, description }) =
       <Image width={200} height={200} className='relative max-h-full w-[4.5rem] flex-1' alt={title} src={icon} />
       <div className='flex flex-col items-start justify-start gap-[1rem]'>
         <p className='relative m-0 inline-block w-[25.19rem] font-medium'>{title}</p>
-        <p className='text-grey relative m-0 inline-block w-[25.19rem] text-[1rem]'>{description}</p>
+        <p className='relative m-0 inline-block w-[25.19rem] text-[1rem] text-grey'>{description}</p>
       </div>
     </div>
   );
@@ -61,7 +61,7 @@ type FooterType = {
 
 const Footer: NextPage<FooterType> = ({ contactInfo, logo, socialIcons, footerNavLinks, footerNavAltLinks }) => {
   return (
-    <footer className='text-grey font-poppins border-gray flex flex-col items-center justify-start gap-[4.69rem] self-stretch border-[1px] border-solid px-[0rem] pb-[0.63rem] pt-[5.63rem] text-left text-[1.31rem] shadow-[0px_-20px_64px_-32px_rgba(15,_15,_15,_0.1)] [backdrop-filter:blur(32px)] [background:linear-gradient(83.59deg,_#fcfcfd,_rgba(252,_252,_253,_0.83))]'>
+    <footer className='font-poppins flex flex-col items-center justify-start gap-[4.69rem] self-stretch border-[1px] border-solid border-gray px-[0rem] pb-[0.63rem] pt-[5.63rem] text-left text-[1.31rem] text-grey shadow-[0px_-20px_64px_-32px_rgba(15,_15,_15,_0.1)] [backdrop-filter:blur(32px)] [background:linear-gradient(83.59deg,_#fcfcfd,_rgba(252,_252,_253,_0.83))]'>
       <div className='flex flex-row flex-wrap items-center justify-center gap-[1rem] self-stretch text-center text-black'>
         {contactInfo.map((info, idx) => (
           <ContactCard key={idx} {...info} />
