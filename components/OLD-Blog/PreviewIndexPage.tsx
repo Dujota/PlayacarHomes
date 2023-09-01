@@ -1,4 +1,4 @@
-import IndexPage from 'components/Blog-starter/IndexPage';
+import IndexPage from 'components/OLD-Blog/IndexPage';
 import { usePreview } from 'lib/sanity.preview';
 import { indexQuery, type Post } from 'lib/sanity.queries/blog';
 import { type Settings, settingsQuery } from 'lib/sanity.queries/settings';

@@ -1,13 +1,12 @@
 import SectionSeparator from 'components/common/dividers/SectionSeparator';
-import ListingBody from 'components/Listing-starter/ListingBody';
-import ListingHeader from 'components/Listing-starter/ListingHeader';
-import ListingPageHead from 'components/Listing-starter/ListingPageHead';
-import ListingsContainer from 'components/Listing-starter/listings-starter/ListingsContainer';
-import ListingsHeader from 'components/Listing-starter/listings-starter/ListingsHeader';
-import Layout from 'components/Listing-starter/listings-starter/ListingsLayout';
-import ListingTitle from 'components/Listing-starter/ListingTitle';
-import MoreListings from 'components/Listing-starter/MoreListings';
+import Newsletter from 'components/common/NewsLetter';
+import ListingBody from 'components/listings/ListingBody';
 import ListingHeaderTitle from 'components/listings/ListingHeaderTitle';
+import ListingPageHead from 'components/listings/ListingPageHead';
+import ListingsContainer from 'components/listings/ListingsContainer';
+import ListingsLayout from 'components/listings/ListingsLayout';
+import ListingTitle from 'components/listings/ListingTitle';
+import MoreListings from 'components/listings/MoreListings';
 import * as demo from 'lib/demo.data'; // remove this line
 import type { Listing } from 'lib/sanity.queries/listings';
 import type { Settings } from 'lib/sanity.queries/settings';
@@ -37,7 +36,7 @@ export default function ListingPage(props: ListingPageProps) {
     <>
       <ListingPageHead settings={settings} listing={listing} />
 
-      <Layout preview={preview} loading={loading}>
+      <ListingsLayout preview={preview} loading={loading}>
         <ListingsContainer>
           {/* <ListingsHeader title={title} level={2} /> */}
           {preview && !listing ? (
@@ -50,11 +49,13 @@ export default function ListingPage(props: ListingPageProps) {
                 <ListingBody listing={listing} />
               </article>
               <SectionSeparator />
+              <Newsletter />
+              <SectionSeparator />
               {moreListings?.length > 0 && <MoreListings listings={moreListings} />}
             </>
           )}
         </ListingsContainer>
-      </Layout>
+      </ListingsLayout>
     </>
   );
 }

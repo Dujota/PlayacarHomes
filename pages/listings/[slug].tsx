@@ -1,12 +1,15 @@
+// Components
 import { PreviewSuspense } from '@sanity/preview-kit';
-import ListingPage from 'components/Listing-starter/ListingPage';
+import ListingPage from 'components/listings/ListingPage';
+// Sanity Client
 import { getAllListingsSlugs, getListingAndMoreListings, getSettings } from 'lib/sanity.client';
 import { Listing } from 'lib/sanity.queries/listings';
 import { Settings } from 'lib/sanity.queries/settings';
+// React & Next
 import { GetStaticProps } from 'next';
 import { lazy } from 'react';
 
-const PreviewListingPage = lazy(() => import('components/Listing-starter/PreviewListingPage'));
+const PreviewListingPage = lazy(() => import('components/listings/PreviewListingPage'));
 
 interface PageProps {
   listing: Listing;
@@ -24,7 +27,7 @@ interface PreviewData {
   token?: string;
 }
 
-export default function ProjectSlugRoute(props: PageProps) {
+export default function ListingShowPage(props: PageProps) {
   const { settings, listing, moreListings, preview, token } = props;
 
   if (preview) {

@@ -1,4 +1,4 @@
-import ListingPage, { ListingPageProps } from 'components/Listing-starter/ListingPage';
+import ListingPage, { ListingPageProps } from 'components/listings/ListingPage';
 import { usePreview } from 'lib/sanity.preview';
 import { type Listing, listingAndMoreListingsQuery } from 'lib/sanity.queries/listings';
 

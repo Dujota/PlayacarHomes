@@ -1,4 +1,4 @@
-import ListingPreview from 'components/Listing-starter/ListingPreview';
+import ListingPreview from 'components/listings/ListingPreview';
 import type { Listing } from 'lib/sanity.queries/listings';
 
 export default function MoreListings({ listings }: { listings: Listing[] }) {

@@ -1,6 +1,6 @@
 import Avatar from 'components/AuthorAvatar';
 import CoverImage from 'components/CoverImage';
-import ListingTitle from 'components/Listing-starter/ListingTitle';
+import ListingTitle from 'components/listings/ListingTitle';
 import type { Listing } from 'lib/sanity.queries/listings';
 
 export default function ListingHeader(props: Pick<Listing, 'title' | 'coverImage' | 'price' | 'author' | 'agent' | 'slug'>) {

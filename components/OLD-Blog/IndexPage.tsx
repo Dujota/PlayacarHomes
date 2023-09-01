@@ -1,9 +1,9 @@
 import Container from 'components/blog/BlogContainer';
-import BlogHeader from 'components/Blog-starter/BlogHeader';
 import Layout from 'components/blog/BlogLayout';
-import IndexPageHead from 'components/Blog-starter/IndexPageHead';
-import HeroPost from 'components/Post-sttarter/HeroPost';
 import MoreStories from 'components/blog/MoreStories';
+import BlogHeader from 'components/OLD-Blog/BlogHeader';
+import IndexPageHead from 'components/OLD-Blog/IndexPageHead';
+import HeroPost from 'components/OLD-Posts/HeroPost';
 import * as demo from 'lib/demo.data';
 import type { Post } from 'lib/sanity.queries/blog';
 import type { Settings } from 'lib/sanity.queries/settings';
