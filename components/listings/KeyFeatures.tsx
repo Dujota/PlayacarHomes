@@ -2,7 +2,7 @@ import FeatureItem from './FeatureItem';
 
 export default function KeyFeatures() {
   return (
-    <div className='gap-[2rem]} flex flex-col items-start justify-start'>
+    <div className='gap-[2rem]} mb-10 flex flex-col items-start justify-start'>
       <h2 className='font-inherit relative m-0 mb-[2rem] font-medium text-inherit'>Key Features</h2>
       <div id='feature-container' className='flex flex-wrap items-baseline justify-center gap-[3rem] text-[0.88rem] text-grey'>
         <div className='flex flex-col items-start justify-center gap-[1.5rem]'>
