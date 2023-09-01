@@ -8,13 +8,9 @@ export default function PostPreview({ title, coverImage, date, excerpt, author, 
   return (
     <div>
       <div className='mb-5'>
-        <CoverImage slug={slug} title={title} image={coverImage} priority={false} type='posts' />
+        <CoverImage title={title} image={coverImage} priority={false} />
       </div>
-      <h3 className='mb-3 text-3xl leading-snug'>
-        <Link href={`/blog/${slug}`} className='hover:underline'>
-          {title}
-        </Link>
-      </h3>
+      <h3 className='mb-3 text-3xl leading-snug'>{title}</h3>
       <div className='mb-4 text-lg'>
         <Date dateString={date} />
       </div>

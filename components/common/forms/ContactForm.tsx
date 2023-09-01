@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 type ContactFormType = {
-  fullNameInput?: string;
   buttonText?: string;
 };
 
@@ -10,9 +9,11 @@ type ContactFormType = {
 const bg =
   'box-border w-[403px] rounded-2xl border-[1px] border-solid border-gray shadow-[0px_40px_64px_-32px_rgba(15,_15,_15,_0.1)] [backdrop-filter:blur(32px)] [background:linear-gradient(83.59deg,_#fcfcfd,_rgba(252,_252,_253,_0.83))]';
 
+const sticky = 'sticky top-0';
+
 const inputStyles = 'p-2 border-1 border-solid bg-[rgba(119,126,144,0.05)] border-[rgba(114,151,175,0.25)] rounded';
 
-const ContactForm = ({ fullNameInput, buttonText }: ContactFormType) => {
+const ContactForm = ({ buttonText = 'Send Message' }: ContactFormType) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
@@ -58,7 +59,7 @@ const ContactForm = ({ fullNameInput, buttonText }: ContactFormType) => {
   };
 
   return (
-    <div className={'font-poppins relative w-[403px] rounded-2xl p-[32px] text-left text-5xl text-black ' + bg}>
+    <div id='contact-form' className={`font-poppins relative w-[403px] rounded-2xl p-[32px] text-left text-5xl text-black ${bg} ${sticky}`}>
       <form onSubmit={handleSubmit}>
         <div className='flex flex-col items-center justify-start gap-[32px]'>
           <div className='flex flex-col items-start justify-start gap-[16px]'>
@@ -96,7 +97,7 @@ const ContactForm = ({ fullNameInput, buttonText }: ContactFormType) => {
               {errors.message && <div className='text-red-500'>{errors.message}</div>}
             </div>
             <button className='flex cursor-pointer flex-row items-center justify-center bg-blue pb-[11px] pl-[124px] pr-[123px] pt-3 [border:none]' type='submit'>
-              <div className='font-poppins relative text-left text-sm font-medium text-white'>Send Message</div>
+              <div className='font-poppins relative text-left text-sm font-medium text-white'>{buttonText}</div>
             </button>
           </div>
         </div>

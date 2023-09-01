@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import { urlForImage } from 'lib/sanity.image';
+import { deriveCtaHref } from 'lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -13,6 +14,7 @@ interface CoverImageProps {
 
 export default function CoverImage(props: CoverImageProps) {
   const { title, slug, image: source, priority, type } = props;
+
   const image = source?.asset?._ref ? (
     <div
       className={cn('shadow-small', {
@@ -36,7 +38,7 @@ export default function CoverImage(props: CoverImageProps) {
   return (
     <div className='sm:mx-0'>
       {slug ? (
-        <Link href={`/${type}/${slug}`} aria-label={title}>
+        <Link href={`/${deriveCtaHref(type)}/${slug}`} aria-label={title}>
           {image}
         </Link>
       ) : (

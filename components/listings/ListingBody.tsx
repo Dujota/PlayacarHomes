@@ -23,7 +23,7 @@ export default function ListingBody({ listing }) {
           <img className='relative h-[15.88rem] w-[25.19rem] object-cover' alt='' src='/thumbnail-2@2x.png' />
         </div>
       </section>
-      <ListingDetails />
+      <ListingDetails listing={listing} />
     </div>
   );
 }

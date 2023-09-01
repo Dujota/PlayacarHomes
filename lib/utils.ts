@@ -29,3 +29,13 @@ export function formatPrice(price: number | undefined) {
 
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price || 0);
 }
+
+export function deriveCtaHref(type) {
+  if (type === 'posts') {
+    return '/blog';
+  }
+
+  if (type === 'listings') {
+    return '/listings';
+  }
+}
