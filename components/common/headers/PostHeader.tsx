@@ -1,7 +1,4 @@
-import Avatar from 'components/AuthorAvatar';
 import BlogHeaderTitle from 'components/blog/BlogHeaderTitle';
-import PostTitle from 'components/blog/PostTitle';
-import Date from 'components/common/Date';
 import CoverImage from 'components/CoverImage';
 import type { Post } from 'lib/sanity.queries/blog';
 

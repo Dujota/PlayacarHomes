@@ -5,7 +5,7 @@ export default function ListingsLayout({ preview, loading, children }: { preview
     <>
       <div className='min-h-screen'>
         <AlertBanner preview={preview} loading={loading} />
-        <main>{children}</main>
+        {children}
       </div>
     </>
   );

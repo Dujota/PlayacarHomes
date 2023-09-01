@@ -1,12 +1,13 @@
+import SectionSeparator from 'components/common/dividers/SectionSeparator';
 import ListingBody from 'components/Listing-starter/ListingBody';
 import ListingHeader from 'components/Listing-starter/ListingHeader';
 import ListingPageHead from 'components/Listing-starter/ListingPageHead';
-import ListingTitle from 'components/Listing-starter/ListingTitle';
-import MoreListings from 'components/Listing-starter/MoreListings';
 import ListingsContainer from 'components/Listing-starter/listings-starter/ListingsContainer';
 import ListingsHeader from 'components/Listing-starter/listings-starter/ListingsHeader';
 import Layout from 'components/Listing-starter/listings-starter/ListingsLayout';
-import SectionSeparator from 'components/common/dividers/SectionSeparator';
+import ListingTitle from 'components/Listing-starter/ListingTitle';
+import MoreListings from 'components/Listing-starter/MoreListings';
+import ListingHeaderTitle from 'components/listings/ListingHeaderTitle';
 import * as demo from 'lib/demo.data'; // remove this line
 import type { Listing } from 'lib/sanity.queries/listings';
 import type { Settings } from 'lib/sanity.queries/settings';
@@ -38,12 +39,13 @@ export default function ListingPage(props: ListingPageProps) {
 
       <Layout preview={preview} loading={loading}>
         <ListingsContainer>
-          <ListingsHeader title={title} level={2} />
+          {/* <ListingsHeader title={title} level={2} /> */}
           {preview && !listing ? (
             <ListingTitle>Loading…</ListingTitle>
           ) : (
             <>
               <article>
+                <ListingHeaderTitle title={listing.title} location={listing.location} neighbourhood={listing.neighbourhood} postalCode={listing.postalCode} />
                 {/* <ListingHeader title={listing.title} coverImage={listing.coverImage} price={listing.price} author={listing.author} agent={listing.agent} /> */}
                 <ListingBody listing={listing} />
               </article>

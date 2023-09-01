@@ -7,34 +7,11 @@ import CardLineBreak from '../dividers/CardLineBreak';
 import PropertyCardDetailIcon from '../icons/PropertyCardDetailIcon';
 import PropertyCardDetails, { PropertyCardDetailsProps } from './FeaturedPropertyCardDetails';
 
-type PropertyCardType = {
-  addressLabel?: string;
-  propertyAddress?: string;
-  propertyImageId?: string;
-  bedroomCount?: string;
-  bathroomCount?: string;
-  roomSizeLabel?: string;
-  favorited?: string;
-  propertyImageDimensions?: string;
-  propertyImageDimensionsLa?: string;
-};
-
 export type PropertyCardProps = {
   details: PropertyCardDetailsProps;
 };
 
-const PropertyCard = ({
-  // addressLabel,
-  // propertyAddress,
-  // propertyImageId,
-  // bedroomCount,
-  // bathroomCount,
-  // roomSizeLabel,
-  // favorited,
-  // propertyImageDimensions,
-  // propertyImageDimensionsLa,
-  details,
-}: PropertyCardProps) => {
+const PropertyCard = ({ details }: PropertyCardProps) => {
   const { title, slug, coverImage: source, featured } = details;
   return (
     <Link href={`/listings/${slug}`}>
@@ -54,7 +31,6 @@ const PropertyCard = ({
         <div className='property-card-details-container absolute top-[15.75rem]  mx-3 flex w-[24.69rem] flex-col items-start justify-start gap-[1.5rem]'>
           <PropertyCardDetails {...details} />
           {/* Horizontal Line */}
-          {/* <div className='relative box-border h-[0.1rem] w-[21.54rem] border-t-[1.6px] border-solid border-shades-of-purple-purple-96' /> */}
           <CardLineBreak small />
 
           {/* TODO: remove container ???? */}
