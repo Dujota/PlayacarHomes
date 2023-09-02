@@ -1,16 +1,5 @@
-import Link from 'next/link';
-
 import Logo from '../icons/Logo';
-
-const NavLinks = ({ links }) => (
-  <ul className='m-0 flex flex-row items-center justify-start gap-[2.5rem]' id='nav-links'>
-    {links.map((link, index) => (
-      <Link key={index} className='relative cursor-pointer font-medium text-[inherit] [text-decoration:none]' href={link.href}>
-        {link.label}
-      </Link>
-    ))}
-  </ul>
-);
+import NavLinks from './NavLinks';
 
 interface NavBarProps {
   links: { label: string; href: string }[];
@@ -24,9 +13,7 @@ const NavBar = ({ links, logo }: NavBarProps) => {
       id='header'
     >
       <div className='flex w-[77.42rem] flex-row items-center justify-between'>
-        <Link href='/'>
-          <Logo logo={logo} />
-        </Link>
+        <Logo logo={logo} />
         <NavLinks links={links} />
         {/* <ActionButtons/> */}
       </div>
