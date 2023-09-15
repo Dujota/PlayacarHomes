@@ -1,14 +1,14 @@
 export const footerNavLinks = [
   { href: '/listings?q=buy', text: 'Buy' },
   { href: '/listings?q=rent', text: 'Rent' },
-  { href: '/listings?q=commercial', text: 'Commercial' },
+  // { href: '/listings?q=commercial', text: 'Commercial' },
   { href: '/blog', text: 'Blog' },
   { href: '#contact', text: 'Get An Estimate' },
 ];
 
 export const footerNavAltLinks = [
-  { href: '#about', text: 'About Playacar Homes' },
-  { href: '/blog', text: 'FAQs' },
+  // { href: '#about', text: 'About Playacar Homes' },
+  { href: '/blog', text: 'FAQ' },
   { href: '#contact', text: 'Contact' },
   { href: '#privacy-policy', text: 'Privacy Policy' },
   { href: '#toc', text: 'Terms & Conditions' },
