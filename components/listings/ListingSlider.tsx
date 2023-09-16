@@ -17,6 +17,7 @@ export default function ListingSlider({ listing }: ListingSliderProps) {
     <section className='flex flex-row items-start justify-center gap-[1rem] self-stretch'>
       <Swiper
         style={{
+          // @ts-ignore
           '--swiper-navigation-color': '#fff',
           // '--swiper-pagination-color': '#fff',
         }}
