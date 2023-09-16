@@ -1,6 +1,6 @@
 import Avatar from 'components/AuthorAvatar';
+import Date from 'components/common/Date';
 import CoverImage from 'components/CoverImage';
-import Date from 'components/OLD-Listings/ListingDate';
 import type { Listing } from 'lib/sanity.queries/listings';
 import Link from 'next/link';
 

@@ -38,7 +38,7 @@ export default function CoverImage(props: CoverImageProps) {
   return (
     <div className='sm:mx-0'>
       {slug ? (
-        <Link href={`/${deriveCtaHref(type)}/${slug}`} aria-label={title}>
+        <Link href={`${deriveCtaHref(type)}/${slug}`} aria-label={title}>
           {image}
         </Link>
       ) : (
