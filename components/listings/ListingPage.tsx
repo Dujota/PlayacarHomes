@@ -49,12 +49,12 @@ export default function ListingPage(props: ListingPageProps) {
                 <ListingBody listing={listing} />
               </article>
               <SectionSeparator />
-              <Newsletter />
-              <SectionSeparator />
-              {moreListings?.length > 0 && <MoreListings listings={moreListings} />}
             </>
           )}
         </ListingsContainer>
+        <Newsletter />
+        <SectionSeparator />
+        <ListingsContainer>{moreListings?.length > 0 && <MoreListings listings={moreListings} />}</ListingsContainer>
       </ListingsLayout>
     </>
   );
