@@ -10,7 +10,7 @@ import SocialIcons from './SocialIcons';
 type FooterType = {
   contactInfo: ContactCardProps[];
   logo: string;
-  socialIcons: string[];
+  socialIcons: { label: string; iconSrc: string }[];
   footerNavLinks: { href: string; text: string }[];
   footerNavAltLinks: { href: string; text: string }[];
 };

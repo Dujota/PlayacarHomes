@@ -11,7 +11,7 @@ export default function Alert({ preview, loading }: { preview?: boolean; loading
           {loading ? 'Loading... ' : 'This page is a preview. '}
           <a href='/api/exit-preview' className='underline transition-colors duration-200 hover:text-cyan'>
             Click here
-          </a>{' '}
+          </a>
           to exit preview mode.
         </div>
       </Container>
