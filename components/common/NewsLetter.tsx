@@ -34,7 +34,7 @@ const Newsletter = ({
             <h2 className='font-inherit relative m-0 font-medium text-inherit'>{title}</h2>
           </div>
           <div className='flex flex-row flex-wrap items-start justify-center text-[1rem] text-grey sm:w-auto sm:max-w-[25.63rem] sm:[align-self:unset]'>
-            <p className='relative m-0 inline-block w-[38.25rem] shrink-0 font-light leading-[190%] sm:h-auto sm:flex-1 sm:self-stretch'>{description}</p>
+            <p className='relative m-0 inline-block w-[38.25rem] shrink-0 font-light leading-[190%] sm:h-auto sm:w-auto sm:flex-1 sm:self-stretch'>{description}</p>
           </div>
         </div>
         <form className='flex flex-row flex-wrap items-center justify-center gap-[0.31rem]' onSubmit={handleSubmit} id='news-letter-form'>

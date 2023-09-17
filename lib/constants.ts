@@ -17,7 +17,7 @@ export const footerNavAltLinks = [
 export const contactInfo = [
   { icon: '/phone.svg', title: 'Phone Number', description: '+41 21 616 10 10' },
   { icon: '/email.svg', title: 'Email Address', description: 'contact@playacarhomes.com' },
-  { icon: '/location.svg', title: 'Our Location', description: "Avenue d'Ouchy 66,1006 Lausanne, Suisse" },
+  { icon: '/location.svg', title: 'Our Location', description: 'Playcar' },
 ];
 export const logo = '/logo.png';
 export const socialIcons = [
