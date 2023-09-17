@@ -3,3 +3,9 @@
 @tailwind components;
 /* purgecss end ignore */
 @tailwind utilities;
+
+
+/* CSS DBUGGER */
+/* * {
+    outline: 1px solid red;
+} */
