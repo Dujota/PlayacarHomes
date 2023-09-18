@@ -10,9 +10,11 @@ export default function ListingBody({ listing }) {
   // const formattedPrice = formatPrice(listing.price || 0);
 
   return (
-    <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+    <>
       <ListingSlider listing={listing} />
-      <ListingDetails listing={listing} />
-    </div>
+      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+        <ListingDetails listing={listing} />
+      </div>
+    </>
   );
 }

@@ -14,7 +14,7 @@ type ListingSliderProps = {
 
 export default function ListingSlider({ listing }: ListingSliderProps) {
   return (
-    <section className='flex flex-row items-start justify-center gap-[1rem] self-stretch'>
+    <section id='listing-slider' className='flex flex-row items-start justify-center gap-[1rem] self-stretch'>
       <Swiper
         style={{
           // @ts-ignore
