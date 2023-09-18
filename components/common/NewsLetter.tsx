@@ -39,7 +39,7 @@ const Newsletter = ({
         </div>
         <form className='flex flex-row flex-wrap items-center justify-center gap-[0.31rem]' onSubmit={handleSubmit} id='news-letter-form'>
           <input
-            className='font-poppins box-border flex h-[2.75rem] w-[30.63rem] flex-row items-center justify-start bg-[transparent] px-[1rem] py-[0rem] text-[0.88rem] font-light [border:none] sm:max-w-[17.5rem]'
+            className='font-poppins m-[0.65rem] box-border flex h-[2.75rem] w-[30.63rem] flex-row items-center justify-start bg-[transparent] px-[1rem] py-[0rem] text-[0.88rem] font-light [border:none] sm:max-w-[15.5rem] '
             type='email'
             placeholder='Email Address'
             id='newsletter-email'
