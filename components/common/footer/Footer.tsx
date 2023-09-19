@@ -37,7 +37,7 @@ const Footer: NextPage<FooterType> = ({ contactInfo, logo, socialIcons, footerNa
       </div>
 
       <div className='flex flex-row items-center justify-center self-stretch text-[0.88rem]'>
-        <p className='relative m-0 font-light'>
+        <p className='relative m-2 font-light'>
           © Copyright Playacar Homes {currentYear}, All rights reserved. Developed by <Link href='https://www.denisdujota.dev/'>Dujota Studios</Link>
         </p>
       </div>
