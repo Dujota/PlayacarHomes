@@ -19,7 +19,7 @@ const Homepage: NextPage = () => {
     <div className='relative flex w-full flex-col items-start justify-start gap-[3.94rem] overflow-hidden bg-white'>
       <main className='flex flex-col items-center justify-center gap-[7.06rem] self-stretch'>
         <section className='font-poppins relative ml-auto h-[41.31rem] w-[90%] self-stretch text-left text-[0.88rem] text-black md:w-full' id='hero-section'>
-          <Image width={800} height={600} className='absolute right-[-0.01rem] top-[0rem] h-[37.69rem] w-[45.75rem] object-cover' alt='' src='/hero_image.png' />
+          <Image width={800} height={600} className='absolute right-[-0.01rem] top-[0rem] h-[37.69rem] w-[45.75rem] object-cover opacity-80' alt='' src='/hero_image.png' />
           {/* <HomeSearch /> */}
           {/* <div className='absolute left-[32.44rem] top-[27.56rem] hidden h-[13.75rem] w-[9.81rem]'>
             <div className='absolute left-[0rem] top-[0rem] box-border h-[13.75rem] w-[9.81rem] border-[1px] border-solid border-gray shadow-[0px_40px_64px_-32px_rgba(15,_15,_15,_0.1)] [backdrop-filter:blur(32px)] [background:linear-gradient(83.59deg,_#fcfcfd,_rgba(252,_252,_253,_0.83))]' />
