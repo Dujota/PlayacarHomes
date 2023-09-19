@@ -2,7 +2,6 @@ import Avatar from 'components/AuthorAvatar';
 import Date from 'components/common/Date';
 import CoverImage from 'components/CoverImage';
 import type { Post } from 'lib/sanity.queries/blog';
-import Link from 'next/link';
 
 export default function PostPreview({ title, coverImage, date, excerpt, author, slug }: Omit<Post, '_id'>) {
   return (
