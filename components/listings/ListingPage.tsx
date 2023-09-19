@@ -1,3 +1,4 @@
+import FeaturedPropertyCardBanner from 'components/common/banners/FeaturedPropertyBanner';
 import SectionSeparator from 'components/common/dividers/SectionSeparator';
 import Newsletter from 'components/common/NewsLetter';
 import ListingBody from 'components/listings/ListingBody';
@@ -54,7 +55,12 @@ export default function ListingPage(props: ListingPageProps) {
         </ListingsContainer>
         <Newsletter />
         <SectionSeparator />
-        <ListingsContainer>{moreListings?.length > 0 && <MoreListings listings={moreListings} />}</ListingsContainer>
+        {/* <FeaturedPropertyCardBanner title='Popular Properties For You' listings={demo.featuredListingsMock} /> */}
+        {/* <ListingsContainer>{moreListings?.length > 0 && <MoreListings listings={moreListings} />}</ListingsContainer> */}
+        <ListingsContainer>
+          <FeaturedPropertyCardBanner title='Popular Properties For You' listings={demo.featuredListingsMock} />
+        </ListingsContainer>
+        <SectionSeparator />
       </ListingsLayout>
     </>
   );
