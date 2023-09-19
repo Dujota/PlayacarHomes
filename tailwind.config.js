@@ -69,7 +69,7 @@ module.exports = {
         tablet: {
           max: '768px',
         },
-        tabletPrtrait: {
+        tabletPortrait: {
           max: '640px',
         },
         sm: {
