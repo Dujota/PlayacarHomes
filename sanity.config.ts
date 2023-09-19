@@ -10,15 +10,24 @@ import { settingsPlugin, settingsStructure } from 'plugins/settings';
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash';
-// Document types
-import agent from 'schemas/agent';
+// Sanity Schema types
+import agentType from 'schemas/agent';
 import authorType from 'schemas/author';
 import listingType from 'schemas/listing';
 import contactObject from 'schemas/objects/contact';
+import formObject from 'schemas/objects/form';
 import galleryObject from 'schemas/objects/gallery';
+import heroObject from 'schemas/objects/hero';
+import linkObject from 'schemas/objects/link';
+import textWithIllustrationsObject from 'schemas/objects/textWithIllustrations';
+import videoObject from 'schemas/objects/video';
+import pageType from 'schemas/pageBuilder';
 import postType from 'schemas/post';
 import settingsType from 'schemas/settings';
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Playacar Homes Realty';
+
+const objectTypes = [heroObject, textWithIllustrationsObject, galleryObject, formObject, videoObject, linkObject, contactObject];
+const documentTypes = [pageType, postType, settingsType, listingType, agentType, authorType];
 
 export default defineConfig({
   basePath: '/studio',
@@ -27,7 +36,7 @@ export default defineConfig({
   title,
   schema: {
     // If you want more content types, you can add them to this array
-    types: [authorType, postType, settingsType, listingType, agent, contactObject, galleryObject],
+    types: [...documentTypes, ...objectTypes],
   },
   plugins: [
     deskTool({

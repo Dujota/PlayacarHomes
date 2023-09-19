@@ -18,7 +18,7 @@ const Homepage: NextPage = () => {
   return (
     <div className='relative flex w-full flex-col items-start justify-start gap-[3.94rem] overflow-hidden bg-white'>
       <main className='flex flex-col items-center justify-center gap-[7.06rem] self-stretch'>
-        <section className='font-poppins relative h-[41.31rem] self-stretch text-left text-[0.88rem] text-black' id='hero-section'>
+        <section className='font-poppins relative ml-auto h-[41.31rem] w-[90%] self-stretch text-left text-[0.88rem] text-black md:w-full' id='hero-section'>
           <Image width={800} height={600} className='absolute right-[-0.01rem] top-[0rem] h-[37.69rem] w-[45.75rem] object-cover' alt='' src='/hero_image.png' />
           {/* <HomeSearch /> */}
           {/* <div className='absolute left-[32.44rem] top-[27.56rem] hidden h-[13.75rem] w-[9.81rem]'>
@@ -50,9 +50,9 @@ const Homepage: NextPage = () => {
               </div>
             </div>
           </div> */}
-          <div className='absolute left-[0rem] top-[6.25rem] flex flex-row items-center justify-center px-[2rem] py-[0rem] text-[3.38rem]'>
+          <div className='absolute left-[0rem] top-[6.25rem] flex flex-row items-center justify-center py-[0rem] pl-[4rem] text-[3.38rem]'>
             <h1
-              className='font-inherit relative m-0 inline-block w-[44.81rem] shrink-0 font-medium tracking-[-0.01em] text-inherit sm:max-w-[25.63rem] sm:text-[3.13rem]'
+              className='font-inherit relative m-0 inline-block w-[44.81rem] shrink-0 font-medium tracking-[-0.01em] text-inherit sm:w-full sm:text-[3.13rem] md:max-w-[25.63rem]'
               id='hero-text'
             >
               Your Gateway to Extraordinary Properties
@@ -61,21 +61,7 @@ const Homepage: NextPage = () => {
         </section>
         <FeaturedPropertyCardBanner title='Popular Properties For You' listings={featuredListingsMock} />
         <WhyUsSection />
-        {/* <FeaturedPropertyBanner
-          sectionTitle='Recently Visited Properties'
-          propertyImageName='/card-image1@2x.png'
-          propertyDimensions='/frame3.svg'
-          propertyIconName='/icons8location-13.svg'
-          propertyImageSize='/icon--bed4.svg'
-          propertyLabel='/icon--bath3.svg'
-          propertyCode='/icon--square-meters3.svg'
-          propertyImageId='/card-image1@2x.png'
-          propertyImageSizeLabel='/icons8location-13.svg'
-          propertyImageId2='/icon--bed4.svg'
-          propertyImageDimensions='/icon--bath3.svg'
-          propertyImageSizeLabel2='/icon--square-meters3.svg'
-          propertyDimensions2='/frame3.svg'
-        /> */}
+        {/* <FeaturedPropertyBanner/> */}
         <Newsletter />
         {/* <PropertiesByCategorySection /> */}
         <LatestNewsBanner featuredBlogCards={featuredBlogPostsMock} />

@@ -24,10 +24,12 @@ interface NavBarProps {
 const NavBar = ({ links, logo }: NavBarProps) => {
   return (
     <header
-      className='font-poppins flex flex-row items-center justify-start border border-gray bg-gradient-to-r from-white to-transparent px-4 py-2 text-left text-black shadow-lg backdrop-blur-md backdrop-filter md:px-8 md:py-3'
+      className='font-poppins justify-betweenbackdrop-blur-md flex flex-row items-center justify-start border border-gray
+      bg-gradient-to-r from-white to-transparent px-4 py-2 text-left text-black
+      shadow-lg backdrop-filter md:justify-between md:px-3 md:py-3'
       id='header'
     >
-      <div className='flex w-full flex-row items-center justify-between md:w-auto'>
+      <div className='flex w-full flex-row items-center'>
         <Logo logo={logo} />
         <NavLinks links={links} />
       </div>

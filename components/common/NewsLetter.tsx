@@ -28,18 +28,18 @@ const Newsletter = ({
 
   return (
     <section className='font-poppins flex flex-row flex-wrap items-center justify-center self-stretch bg-bg px-[0rem] py-[4.69rem] text-center text-[2.25rem] text-black'>
-      <div className='flex flex-col items-center justify-center gap-[2.5rem] sm:max-w-[25.63rem]'>
-        <div className='flex flex-col items-center justify-center gap-[1rem] sm:w-auto sm:max-w-[25rem] sm:gap-[1.88rem] sm:[align-self:unset]'>
+      <div className='flex flex-col items-center justify-center gap-[2.5rem] md:max-w-[25.63rem]'>
+        <div className='flex flex-col items-center justify-center gap-[1rem] md:w-auto md:max-w-[25rem] md:gap-[1.88rem] md:[align-self:unset]'>
           <div className='flex flex-row flex-wrap items-start justify-center'>
             <h2 className='font-inherit relative m-0 font-medium text-inherit'>{title}</h2>
           </div>
-          <div className='flex flex-row flex-wrap items-start justify-center text-[1rem] text-grey sm:w-auto sm:max-w-[25.63rem] sm:[align-self:unset]'>
-            <p className='relative m-0 inline-block w-[38.25rem] shrink-0 font-light leading-[190%] sm:h-auto sm:w-auto sm:flex-1 sm:self-stretch'>{description}</p>
+          <div className='flex flex-row flex-wrap items-start justify-center text-[1rem] text-grey md:w-auto md:max-w-[25.63rem] md:[align-self:unset]'>
+            <p className='relative m-0 inline-block w-[38.25rem] shrink-0 font-light leading-[190%] md:h-auto md:w-auto md:flex-1 md:self-stretch'>{description}</p>
           </div>
         </div>
         <form className='flex flex-row flex-wrap items-center justify-center gap-[0.31rem]' onSubmit={handleSubmit} id='news-letter-form'>
           <input
-            className='font-poppins m-[0.65rem] box-border flex h-[2.75rem] w-[30.63rem] flex-row items-center justify-start bg-[transparent] px-[1rem] py-[0rem] text-[0.88rem] font-light [border:none] sm:max-w-[15.5rem] '
+            className='font-poppins m-[0.65rem] box-border flex h-[2.75rem] w-[30.63rem] flex-row items-center justify-start bg-[transparent] px-[1rem] py-[0rem] text-[0.88rem] font-light [border:none] md:max-w-[15.5rem] '
             type='email'
             placeholder='Email Address'
             id='newsletter-email'

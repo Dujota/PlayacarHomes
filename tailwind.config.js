@@ -66,6 +66,12 @@ module.exports = {
         md: {
           max: '960px',
         },
+        tablet: {
+          max: '768px',
+        },
+        tabletPrtrait: {
+          max: '640px',
+        },
         sm: {
           max: '420px',
         },
