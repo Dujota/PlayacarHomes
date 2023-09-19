@@ -7,7 +7,7 @@ interface LogoProps {
 
 const Logo = ({ logo }: LogoProps) => (
   <Link href='/'>
-    <Image width={200} height={200} className='relative h-[2.13rem] w-[15.36rem] object-contain' alt='' src={logo} />
+    <Image width={200} height={200} className='relative h-[2.13rem] w-[15.36rem]' alt='' src={logo} />
   </Link>
 );
 

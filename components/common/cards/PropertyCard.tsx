@@ -19,13 +19,7 @@ const PropertyCard = ({ details }: PropertyCardProps) => {
         {/* Favourite Icon */}
         <Image width={500} height={500} className='absolute left-[20.56rem] top-[-0.47rem] z-50 h-[5.37rem] w-[5.37rem]' alt='favourite' src='/favorite.svg' />
         {/* Listing Image */}
-        <Image
-          width={500}
-          height={500}
-          className='relative left-[0rem] top-[0rem] h-[13.75rem] w-full object-cover'
-          alt={title}
-          src={urlForImage(source).height(1000).width(2000).url()}
-        />
+        <Image width={500} height={500} className='relative left-[0rem] top-[0rem] h-[13.75rem] w-full' alt={title} src={urlForImage(source).height(1000).width(2000).url()} />
 
         {/* Details container */}
         <div className='property-card-details-container absolute top-[15.75rem]  mx-3 flex w-[24.69rem] flex-col items-start justify-start gap-[1.5rem]'>
