@@ -26,7 +26,7 @@ const Footer: NextPage<FooterType> = ({ contactInfo, logo, socialIcons, footerNa
       <ContactDetails contactInfo={contactInfo} />
 
       <div className='flex flex-row flex-wrap items-center justify-center gap-[11.31rem] self-stretch overflow-hidden text-[0.94rem] md:w-auto md:gap-[5rem] md:self-stretch'>
-        <div className='flex flex-col items-start justify-center gap-[1.88rem] overflow-hidden sm:box-border sm:pl-[1rem] sm:pr-[1rem]'>
+        <div className='flex flex-col items-start justify-center gap-[1.88rem] overflow-hidden sm:box-border sm:pl-[1rem] sm:pr-[1rem] tablet:w-full tablet:grow-[2] tablet:items-center'>
           <Link href='/'>
             <Image height={500} width={200} className='relative h-[2.75rem] w-[19.88rem] object-cover' alt='Logo' src={logo} />
           </Link>
