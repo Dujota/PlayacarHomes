@@ -2,8 +2,6 @@ import FeaturedPropertyCardBanner from 'components/common/banners/FeaturedProper
 import LatestNewsBanner from 'components/common/banners/LatestNewsBanner';
 import Newsletter from 'components/common/NewsLetter';
 import WhyUsSection from 'components/common/WhyUs';
-import WhyUsV2 from 'components/common/WhyUs-v2';
-import WhyUsSlider from 'components/common/WhyUsSlider';
 // import CustomerTestimonials from '../components/customer-testimonials';
 // import FeaturedPropertyBanner from '../components/featured-property-banner';
 // import HomeSearch from '../components/home-search';
@@ -64,8 +62,6 @@ const Homepage: NextPage = () => {
         </section>
         <FeaturedPropertyCardBanner title='Popular Properties For You' listings={featuredListingsMock} />
         <WhyUsSection />
-        {/* <WhyUsV2 /> */}
-        {/* <WhyUsSlider /> */}
         {/* <FeaturedPropertyBanner/> */}
         <Newsletter />
         {/* <PropertiesByCategorySection /> */}
