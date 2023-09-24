@@ -1,24 +1,3 @@
-// import Image from 'next/image';
-// export default function FAB() {
-//   return (
-//     <div id='fab-wrapper' className='fixed bottom-8 right-8 z-[9999] sm:!right-2 md:!bottom-4 md:!right-4'>
-//       <button
-//         id='fab'
-//         className='mouse h-16 w-16 rounded-full bg-blue p-0 shadow transition
-//                   duration-200 ease-in hover:bg-[#53788F] focus:outline-none active:shadow-lg
-//                   sm:!h-10 sm:!w-10 md:!h-12 md:!w-12'
-//       >
-//         <Image
-//           width={50}
-//           height={50}
-//           className='inline-block h-10 w-10 md:!h-8 md:!w-8'
-//           alt='contact floating action button' // Use the title as alt text
-//           src='/msg.svg'
-//         />
-//       </button>
-//     </div>
-//   );
-// }
 import Image from 'next/image';
 import React, { useState } from 'react';
 
