@@ -10,14 +10,14 @@ export default function FloatingActionButton() {
   return (
     <div id='fab-wrapper' className={`fixed bottom-8 right-8 z-[9999] sm:!right-2 md:!bottom-4 md:!right-4 ${showForm ? 'sm:!left-0 sm:!w-full' : ''}`}>
       {showForm ? (
-        <>
+        <div className='animate-fadeIn transition-all duration-500'>
           <div className='absolute right-[1rem] top-[1rem] z-[99999]'>
-            <button onClick={() => setShowForm(false)}>
+            <button className='animate-fadeOut transition-all duration-500' onClick={() => setShowForm(false)}>
               <Image src='/close.svg' width={30} height={30} alt='close contact form icon' aria-label='close contact form icon' />
             </button>
           </div>
           <ContactForm toggle={() => setShowForm(false)} />
-        </>
+        </div>
       ) : (
         <button
           onClick={() => setShowForm(true)}
