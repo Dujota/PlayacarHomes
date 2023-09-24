@@ -3,7 +3,6 @@ import type { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import ContactCard, { ContactCardProps } from '../cards/ContactCard';
 import ContactDetails from './ContactDetails';
 import FooterNav from './FooterNav';
 import SocialIcons from './SocialIcons';

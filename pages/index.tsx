@@ -1,5 +1,6 @@
 import FeaturedPropertyCardBanner from 'components/common/banners/FeaturedPropertyBanner';
 import LatestNewsBanner from 'components/common/banners/LatestNewsBanner';
+import FAB from 'components/common/buttons/FAB';
 import Newsletter from 'components/common/NewsLetter';
 import WhyUsSection from 'components/common/WhyUs';
 // import CustomerTestimonials from '../components/customer-testimonials';
@@ -69,6 +70,7 @@ const Homepage: NextPage = () => {
         {/* <NearbyPropertiesSection /> */}
         {/* <CustomerTestimonials /> */}
       </main>
+      <FAB />
     </div>
   );
 };
