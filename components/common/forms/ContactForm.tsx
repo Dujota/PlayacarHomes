@@ -2,18 +2,21 @@ import { useState } from 'react';
 
 type ContactFormType = {
   buttonText?: string;
+  toggle?: () => void;
 };
 
 // const bg =
 //   'box-border h-[571px] w-[403px] rounded-2xl border-[1px] border-solid border-gray shadow-[0px_40px_64px_-32px_rgba(15,_15,_15,_0.1)] [backdrop-filter:blur(32px)] [background:linear-gradient(83.59deg,_#fcfcfd,_rgba(252,_252,_253,_0.83))]';
+// const bg =
+//   'box-border w-[403px] rounded-2xl border-[1px] border-solid border-gray shadow-[0px_40px_64px_-32px_rgba(15,_15,_15,_0.1)] [backdrop-filter:blur(32px)] [background:linear-gradient(83.59deg,_#fcfcfd,_rgba(252,_252,_253,_0.83))]';
 const bg =
-  'box-border w-[403px] rounded-2xl border-[1px] border-solid border-gray shadow-[0px_40px_64px_-32px_rgba(15,_15,_15,_0.1)] [backdrop-filter:blur(32px)] [background:linear-gradient(83.59deg,_#fcfcfd,_rgba(252,_252,_253,_0.83))]';
+  'box-border w-[403px] rounded-2xl border-[1px] border-solid border-gray shadow-[0px_40px_64px_-32px_rgba(15,_15,_15,_0.1)] [backdrop-filter:blur(32px)] [background:linear-gradient(83.59deg,_#F9F9F9,_rgba(249,_249,_249,_0.83))]';
 
 const sticky = 'sticky top-0';
 
 const inputStyles = 'p-2 border-1 border-solid bg-[rgba(119,126,144,0.05)] border-[rgba(114,151,175,0.25)] rounded';
 
-const ContactForm = ({ buttonText = 'Send Message' }: ContactFormType) => {
+const ContactForm = ({ buttonText = 'Send Message', toggle }: ContactFormType) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
@@ -55,11 +58,12 @@ const ContactForm = ({ buttonText = 'Send Message' }: ContactFormType) => {
       setPhoneNumber('');
       setMessage('');
       setEmail('');
+      toggle();
     }
   };
 
   return (
-    <div id='contact-form' className={`font-poppins relative w-[403px] rounded-2xl p-[32px] text-left text-5xl text-black ${bg} ${sticky}`}>
+    <div id='contact-form' className={`font-poppins relative w-[403px] rounded-2xl p-[32px] text-left text-5xl text-black ${bg} ${sticky} ${toggle ? 'sm:!w-full' : ''}`}>
       <form onSubmit={handleSubmit}>
         <div className='flex flex-col items-center justify-start gap-[32px]'>
           <div className='flex flex-col items-start justify-start gap-[16px]'>
