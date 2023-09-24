@@ -15,7 +15,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ icon, title, description }) =
       </figure>
       <div className='flex w-full flex-col items-center justify-start gap-2 '>
         <p className='m-0 h-6 w-full text-center font-medium  '>{title}</p>
-        <p className='m-0 h-12 w-full text-center text-grey  '>{description}</p>
+        <p className='m-0 h-12 w-full text-center text-grey '>{description}</p>
       </div>
     </article>
   );

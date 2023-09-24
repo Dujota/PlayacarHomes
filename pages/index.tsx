@@ -2,6 +2,8 @@ import FeaturedPropertyCardBanner from 'components/common/banners/FeaturedProper
 import LatestNewsBanner from 'components/common/banners/LatestNewsBanner';
 import Newsletter from 'components/common/NewsLetter';
 import WhyUsSection from 'components/common/WhyUs';
+import WhyUsV2 from 'components/common/WhyUs-v2';
+import WhyUsSlider from 'components/common/WhyUsSlider';
 // import CustomerTestimonials from '../components/customer-testimonials';
 // import FeaturedPropertyBanner from '../components/featured-property-banner';
 // import HomeSearch from '../components/home-search';
@@ -52,7 +54,8 @@ const Homepage: NextPage = () => {
           </div> */}
           <div className='absolute left-[0rem] top-[6.25rem] flex flex-row items-center justify-center py-[0rem] pl-[4rem] text-[3.38rem]'>
             <h1
-              className='font-inherit relative m-0 inline-block w-[44.81rem] shrink-0 font-medium tracking-[-0.01em] text-inherit sm:w-full sm:text-[3.13rem] md:max-w-[25.63rem]'
+              className='font-inherit relative m-0 inline-block w-[44.81rem] shrink-0 font-medium tracking-[-0.01em]
+                        text-inherit sm:w-full sm:!max-w-[18rem] sm:text-[3.13rem] md:max-w-[25.63rem]'
               id='hero-text'
             >
               Your Gateway to Extraordinary Properties
@@ -61,6 +64,8 @@ const Homepage: NextPage = () => {
         </section>
         <FeaturedPropertyCardBanner title='Popular Properties For You' listings={featuredListingsMock} />
         <WhyUsSection />
+        {/* <WhyUsV2 /> */}
+        {/* <WhyUsSlider /> */}
         {/* <FeaturedPropertyBanner/> */}
         <Newsletter />
         {/* <PropertiesByCategorySection /> */}

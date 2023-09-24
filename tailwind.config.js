@@ -60,6 +60,15 @@ module.exports = {
         medium: '0 8px 30px rgba(0, 0, 0, 0.12)',
       },
       screens: {
+        widescreen: {
+          max: '1920px',
+        },
+        xxl: {
+          max: '1600px',
+        },
+        xl: {
+          max: '1300px',
+        },
         lg: {
           max: '1200px',
         },
@@ -74,6 +83,34 @@ module.exports = {
         },
         sm: {
           max: '420px',
+        },
+        widescreen: {
+          max: '1920px',
+          min: '1601px',
+        },
+        xxl: {
+          max: '1600px',
+          min: '1301px',
+        },
+        xlSlider: {
+          min: '1201px',
+          max: '1300px',
+        },
+        lgSlider: {
+          max: '1200px',
+          min: '961px',
+        },
+        mdSlider: {
+          max: '960px',
+          min: '769px',
+        },
+        tabletSlider: {
+          max: '768px',
+          min: '641px',
+        },
+        tabletPortraitSlider: {
+          max: '640px',
+          min: '481px',
         },
       },
       // fontFamily: {
