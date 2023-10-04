@@ -27,7 +27,7 @@ interface PreviewData {
   token?: string;
 }
 
-export default function ListingShowPage(props: PageProps) {
+export default function RentalShowPage(props: PageProps) {
   const { settings, listing, moreListings, preview, token } = props;
 
   if (preview) {

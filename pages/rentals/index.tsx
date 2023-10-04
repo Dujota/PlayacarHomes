@@ -10,7 +10,7 @@ import type { NextPage } from 'next';
 // import ListingindexSearch from '../components/listingindex-search';
 const pageTitle = 'Popular Properties For You';
 
-const PropertyListingsIndexPage: NextPage = () => {
+const PropertyRentalsIndexPage: NextPage = () => {
   return (
     <div className='relative flex w-full flex-col items-center justify-center gap-[6.5rem] overflow-hidden bg-white'>
       <main className='font-poppins flex flex-col items-center justify-center gap-[4.94rem] self-stretch text-center text-[2.25rem] text-black'>
@@ -24,4 +24,4 @@ const PropertyListingsIndexPage: NextPage = () => {
   );
 };
 
-export default PropertyListingsIndexPage;
+export default PropertyRentalsIndexPage;
