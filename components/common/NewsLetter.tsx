@@ -30,7 +30,7 @@ const Newsletter = ({
         toggle();
       }
     },
-    [email]
+    [email, isModal, toggle]
   ); // Dependency on the email state
 
   return (
