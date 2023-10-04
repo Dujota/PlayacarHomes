@@ -1,12 +1,11 @@
 import { detailIcons } from 'lib/constants';
+import { Listing } from 'lib/sanity.queries/listings';
 import Image from 'next/image';
-
-import { PropertyCardDetailsProps } from '../cards/PropertyCardDetails';
 
 const { beds, baths, area } = detailIcons;
 
 interface PropertyCardDetailIconProps {
-  details: PropertyCardDetailsProps;
+  details: Listing;
 }
 
 const PropertyCardDetailIcon = ({ details }: PropertyCardDetailIconProps) => {

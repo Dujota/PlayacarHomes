@@ -1,13 +1,14 @@
 import { urlForImage } from 'lib/sanity.image';
+import { Listing } from 'lib/sanity.queries/listings';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import CardLineBreak from '../dividers/CardLineBreak';
 import PropertyCardDetailIcon from '../icons/PropertyCardDetailIcon';
-import PropertyCardDetails, { PropertyCardDetailsProps } from './PropertyCardDetails';
+import PropertyCardDetails from './PropertyCardDetails';
 
 export type PropertyCardProps = {
-  details: PropertyCardDetailsProps;
+  details: Listing;
 };
 
 const PropertyCard = ({ details }: PropertyCardProps) => {

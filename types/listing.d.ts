@@ -18,4 +18,12 @@ export interface ListingType {
   bathrooms: number;
   location: null | string;
   neighbourhood: string;
+  images: {
+    asset: {
+      _ref: string;
+    };
+  }[];
+  slug: {
+    current: string;
+  };
 }

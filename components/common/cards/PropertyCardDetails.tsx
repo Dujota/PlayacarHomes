@@ -1,29 +1,8 @@
+import { Listing } from 'lib/sanity.queries/listings';
 import { deriveLocation } from 'lib/utils';
 import Image from 'next/image';
 
-export interface PropertyCardDetailsProps {
-  slug: string;
-  featured: null | boolean;
-  bedrooms: number;
-  area: number;
-  tags: null | string[];
-  postalCode: string;
-  _id: string;
-  title: string;
-  coverImage: {
-    _type: string;
-    asset: {
-      _ref: string;
-      _type: string;
-    };
-  };
-  price: number;
-  bathrooms: number;
-  location: null | string;
-  neighbourhood: string;
-}
-
-const PropertyCardDetails: React.FC<PropertyCardDetailsProps> = ({ title, price, location, neighbourhood, postalCode }) => {
+const PropertyCardDetails: React.FC<Listing> = ({ title, price, location, neighbourhood, postalCode }) => {
   return (
     <>
       <h5 className='font-inherit relative m-0 inline-block w-[28.5rem] font-medium text-inherit sm:w-auto sm:self-stretch'>{title}</h5>
