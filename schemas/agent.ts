@@ -10,7 +10,7 @@ import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'agent',
-  title: 'Agent',
+  title: 'Agents',
   type: 'document',
   fields: [
     defineField({

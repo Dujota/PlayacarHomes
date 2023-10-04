@@ -19,8 +19,8 @@ import contactType from './objects/contact';
  */
 
 export default defineType({
-  name: 'listing',
-  title: 'Listing',
+  name: 'rentals',
+  title: 'Long Term Rentals',
   icon: MdOutlineBedroomParent,
   type: 'document',
   groups: [
@@ -42,7 +42,7 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'This will be the url (e.g. /listing/3-bedroom-playacar)',
+      description: 'This will be the url (e.g. /rentals/3-bedroom-playacar)',
       options: {
         source: 'title',
         maxLength: 96,
@@ -72,13 +72,16 @@ export default defineType({
       title: 'Excerpt',
       type: 'text',
       group: 'content',
-      validation: (rule) => rule.required(),
       description: 'This will display on listing tiles as a preview of the listing',
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'coverImage',
       title: 'Cover Image',
-      type: 'picture',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
       group: 'media',
       description: 'This will be the main image for the listing',
     }),
@@ -133,7 +136,7 @@ export default defineType({
     defineField({
       name: 'seoImage',
       title: 'Image',
-      type: 'picture',
+      type: 'image',
       group: ['seo', 'media'],
     }),
     // Details of the listing

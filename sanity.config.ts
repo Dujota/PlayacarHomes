@@ -19,15 +19,20 @@ import formObject from 'schemas/objects/form';
 import galleryObject from 'schemas/objects/gallery';
 import heroObject from 'schemas/objects/hero';
 import linkObject from 'schemas/objects/link';
+import picture from 'schemas/objects/picture';
+import pictureTitled from 'schemas/objects/pictureTitled';
 import textWithIllustrationsObject from 'schemas/objects/textWithIllustrations';
 import videoObject from 'schemas/objects/video';
 import pageType from 'schemas/pageBuilder';
 import postType from 'schemas/post';
+import rentals from 'schemas/rentals';
 import settingsType from 'schemas/settings';
+import vacationRentas from 'schemas/vacationRentas';
+
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Playacar Homes Realty';
 
-const objectTypes = [heroObject, textWithIllustrationsObject, galleryObject, formObject, videoObject, linkObject, contactObject];
-const documentTypes = [pageType, postType, settingsType, listingType, agentType, authorType];
+const objectTypes = [heroObject, textWithIllustrationsObject, galleryObject, formObject, videoObject, linkObject, contactObject, picture, pictureTitled];
+const documentTypes = [pageType, postType, settingsType, listingType, rentals, vacationRentas, agentType, authorType];
 
 export default defineConfig({
   basePath: '/studio',

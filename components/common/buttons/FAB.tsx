@@ -1,11 +1,15 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
 import ContactForm from '../forms/ContactForm';
 // Make sure to provide the correct import path
 
-export default function FloatingActionButton() {
+export default function FAB() {
   const [showForm, setShowForm] = useState(false);
+  const router = useRouter();
+
+  if (router.pathname.includes('studio')) return null;
 
   return (
     <div id='fab-wrapper' className={`fixed bottom-8 right-8 z-[9999] sm:!right-2 md:!bottom-4 md:!right-4 ${showForm ? 'sm:!left-0 sm:!w-full' : ''}`}>

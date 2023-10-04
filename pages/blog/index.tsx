@@ -2,6 +2,7 @@
 // import TabbingWithArrow from '../components/tabbing-with-arrow';
 import BlogList from 'components/blog/BlogList';
 import PageTitle from 'components/common/headers/PageTitle';
+import LargeModal from 'components/common/modals/LargeModal';
 import Newsletter from 'components/common/NewsLetter';
 import { blogPostWithAuthorMock, featuredBlogPostsMock } from 'lib/demo.data';
 import type { NextPage } from 'next';
@@ -12,6 +13,7 @@ const blogCardData = [...featuredBlogPostsMock, blogPostWithAuthorMock, ...featu
 const BlogLandingPage: NextPage = () => {
   return (
     <div className='relative flex w-full flex-col items-center justify-center gap-[6.25rem] overflow-hidden bg-white'>
+      <LargeModal />
       <main className='font-poppins flex flex-col items-center justify-start gap-[2.5rem] self-stretch text-center text-[2.25rem] text-black'>
         <PageTitle title={pageTitle} />
         {/* <TabbingWithArrow />*/}

@@ -3,10 +3,14 @@ import React, { useCallback, useState } from 'react';
 interface NewsletterProps {
   title?: string;
   description?: string;
+  isModal?: boolean;
+  toggle?: () => void;
 }
 const Newsletter = ({
   title = 'Stay in the Loop',
   description = 'Sign up for our newsletter to receive the latest updates, exclusive offers, and insider insights on the real estate market in Cancun.',
+  isModal = false,
+  toggle = () => {},
 }: NewsletterProps) => {
   // State to capture the email input value
   const [email, setEmail] = useState('');
@@ -22,6 +26,9 @@ const Newsletter = ({
       e.preventDefault();
       window.alert(`Submitted Email: ${email}`);
       setEmail(''); // Optional: Clear the input after submission
+      if (isModal) {
+        toggle();
+      }
     },
     [email]
   ); // Dependency on the email state

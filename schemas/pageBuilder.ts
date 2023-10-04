@@ -1,11 +1,13 @@
 // ./schemas/pageType.ts
 
+import { RiPagesLine } from 'react-icons/ri';
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
 const pageType = defineType({
   name: 'page',
   type: 'document',
-  title: 'Page',
+  title: 'Web Pages',
+  icon: RiPagesLine,
   fields: [
     defineField({ name: 'title', type: 'string' }),
     defineField({
