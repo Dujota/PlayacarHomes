@@ -4,24 +4,66 @@ import LargeModal from 'components/common/modals/LargeModal';
 import Newsletter from 'components/common/NewsLetter';
 import PropertyList from 'components/listings/PropertyList';
 import { listingsIndexMock } from 'lib/demo.data';
+import { getAllListings, getSettings } from 'lib/sanity.client';
+import { Listing } from 'lib/sanity.queries/listings';
+import { Settings } from 'lib/sanity.queries/settings';
 import type { NextPage } from 'next';
+import { GetStaticProps } from 'next';
 
-// import CardGridContainer from '../components/card-grid-container';
-// import ListingindexSearch from '../components/listingindex-search';
+interface PageProps {
+  listings: Listing[];
+  settings?: Settings;
+  preview: boolean;
+  token: string | null;
+}
+
+interface Query {
+  [key: string]: string;
+}
+
+interface PreviewData {
+  token?: string;
+}
+
 const pageTitle = 'Popular Properties For You';
 
-const PropertyListingsIndexPage: NextPage = () => {
+const PropertyListingsIndexPage: NextPage = (props: PageProps) => {
+  const { listings, settings, preview, token } = props;
+
   return (
     <div className='relative flex w-full flex-col items-center justify-center gap-[6.5rem] overflow-hidden bg-white'>
       <main className='font-poppins flex flex-col items-center justify-center gap-[4.94rem] self-stretch text-center text-[2.25rem] text-black'>
         <PageTitle title={pageTitle} />
         {/* <ListingindexSearch /> */}
-        <PropertyList listings={listingsIndexMock} />
+        <PropertyList listings={listings} />
         <Newsletter />
         <LargeModal />
       </main>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = async (ctx) => {
+  const { preview = false, previewData = {}, params = {} } = ctx;
+
+  const token = previewData.token;
+
+  const [settings, listings] = await Promise.all([getSettings(), getAllListings()]);
+
+  if (!listings) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      listings,
+      settings,
+      preview,
+      token: token ?? null,
+    },
+  };
 };
 
 export default PropertyListingsIndexPage;
