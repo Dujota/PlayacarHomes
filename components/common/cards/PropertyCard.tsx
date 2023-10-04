@@ -1,11 +1,10 @@
 import { urlForImage } from 'lib/sanity.image';
-import type { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import CardLineBreak from '../dividers/CardLineBreak';
 import PropertyCardDetailIcon from '../icons/PropertyCardDetailIcon';
-import PropertyCardDetails, { PropertyCardDetailsProps } from './FeaturedPropertyCardDetails';
+import PropertyCardDetails, { PropertyCardDetailsProps } from './PropertyCardDetails';
 
 export type PropertyCardProps = {
   details: PropertyCardDetailsProps;

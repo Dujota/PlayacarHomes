@@ -1,7 +1,7 @@
 import { detailIcons } from 'lib/constants';
 import Image from 'next/image';
 
-import { PropertyCardDetailsProps } from '../cards/FeaturedPropertyCardDetails';
+import { PropertyCardDetailsProps } from '../cards/PropertyCardDetails';
 
 const { beds, baths, area } = detailIcons;
 

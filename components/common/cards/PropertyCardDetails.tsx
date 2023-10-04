@@ -1,16 +1,6 @@
 import { deriveLocation } from 'lib/utils';
 import Image from 'next/image';
 
-// export type PropertyCardDetailsProps = {
-//   title: string;
-//   price: string;
-//   location: string;
-//   locationIconSrc: string;
-//   beds?: string;
-//   baths?: string;
-//   area?: string;
-// };
-
 export interface PropertyCardDetailsProps {
   slug: string;
   featured: null | boolean;

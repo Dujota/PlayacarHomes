@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import CardLineBreak from '../dividers/CardLineBreak';
 import PropertyCardDetailIcon from '../icons/PropertyCardDetailIcon';
-import PropertyCardDetails, { PropertyCardDetailsProps } from './FeaturedPropertyCardDetails';
+import PropertyCardDetails, { PropertyCardDetailsProps } from './PropertyCardDetails';
 
 export type FeaturedPropertyCardProps = {
   details: PropertyCardDetailsProps;
