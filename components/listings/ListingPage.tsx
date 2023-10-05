@@ -19,12 +19,13 @@ export interface ListingPageProps {
   listing: Listing;
   moreListings: Listing[];
   settings: Settings;
+  resource: string;
 }
 
 const NO_LISTINGS: Listing[] = [];
 
 export default function ListingPage(props: ListingPageProps) {
-  const { preview, loading, moreListings = NO_LISTINGS, listing, settings } = props;
+  const { preview, loading, moreListings = NO_LISTINGS, listing, settings, resource } = props;
   const { title = demo.title } = settings || {};
 
   const slug = listing?.slug;
@@ -45,7 +46,7 @@ export default function ListingPage(props: ListingPageProps) {
           ) : (
             <>
               <article>
-                <ListingHeaderTitle title={listing.title} location={listing.location} neighbourhood={listing.neighbourhood} postalCode={listing.postalCode} />
+                <ListingHeaderTitle resource={resource} title={listing.title} location={listing.location} neighbourhood={listing.neighbourhood} postalCode={listing.postalCode} />
                 {/* <ListingHeader title={listing.title} coverImage={listing.coverImage} price={listing.price} author={listing.author} agent={listing.agent} /> */}
                 <ListingBody listing={listing} />
               </article>

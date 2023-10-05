@@ -6,6 +6,7 @@ export default function PreviewListingPage({
   token,
   listing,
   settings,
+  resource,
 }: {
   token: null | string;
 } & ListingPageProps) {
@@ -13,5 +14,5 @@ export default function PreviewListingPage({
     slug: listing.slug,
   }) || { listing: null, moreListings: [] };
 
-  return <ListingPage preview listing={listingPreview} moreListings={moreListings} settings={settings} />;
+  return <ListingPage resource={resource} preview listing={listingPreview} moreListings={moreListings} settings={settings} />;
 }

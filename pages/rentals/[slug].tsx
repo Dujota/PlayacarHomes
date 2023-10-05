@@ -32,13 +32,13 @@ export default function RentalShowPage(props: PageProps) {
 
   if (preview) {
     return (
-      <PreviewSuspense fallback={<ListingPage loading preview listing={listing} moreListings={moreListings} settings={settings} />}>
-        <PreviewListingPage token={token} listing={listing} moreListings={moreListings} settings={settings} />
+      <PreviewSuspense fallback={<ListingPage resource='rentals' loading preview listing={listing} moreListings={moreListings} settings={settings} />}>
+        <PreviewListingPage resource='rentals' token={token} listing={listing} moreListings={moreListings} settings={settings} />
       </PreviewSuspense>
     );
   }
 
-  return <ListingPage listing={listing} moreListings={moreListings} settings={settings} />;
+  return <ListingPage resource='rentals' listing={listing} moreListings={moreListings} settings={settings} />;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = async (ctx) => {
