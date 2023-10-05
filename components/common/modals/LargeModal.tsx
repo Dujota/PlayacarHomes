@@ -9,8 +9,8 @@ export default function LargeModal() {
     return (
       <>
         <div className='fixed inset-0 z-[50000] flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none'>
-          <div className='relative mx-auto my-6 w-auto max-w-6xl md:w-full'>
-            <div className='relative flex w-full flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none'>
+          <div className='relative mx-auto mb-6 w-auto w-full max-w-6xl'>
+            <div className='relative flex w-full flex-col rounded-lg border-0 bg-bg shadow-lg outline-none focus:outline-none'>
               {/* Close Modal */}
               <button
                 className='float-right ml-auto border-0 bg-transparent p-1 text-3xl font-semibold leading-none text-black outline-none focus:outline-none'
