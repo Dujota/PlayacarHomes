@@ -4,13 +4,14 @@ import { Listing } from 'lib/sanity.queries/listings';
 
 interface ListingProps {
   listings: Listing[];
+  resource?: string;
 }
 
-const PropertyList = ({ listings }: ListingProps) => {
+const PropertyList = ({ listings, resource }: ListingProps) => {
   return (
     <CardGrid>
       {listings.map((listing, idx) => (
-        <PropertyCard key={idx} details={listing} />
+        <PropertyCard resource={resource} key={idx} details={listing} />
       ))}
     </CardGrid>
   );

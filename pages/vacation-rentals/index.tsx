@@ -16,7 +16,7 @@ const VacationRentalsIndexPage: NextPage = () => {
       <main className='font-poppins flex flex-col items-center justify-center gap-[4.94rem] self-stretch text-center text-[2.25rem] text-black'>
         <PageTitle title={pageTitle} />
         {/* <ListingindexSearch /> */}
-        <PropertyList listings={listingsIndexMock} />
+        <PropertyList resource='vacation-rentals' listings={listingsIndexMock} />
         <Newsletter />
         <LargeModal />
       </main>

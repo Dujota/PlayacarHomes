@@ -3,7 +3,6 @@ import PageTitle from 'components/common/headers/PageTitle';
 import LargeModal from 'components/common/modals/LargeModal';
 import Newsletter from 'components/common/NewsLetter';
 import PropertyList from 'components/listings/PropertyList';
-import { listingsIndexMock } from 'lib/demo.data';
 import { getAllListings, getSettings } from 'lib/sanity.client';
 import { Listing } from 'lib/sanity.queries/listings';
 import { Settings } from 'lib/sanity.queries/settings';
@@ -35,7 +34,7 @@ const PropertyListingsIndexPage: NextPage = (props: PageProps) => {
       <main className='font-poppins flex flex-col items-center justify-center gap-[4.94rem] self-stretch text-center text-[2.25rem] text-black'>
         <PageTitle title={pageTitle} />
         {/* <ListingindexSearch /> */}
-        <PropertyList listings={listings} />
+        <PropertyList resource='listings' listings={listings} />
         <Newsletter />
         <LargeModal />
       </main>
