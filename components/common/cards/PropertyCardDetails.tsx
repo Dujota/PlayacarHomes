@@ -2,14 +2,19 @@ import { Listing } from 'lib/sanity.queries/listings';
 import { deriveLocation } from 'lib/utils';
 import Image from 'next/image';
 
-const PropertyCardDetails: React.FC<Listing> = ({ title, price, location, neighbourhood, postalCode }) => {
+import Price from './Price';
+
+interface PropertyCardDetailsProps extends Listing {
+  resource: string;
+}
+
+const PropertyCardDetails: React.FC<PropertyCardDetailsProps> = ({ title, price, location, neighbourhood, postalCode, resource }) => {
   return (
     <>
       <h5 className='font-inherit relative m-0 inline-block w-[28.5rem] font-medium text-inherit sm:w-auto sm:self-stretch'>{title}</h5>
 
       <div className='flex flex-row items-center justify-start gap-[0.5rem] text-[1.31rem] text-blue'>
-        <span className='relative font-medium'>{`$${new Intl.NumberFormat().format(price)}`}</span>
-        <span className='relative text-[0.88rem] font-medium text-grey'>/month</span>
+        <Price resource={resource} price={price} />
       </div>
 
       <div className='flex flex-row items-center justify-start gap-[0.5rem] text-[0.94rem]'>

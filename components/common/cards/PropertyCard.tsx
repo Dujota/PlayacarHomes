@@ -24,7 +24,7 @@ const PropertyCard = ({ details, resource = 'listings' }: PropertyCardProps) => 
 
         {/* Details container */}
         <div className='property-card-details-container absolute top-[15.75rem]  mx-3 flex w-[24.69rem] flex-col items-start justify-start gap-[1.5rem]'>
-          <PropertyCardDetails {...details} />
+          <PropertyCardDetails {...details} resource={resource} />
           {/* Horizontal Line */}
           <CardLineBreak small />
 
