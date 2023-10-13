@@ -7,8 +7,6 @@ export default function LargeModal() {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    // const hideModal = localStorage.getItem('hideModal') === 'true';
-    // setShowModal(!hideModal);
     const closedNewsLetterModal = Cookies.get('closedNewsLetterModal');
     const registeredNewsLetter = Cookies.get('registeredNewsLetter');
     debugger;
