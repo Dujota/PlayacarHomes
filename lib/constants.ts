@@ -30,7 +30,7 @@ export const socialIcons = [
 export const currentYear = new Date().getFullYear();
 
 export const navBarLinks = [
-  { label: 'Buy', href: '/listings?q=buy' },
+  { label: 'For Sale', href: '/listings?q=buy' },
   { label: 'Rentals', href: '/rentals' },
   { label: 'Vacation Rentals', href: '/vacation-rentals' },
   { label: 'Blog', href: '/blog' },
