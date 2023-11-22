@@ -27,9 +27,10 @@ interface FeaturedProperty {
 type FeaturedPropertyCardBannerProps = {
   title: string;
   listings: FeaturedProperty[];
+  ctaLink: string;
 };
 
-const FeaturedPropertyCardBanner: React.FC<FeaturedPropertyCardBannerProps> = ({ title, listings }) => {
+const FeaturedPropertyCardBanner: React.FC<FeaturedPropertyCardBannerProps> = ({ title, listings, ctaLink }) => {
   return (
     <section className='font-poppins flex flex-col items-center justify-start gap-[3.75rem] self-stretch text-left text-[2.25rem] text-black' id='suggested-properties'>
       <SectionHeader title={title} />
@@ -38,7 +39,7 @@ const FeaturedPropertyCardBanner: React.FC<FeaturedPropertyCardBannerProps> = ({
           <FeaturedPropertyCard key={idx} details={listing} />
         ))}
       </div>
-      <CTAButton label='See More' href='/listings' />
+      <CTAButton label='See More' href={ctaLink} />
     </section>
   );
 };
