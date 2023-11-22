@@ -62,6 +62,7 @@ export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = asy
       preview,
       token: token ?? null,
     },
+    revalidate: 10,
   };
 };
 

@@ -18,7 +18,7 @@ import contactType from './objects/contact';
  */
 
 export default defineType({
-  name: 'vactionRentals',
+  name: 'vacationRentals',
   title: 'Vacation Rentals',
   icon: MdOutlineBedroomParent,
   type: 'document',

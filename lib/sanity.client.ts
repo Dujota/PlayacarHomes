@@ -4,6 +4,21 @@ import { type Listing, listingAndMoreListingsQuery, listingBySlugQuery, listings
 import { type Settings, settingsQuery } from 'lib/sanity.queries/settings';
 import { createClient } from 'next-sanity';
 
+import {
+  LongTermRental,
+  longTermRentalAndMoreLongTermRentalQuery,
+  longTermRentalBySlugQuery,
+  longTermRentalIndexQuery,
+  longTermRentalSlugsQuery,
+} from './sanity.queries/long-term-rentals';
+import {
+  VacationRental,
+  vacationRentalsAndMoreVacationRentalsQuery,
+  vacationRentalsBySlugQuery,
+  vacationRentalsIndexQuery,
+  vacationRentalsSlugsQuery,
+} from './sanity.queries/vacation-rentals';
+
 /**
  * Checks if it's safe to create a client instance, as `@sanity/client` will throw an error if `projectId` is false
  */
@@ -86,6 +101,81 @@ export async function getListingAndMoreListings(slug: string, token?: string | n
       token: token || undefined,
     });
     return await client.fetch(listingAndMoreListingsQuery, { slug });
+  }
+  return { listing: null, moreListings: [] };
+}
+
+// Vacation Rentals
+export async function getAllVacationRentals(): Promise<VacationRental[]> {
+  if (client) {
+    return (await client.fetch(vacationRentalsIndexQuery)) || [];
+  }
+  return [];
+}
+
+export async function getAllVacationRentalsSlugs(): Promise<Pick<VacationRental, 'slug'>[]> {
+  if (client) {
+    const slugs = (await client.fetch<string[]>(vacationRentalsSlugsQuery)) || [];
+    return slugs.map((slug) => ({ slug }));
+  }
+  return [];
+}
+
+export async function getVacationRentalsBySlug(slug: string): Promise<VacationRental> {
+  if (client) {
+    return (await client.fetch(vacationRentalsBySlugQuery, { slug })) || ({} as any);
+  }
+  return {} as any;
+}
+
+export async function getVacationRentalsAndMoreVacationRentals(slug: string, token?: string | null): Promise<{ listing: VacationRental; moreListings: VacationRental[] }> {
+  if (projectId) {
+    const client = createClient({
+      projectId,
+      dataset,
+      apiVersion,
+      useCdn,
+      token: token || undefined,
+    });
+    return await client.fetch(vacationRentalsAndMoreVacationRentalsQuery, { slug });
+  }
+  return { listing: null, moreListings: [] };
+}
+
+// Long Term Rentals
+
+export async function getAllLongTermRentals(): Promise<LongTermRental[]> {
+  if (client) {
+    return (await client.fetch(longTermRentalIndexQuery)) || [];
+  }
+  return [];
+}
+
+export async function getAllLongTermRentalsSlugs(): Promise<Pick<LongTermRental, 'slug'>[]> {
+  if (client) {
+    const slugs = (await client.fetch<string[]>(longTermRentalSlugsQuery)) || [];
+    return slugs.map((slug) => ({ slug }));
+  }
+  return [];
+}
+
+export async function getLongTermRentalsBySlug(slug: string): Promise<LongTermRental> {
+  if (client) {
+    return (await client.fetch(longTermRentalBySlugQuery, { slug })) || ({} as any);
+  }
+  return {} as any;
+}
+
+export async function getLongTermRentalsAndMoreLongTermRentals(slug: string, token?: string | null): Promise<{ listing: LongTermRental; moreListings: LongTermRental[] }> {
+  if (projectId) {
+    const client = createClient({
+      projectId,
+      dataset,
+      apiVersion,
+      useCdn,
+      token: token || undefined,
+    });
+    return await client.fetch(longTermRentalAndMoreLongTermRentalQuery, { slug });
   }
   return { listing: null, moreListings: [] };
 }

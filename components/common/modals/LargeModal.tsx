@@ -9,7 +9,6 @@ export default function LargeModal() {
   useEffect(() => {
     const closedNewsLetterModal = Cookies.get('closedNewsLetterModal');
     const registeredNewsLetter = Cookies.get('registeredNewsLetter');
-    debugger;
 
     if (registeredNewsLetter || closedNewsLetterModal) {
       setShowModal(false);
