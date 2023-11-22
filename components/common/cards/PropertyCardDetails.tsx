@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Price from './Price';
 
 interface PropertyCardDetailsProps extends Listing {
-  resource: string;
+  resource?: string;
 }
 
 const PropertyCardDetails: React.FC<PropertyCardDetailsProps> = ({ title, price, location, neighbourhood, postalCode, resource }) => {
