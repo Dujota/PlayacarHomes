@@ -9,13 +9,14 @@ import PropertyCardDetails from './PropertyCardDetails';
 
 export type FeaturedPropertyCardProps = {
   details: Listing;
+  resource: string;
 };
 
-const FeaturedPropertyCard: React.FC<FeaturedPropertyCardProps> = ({ details }) => {
+const FeaturedPropertyCard: React.FC<FeaturedPropertyCardProps> = ({ details, resource }) => {
   const { title, slug, coverImage: source } = details;
 
   return (
-    <Link href={`/listings/${slug}`}>
+    <Link href={`/${resource}/${slug}`}>
       <div className='relative box-border h-[36.05rem] w-[32.19rem] border-[1.5px] border-solid border-shades-of-purple-purple-96 bg-bg sm:w-[25rem] sm:min-w-[18.75rem] sm:max-w-[25.63rem]'>
         <Image
           width={600}
