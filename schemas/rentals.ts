@@ -163,10 +163,17 @@ export default defineType({
     }),
     defineField({
       name: 'area',
-      title: 'Area',
+      title: 'Size of Construction',
       type: 'number',
       group: 'detail',
       description: 'Add the area of the listing',
+    }),
+    defineField({
+      name: 'landArea',
+      title: 'Size of Land',
+      type: 'number',
+      group: 'detail',
+      description: 'Add the area in sq meters of the land of the listing',
     }),
     defineField({
       name: 'location',
