@@ -5,15 +5,11 @@ import LargeModal from 'components/common/modals/LargeModal';
 import Newsletter from 'components/common/NewsLetter';
 import WhyUsSection from 'components/common/WhyUs';
 // import CustomerTestimonials from '../components/customer-testimonials';
-// import FeaturedPropertyBanner from '../components/featured-property-banner';
 // import HomeSearch from '../components/home-search';
-// import LatestNewsBanner from '../components/latest-news-banner';
 // import NearbyPropertiesSection from '../components/nearby-properties-section';
-// import Newsletter from '../components/newsletter';
 // import PropertiesByCategorySection from '../components/properties-by-category-section';
-// import WhyUsSection from '../components/why-us-section';
-import { featuredBlogPostsMock, featuredListingsMock } from 'lib/demo.data';
 import { getHomepageSectionData, getSettings } from 'lib/sanity.client';
+import { urlForImage } from 'lib/sanity.image';
 import type { Listing } from 'lib/sanity.queries/listings';
 import type { LongTermRental } from 'lib/sanity.queries/long-term-rentals';
 import type { Settings } from 'lib/sanity.queries/settings';
@@ -30,14 +26,24 @@ interface PageProps {
   settings?: Settings;
   preview: boolean;
   token: string | null;
+  pageBuilder: any[];
 }
 
-const Homepage: NextPage = ({ featuredPosts, featuredListings, featuredLongTermRentals, featuredVacationRentals, settings, preview, token }: PageProps) => {
+const Homepage: NextPage = ({ featuredPosts, featuredListings, featuredLongTermRentals, featuredVacationRentals, pageBuilder, settings, preview, token }: PageProps) => {
+  const [heroSection, newsletterForm] = pageBuilder;
+
   return (
     <div className='relative flex w-full flex-col items-start justify-start gap-[3.94rem] overflow-hidden bg-white'>
       <main className='flex flex-col items-center justify-center gap-[7.06rem] self-stretch'>
         <section className='font-poppins relative ml-auto h-[41.31rem] w-[90%] self-stretch text-left text-[0.88rem] text-black md:w-full' id='hero-section'>
-          <Image width={800} height={600} className='absolute right-[-0.01rem] top-[0rem] h-[37.69rem] w-[45.75rem] object-cover opacity-80' alt='' src='/hero_image.png' />
+          <Image
+            width={800}
+            height={600}
+            className='absolute right-[-0.01rem] top-[0rem] h-[37.69rem] w-[45.75rem] object-cover opacity-80'
+            alt=''
+            // src='/hero_image.png'
+            src={urlForImage(heroSection.image).height(600).width(800).url()}
+          />
           {/* <HomeSearch /> */}
           {/* <div className='absolute left-[32.44rem] top-[27.56rem] hidden h-[13.75rem] w-[9.81rem]'>
             <div className='absolute left-[0rem] top-[0rem] box-border h-[13.75rem] w-[9.81rem] border-[1px] border-solid border-gray shadow-[0px_40px_64px_-32px_rgba(15,_15,_15,_0.1)] [backdrop-filter:blur(32px)] [background:linear-gradient(83.59deg,_#fcfcfd,_rgba(252,_252,_253,_0.83))]' />
@@ -81,7 +87,7 @@ const Homepage: NextPage = ({ featuredPosts, featuredListings, featuredLongTermR
         <FeaturedPropertyCardBanner resource={'listings'} title='Popular Properties For Sale' listings={featuredListings} ctaLink='/listings' />
         <WhyUsSection />
         <FeaturedPropertyCardBanner resource='rentals' title='Long Term Rentals For You' listings={featuredLongTermRentals} ctaLink='/rentals' />
-        <Newsletter />
+        <Newsletter title={newsletterForm.label} description={newsletterForm.heading} />
         <FeaturedPropertyCardBanner resource='vacation-rentals' title='Vacation Rentals For You' listings={featuredVacationRentals} ctaLink='/vacation-rentals' />
         {/* <PropertiesByCategorySection /> */}
         <LatestNewsBanner featuredBlogCards={featuredPosts} />
@@ -98,10 +104,11 @@ export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = asy
 
   const token = previewData.token;
 
-  const [settings, { featuredPosts, featuredListings, featuredLongTermRentals, featuredVacationRentals }] = await Promise.all([getSettings(), getHomepageSectionData()]);
+  const [settings, { featuredPosts, featuredListings, featuredLongTermRentals, featuredVacationRentals, sections }] = await Promise.all([getSettings(), getHomepageSectionData()]);
 
   return {
     props: {
+      pageBuilder: sections.pageBuilder,
       settings,
       featuredPosts,
       featuredListings,

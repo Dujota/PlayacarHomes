@@ -7,6 +7,22 @@ import { vacationRetnalFields } from './vacation-rentals';
 
 export const homepageDataQuery = groq`
 {
+  "sections" : *[_type == 'page' && title == "Homepage"][0]{
+    pageBuilder[]{
+      _type == "hero" => {
+        _type,
+        heading,
+        tagline,
+        image
+      },
+      _type == "form" && form == "newsletter"=> {
+        _type,
+        heading,
+        label,
+        form,
+      },
+    }
+  },
   "featuredPosts": *[_type == "post"] | order(date desc, _updatedAt desc)[0...2] {
     content,
     ${postFields}

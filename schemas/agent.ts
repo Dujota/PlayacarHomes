@@ -5,12 +5,13 @@
 // add fields for the listing office
 // add fields for the listing broker
 // add fields for the listing brokerage
-import { UserIcon } from '@sanity/icons';
+import { FaUserTie } from 'react-icons/fa6';
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'agent',
   title: 'Agents',
+  icon: FaUserTie,
   type: 'document',
   fields: [
     defineField({

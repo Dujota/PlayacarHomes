@@ -1,5 +1,5 @@
 import { format, parseISO } from 'date-fns';
-import { MdOutlineBedroomParent } from 'react-icons/md';
+import { GiFamilyHouse } from 'react-icons/gi';
 import { defineField, defineType } from 'sanity';
 
 import agentType from './agent';
@@ -21,7 +21,7 @@ import contactType from './objects/contact';
 export default defineType({
   name: 'listing',
   title: 'Listing',
-  icon: MdOutlineBedroomParent,
+  icon: GiFamilyHouse,
   type: 'document',
   groups: [
     { name: 'content', title: 'Content' },

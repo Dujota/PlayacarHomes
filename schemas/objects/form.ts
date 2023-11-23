@@ -1,11 +1,11 @@
-// ./schemas/formType.js
-
+import { FaWpforms } from 'react-icons/fa';
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'form',
   title: 'Form',
   type: 'object',
+  icon: FaWpforms,
   fields: [
     defineField({
       name: 'label',
