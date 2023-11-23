@@ -2,8 +2,8 @@
 import { PreviewSuspense } from '@sanity/preview-kit';
 import ListingPage from 'components/listings/ListingPage';
 // Sanity Client
-import { getAllListingsSlugs, getListingAndMoreListings, getSettings } from 'lib/sanity.client';
-import { Listing } from 'lib/sanity.queries/listings';
+import { getAllLongTermRentalsSlugs, getLongTermRentalsAndMoreLongTermRentals, getSettings } from 'lib/sanity.client';
+import { LongTermRental } from 'lib/sanity.queries/long-term-rentals';
 import { Settings } from 'lib/sanity.queries/settings';
 // React & Next
 import { GetStaticProps } from 'next';
@@ -12,8 +12,8 @@ import { lazy } from 'react';
 const PreviewListingPage = lazy(() => import('components/listings/PreviewListingPage'));
 
 interface PageProps {
-  listing: Listing;
-  moreListings: Listing[];
+  rental: LongTermRental;
+  moreListings: LongTermRental[];
   settings?: Settings;
   preview: boolean;
   token: string | null;
@@ -28,17 +28,17 @@ interface PreviewData {
 }
 
 export default function RentalShowPage(props: PageProps) {
-  const { settings, listing, moreListings, preview, token } = props;
+  const { settings, rental, moreListings, preview, token } = props;
 
   if (preview) {
     return (
-      <PreviewSuspense fallback={<ListingPage resource='rentals' loading preview listing={listing} moreListings={moreListings} settings={settings} />}>
-        <PreviewListingPage resource='rentals' token={token} listing={listing} moreListings={moreListings} settings={settings} />
+      <PreviewSuspense fallback={<ListingPage resource='rentals' loading preview listing={rental} moreListings={moreListings} settings={settings} />}>
+        <PreviewListingPage resource='rentals' token={token} listing={rental} moreListings={moreListings} settings={settings} />
       </PreviewSuspense>
     );
   }
 
-  return <ListingPage resource='rentals' listing={listing} moreListings={moreListings} settings={settings} />;
+  return <ListingPage resource='rentals' listing={rental} moreListings={moreListings} settings={settings} />;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = async (ctx) => {
@@ -46,9 +46,9 @@ export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = asy
 
   const token = previewData.token;
 
-  const [settings, { listing, moreListings }] = await Promise.all([getSettings(), getListingAndMoreListings(params.slug, token)]);
+  const [settings, { rental, moreListings }] = await Promise.all([getSettings(), getLongTermRentalsAndMoreLongTermRentals(params.slug, token)]);
 
-  if (!listing) {
+  if (!rental) {
     return {
       notFound: true,
     };
@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = asy
 
   return {
     props: {
-      listing,
+      rental,
       moreListings,
       settings,
       preview,
@@ -66,7 +66,7 @@ export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = asy
 };
 
 export const getStaticPaths = async () => {
-  const slugs = await getAllListingsSlugs();
+  const slugs = await getAllLongTermRentalsSlugs();
 
   return {
     paths: slugs?.map(({ slug }) => `/rentals/${slug}`) || [],

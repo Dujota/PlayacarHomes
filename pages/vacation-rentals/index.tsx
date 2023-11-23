@@ -5,10 +5,10 @@ import LargeModal from 'components/common/modals/LargeModal';
 import Newsletter from 'components/common/NewsLetter';
 import PropertyList from 'components/listings/PropertyList';
 import { getAllVacationRentals, getSettings } from 'lib/sanity.client';
-import { Settings } from 'lib/sanity.queries/settings';
+import type { Settings } from 'lib/sanity.queries/settings';
 import type { VacationRental } from 'lib/sanity.queries/vacation-rentals';
 import type { GetStaticProps, NextPage, PreviewData } from 'next';
-import { Query } from 'types/sanity-queries';
+import type { Query } from 'types/sanity-queries';
 
 // import CardGridContainer from '../components/card-grid-container';
 // import ListingindexSearch from '../components/listingindex-search';

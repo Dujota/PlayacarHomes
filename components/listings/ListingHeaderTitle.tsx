@@ -1,8 +1,7 @@
+import { formatAndCapitalize } from 'lib/helpers/string-helpers';
 import { deriveLocation } from 'lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-
-const label = 'Back To Listings';
 
 const ListingHeaderTitle = ({ title, location, neighbourhood, postalCode, resource }) => {
   return (
@@ -10,7 +9,7 @@ const ListingHeaderTitle = ({ title, location, neighbourhood, postalCode, resour
       <Link href={`/${resource}`}>
         <div className='flex flex-row items-center justify-center'>
           <Image width={200} height={200} className='relative h-[2.25rem] w-[2.25rem] shrink-0 overflow-hidden' alt='' src='/left.svg' />
-          <div className='relative font-medium leading-[150%]'>{label}</div>
+          <div className='relative font-medium leading-[150%]'>{`Back to ${formatAndCapitalize(resource)}`}</div>
         </div>
       </Link>
 

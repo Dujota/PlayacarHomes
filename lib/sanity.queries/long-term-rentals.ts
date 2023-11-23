@@ -79,26 +79,26 @@ const listingFields = groq`
 `;
 
 export const longTermRentalIndexQuery = groq`
-*[_type == "vacationRentals"] | order(date desc, _updatedAt desc) {
+*[_type == "rentals"] | order(date desc, _updatedAt desc) {
   ${listingFields}
 }`;
 
 export const longTermRentalAndMoreLongTermRentalQuery = groq`
 {
-  "vacationRentals": *[_type == "vacationRentals" && slug.current == $slug] | order(_updatedAt desc) [0] {
+  "rental": *[_type == "rentals" && slug.current == $slug] | order(_updatedAt desc) [0] {
     ${listingFields}
   },
-  "moreListings": *[_type == "vacationRentals" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
+  "moreListings": *[_type == "rentals" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
     ${listingFields}
   }
 }`;
 
 export const longTermRentalSlugsQuery = groq`
-*[_type == "vacationRentals" && defined(slug.current)][].slug.current
+*[_type == "rentals" && defined(slug.current)][].slug.current
 `;
 
 export const longTermRentalBySlugQuery = groq`
-*[_type == "vacationRentals" && slug.current == $slug][0] {
+*[_type == "rentals" && slug.current == $slug][0] {
   ${listingFields}
 }
 `;
