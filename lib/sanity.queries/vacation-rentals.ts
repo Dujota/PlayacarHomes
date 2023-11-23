@@ -85,7 +85,7 @@ export const vacationRentalsIndexQuery = groq`
 
 export const vacationRentalsAndMoreVacationRentalsQuery = groq`
 {
-  "vacationRentals": *[_type == "vacationRentals" && slug.current == $slug] | order(_updatedAt desc) [0] {
+  "vacationRental": *[_type == "vacationRentals" && slug.current == $slug] | order(_updatedAt desc) [0] {
     ${listingFields}
   },
   "moreListings": *[_type == "vacationRentals" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {

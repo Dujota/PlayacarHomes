@@ -128,7 +128,7 @@ export async function getVacationRentalsBySlug(slug: string): Promise<VacationRe
   return {} as any;
 }
 
-export async function getVacationRentalsAndMoreVacationRentals(slug: string, token?: string | null): Promise<{ listing: VacationRental; moreListings: VacationRental[] }> {
+export async function getVacationRentalsAndMoreVacationRentals(slug: string, token?: string | null): Promise<{ vacationRental: VacationRental; moreListings: VacationRental[] }> {
   if (projectId) {
     const client = createClient({
       projectId,
@@ -137,9 +137,11 @@ export async function getVacationRentalsAndMoreVacationRentals(slug: string, tok
       useCdn,
       token: token || undefined,
     });
+
     return await client.fetch(vacationRentalsAndMoreVacationRentalsQuery, { slug });
   }
-  return { listing: null, moreListings: [] };
+
+  return { vacationRental: null, moreListings: [] };
 }
 
 // Long Term Rentals

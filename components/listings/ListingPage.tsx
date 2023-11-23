@@ -59,7 +59,7 @@ export default function ListingPage(props: ListingPageProps) {
         {/* <FeaturedPropertyCardBanner title='Popular Properties For You' listings={demo.featuredListingsMock} /> */}
         {/* <ListingsContainer>{moreListings?.length > 0 && <MoreListings listings={moreListings} />}</ListingsContainer> */}
         <ListingsContainer>
-          <FeaturedPropertyCardBanner resource={resource} ctaLink={`/${resource}`} title='Popular Properties For You' listings={demo.featuredListingsMock} />
+          <FeaturedPropertyCardBanner resource={resource} ctaLink={`/${resource}`} title='Popular Properties For You' listings={moreListings} />
         </ListingsContainer>
         <SectionSeparator />
       </ListingsLayout>

@@ -61,11 +61,11 @@ const Homepage: NextPage = () => {
             </h1>
           </div>
         </section>
-        <FeaturedPropertyCardBanner title='Popular Properties For You' listings={featuredListingsMock} ctaLink='/listings' />
+        <FeaturedPropertyCardBanner resource={'listings'} title='Popular Properties For You' listings={featuredListingsMock} ctaLink='/listings' />
         <WhyUsSection />
-        <FeaturedPropertyCardBanner title='Long Term Rentals For You' listings={featuredListingsMock} ctaLink='/rentals' />
+        <FeaturedPropertyCardBanner resource='rentals' title='Long Term Rentals For You' listings={featuredListingsMock} ctaLink='/rentals' />
         <Newsletter />
-        <FeaturedPropertyCardBanner title='Vacation Rentals For You' listings={featuredListingsMock} ctaLink='/vacation-rentals' />
+        <FeaturedPropertyCardBanner resource='vacation-rentals' title='Vacation Rentals For You' listings={featuredListingsMock} ctaLink='/vacation-rentals' />
         {/* <PropertiesByCategorySection /> */}
         <LatestNewsBanner featuredBlogCards={featuredBlogPostsMock} />
         {/* <NearbyPropertiesSection /> */}

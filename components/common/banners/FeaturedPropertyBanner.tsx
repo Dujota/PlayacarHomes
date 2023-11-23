@@ -1,3 +1,5 @@
+import { Listing } from 'lib/sanity.queries/listings';
+
 import CTAButton from '../buttons/CTAButton';
 import FeaturedPropertyCard, { FeaturedPropertyCardProps } from '../cards/FeaturedPorpertyCard';
 import SectionHeader from '../headers/SectionHeader';
@@ -26,7 +28,7 @@ interface FeaturedProperty {
 
 type FeaturedPropertyCardBannerProps = {
   title: string;
-  listings: FeaturedProperty[];
+  listings: Listing[];
   ctaLink: string;
   resource: string;
 };
