@@ -1,11 +1,11 @@
 import { urlForImage } from 'lib/sanity.image';
+// Types
+import type { Post } from 'lib/sanity.queries/blog';
 import Image from 'next/image';
 import Link from 'next/link';
-// Types
-import { BlogCardType } from 'types/blog';
 
 type BlogCardProps = {
-  blog: BlogCardType;
+  blog: Post;
   featured?: boolean;
 };
 

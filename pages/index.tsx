@@ -76,4 +76,10 @@ const Homepage: NextPage = () => {
   );
 };
 
+export async function getStaticProps() {
+  return {
+    props: {},
+    revalidate: 10,
+  };
+}
 export default Homepage;
