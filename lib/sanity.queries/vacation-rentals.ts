@@ -47,7 +47,7 @@ export interface VacationRental {
   contact?: Contact;
 }
 
-const listingFields = groq`
+export const vacationRetnalFields = groq`
   _id,
   title,
   "slug": slug.current,
@@ -80,16 +80,16 @@ const listingFields = groq`
 
 export const vacationRentalsIndexQuery = groq`
 *[_type == "vacationRentals"] | order(date desc, _updatedAt desc) {
-  ${listingFields}
+  ${vacationRetnalFields}
 }`;
 
 export const vacationRentalsAndMoreVacationRentalsQuery = groq`
 {
   "vacationRental": *[_type == "vacationRentals" && slug.current == $slug] | order(_updatedAt desc) [0] {
-    ${listingFields}
+    ${vacationRetnalFields}
   },
   "moreListings": *[_type == "vacationRentals" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
-    ${listingFields}
+    ${vacationRetnalFields}
   }
 }`;
 
@@ -99,6 +99,6 @@ export const vacationRentalsSlugsQuery = groq`
 
 export const vacationRentalsBySlugQuery = groq`
 *[_type == "vacationRentals" && slug.current == $slug][0] {
-  ${listingFields}
+  ${vacationRetnalFields}
 }
 `;

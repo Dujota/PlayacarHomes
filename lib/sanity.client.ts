@@ -4,6 +4,7 @@ import { type Listing, listingAndMoreListingsQuery, listingBySlugQuery, listings
 import { type Settings, settingsQuery } from 'lib/sanity.queries/settings';
 import { createClient } from 'next-sanity';
 
+import { homepageDataQuery } from './sanity.queries/homepage';
 import {
   LongTermRental,
   longTermRentalAndMoreLongTermRentalQuery,
@@ -180,4 +181,12 @@ export async function getLongTermRentalsAndMoreLongTermRentals(slug: string, tok
     return await client.fetch(longTermRentalAndMoreLongTermRentalQuery, { slug });
   }
   return { rental: null, moreListings: [] };
+}
+
+// Homepage
+export async function getHomepageSectionData(): Promise<any> {
+  if (client) {
+    return (await client.fetch(homepageDataQuery)) || {};
+  }
+  return {};
 }

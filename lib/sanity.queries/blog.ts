@@ -1,6 +1,6 @@
 import { groq } from 'next-sanity';
 
-const postFields = groq`
+export const postFields = groq`
   _id,
   title,
   date,

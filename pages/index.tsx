@@ -1,5 +1,6 @@
 import FeaturedPropertyCardBanner from 'components/common/banners/FeaturedPropertyBanner';
 import LatestNewsBanner from 'components/common/banners/LatestNewsBanner';
+import { Blog } from 'components/common/cards/FeaturedBlogCard';
 import LargeModal from 'components/common/modals/LargeModal';
 import Newsletter from 'components/common/NewsLetter';
 import WhyUsSection from 'components/common/WhyUs';
@@ -12,10 +13,26 @@ import WhyUsSection from 'components/common/WhyUs';
 // import PropertiesByCategorySection from '../components/properties-by-category-section';
 // import WhyUsSection from '../components/why-us-section';
 import { featuredBlogPostsMock, featuredListingsMock } from 'lib/demo.data';
-import type { NextPage } from 'next';
+import { getHomepageSectionData, getSettings } from 'lib/sanity.client';
+import type { Listing } from 'lib/sanity.queries/listings';
+import type { LongTermRental } from 'lib/sanity.queries/long-term-rentals';
+import type { Settings } from 'lib/sanity.queries/settings';
+import type { VacationRental } from 'lib/sanity.queries/vacation-rentals';
+import type { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
+import type { PreviewData, Query } from 'types/sanity-queries';
 
-const Homepage: NextPage = () => {
+interface PageProps {
+  featuredPosts: Blog[];
+  featuredListings: Listing[];
+  featuredLongTermRentals: LongTermRental[];
+  featuredVacationRentals: VacationRental[];
+  settings?: Settings;
+  preview: boolean;
+  token: string | null;
+}
+
+const Homepage: NextPage = ({ featuredPosts, featuredListings, featuredLongTermRentals, featuredVacationRentals, settings, preview, token }: PageProps) => {
   return (
     <div className='relative flex w-full flex-col items-start justify-start gap-[3.94rem] overflow-hidden bg-white'>
       <main className='flex flex-col items-center justify-center gap-[7.06rem] self-stretch'>
@@ -61,13 +78,13 @@ const Homepage: NextPage = () => {
             </h1>
           </div>
         </section>
-        <FeaturedPropertyCardBanner resource={'listings'} title='Popular Properties For You' listings={featuredListingsMock} ctaLink='/listings' />
+        <FeaturedPropertyCardBanner resource={'listings'} title='Popular Properties For Sale' listings={featuredListings} ctaLink='/listings' />
         <WhyUsSection />
-        <FeaturedPropertyCardBanner resource='rentals' title='Long Term Rentals For You' listings={featuredListingsMock} ctaLink='/rentals' />
+        <FeaturedPropertyCardBanner resource='rentals' title='Long Term Rentals For You' listings={featuredLongTermRentals} ctaLink='/rentals' />
         <Newsletter />
-        <FeaturedPropertyCardBanner resource='vacation-rentals' title='Vacation Rentals For You' listings={featuredListingsMock} ctaLink='/vacation-rentals' />
+        <FeaturedPropertyCardBanner resource='vacation-rentals' title='Vacation Rentals For You' listings={featuredVacationRentals} ctaLink='/vacation-rentals' />
         {/* <PropertiesByCategorySection /> */}
-        <LatestNewsBanner featuredBlogCards={featuredBlogPostsMock} />
+        <LatestNewsBanner featuredBlogCards={featuredPosts} />
         {/* <NearbyPropertiesSection /> */}
         {/* <CustomerTestimonials /> */}
       </main>
@@ -76,10 +93,24 @@ const Homepage: NextPage = () => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = async (ctx) => {
+  const { preview = false, previewData = {}, params = {} } = ctx;
+
+  const token = previewData.token;
+
+  const [settings, { featuredPosts, featuredListings, featuredLongTermRentals, featuredVacationRentals }] = await Promise.all([getSettings(), getHomepageSectionData()]);
+
   return {
-    props: {},
+    props: {
+      settings,
+      featuredPosts,
+      featuredListings,
+      featuredLongTermRentals,
+      featuredVacationRentals,
+      preview,
+      token: token ?? null,
+    },
     revalidate: 10,
   };
-}
+};
 export default Homepage;

@@ -1,6 +1,6 @@
 import { groq } from 'next-sanity';
 
-const listingFields = groq`
+export const listingFields = groq`
   _id,
   title,
   "slug": slug.current,

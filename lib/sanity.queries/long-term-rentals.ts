@@ -47,7 +47,7 @@ export interface LongTermRental {
   contact?: Contact;
 }
 
-const listingFields = groq`
+export const longTermRentalFields = groq`
   _id,
   title,
   "slug": slug.current,
@@ -80,16 +80,16 @@ const listingFields = groq`
 
 export const longTermRentalIndexQuery = groq`
 *[_type == "rentals"] | order(date desc, _updatedAt desc) {
-  ${listingFields}
+  ${longTermRentalFields}
 }`;
 
 export const longTermRentalAndMoreLongTermRentalQuery = groq`
 {
   "rental": *[_type == "rentals" && slug.current == $slug] | order(_updatedAt desc) [0] {
-    ${listingFields}
+    ${longTermRentalFields}
   },
   "moreListings": *[_type == "rentals" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
-    ${listingFields}
+    ${longTermRentalFields}
   }
 }`;
 
@@ -99,6 +99,6 @@ export const longTermRentalSlugsQuery = groq`
 
 export const longTermRentalBySlugQuery = groq`
 *[_type == "rentals" && slug.current == $slug][0] {
-  ${listingFields}
+  ${longTermRentalFields}
 }
 `;
