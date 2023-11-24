@@ -14,6 +14,7 @@ const pageType = defineType({
       name: 'pageBuilder',
       type: 'array',
       title: 'Page builder',
+      // @ts-ignore
       of: [
         defineArrayMember({
           name: 'hero',
@@ -24,6 +25,11 @@ const pageType = defineType({
           name: 'textWithIllustration',
           type: 'textWithIllustration',
         }),
+        defineArrayMember({
+          name: 'whyUs',
+          type: 'whyUsSection',
+          description: 'Slider with the Why Us section',
+        }),
         // defineArrayMember({
         //   name: 'gallery',
         //   type: 'gallery',
@@ -31,6 +37,7 @@ const pageType = defineType({
         defineArrayMember({
           name: 'form',
           type: 'form',
+          description: 'Labels and headings for Forms on a page',
         }),
         // defineArrayMember({
         //   name: 'video',

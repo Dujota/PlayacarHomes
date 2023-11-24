@@ -30,7 +30,7 @@ interface PageProps {
 }
 
 const Homepage: NextPage = ({ featuredPosts, featuredListings, featuredLongTermRentals, featuredVacationRentals, pageBuilder, settings, preview, token }: PageProps) => {
-  const [heroSection, newsletterForm] = pageBuilder;
+  const [heroSection, newsletterForm, whyUsSection] = pageBuilder;
 
   return (
     <div className='relative flex w-full flex-col items-start justify-start gap-[3.94rem] overflow-hidden bg-white'>
@@ -85,7 +85,7 @@ const Homepage: NextPage = ({ featuredPosts, featuredListings, featuredLongTermR
           </div>
         </section>
         <FeaturedPropertyCardBanner resource={'listings'} title='Popular Properties For Sale' listings={featuredListings} ctaLink='/listings' />
-        <WhyUsSection />
+        <WhyUsSection heading={whyUsSection.heading} subheading={whyUsSection.subheading} whyUsCards={whyUsSection.whyUsCards} />
         <FeaturedPropertyCardBanner resource='rentals' title='Long Term Rentals For You' listings={featuredLongTermRentals} ctaLink='/rentals' />
         <Newsletter title={newsletterForm.label} description={newsletterForm.heading} />
         <FeaturedPropertyCardBanner resource='vacation-rentals' title='Vacation Rentals For You' listings={featuredVacationRentals} ctaLink='/vacation-rentals' />

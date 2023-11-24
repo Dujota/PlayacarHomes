@@ -21,6 +21,15 @@ export const homepageDataQuery = groq`
         label,
         form,
       },
+      _type == "whyUs" => {
+        _type,
+        heading,
+        subheading,
+        whyUsCards[]{
+          heading,
+          text
+        }
+      },
     }
   },
   "featuredPosts": *[_type == "post"] | order(date desc, _updatedAt desc)[0...2] {

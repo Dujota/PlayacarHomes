@@ -23,6 +23,8 @@ import picture from 'schemas/objects/picture';
 import pictureTitled from 'schemas/objects/pictureTitled';
 import textWithIllustrationsObject from 'schemas/objects/textWithIllustrations';
 import videoObject from 'schemas/objects/video';
+import whyUsSection from 'schemas/objects/whyUsSection';
+import whyUsCard from 'schemas/objects/whyUsSection/whyUsCard';
 import pageType from 'schemas/pageBuilder';
 import postType from 'schemas/post';
 import rentals from 'schemas/rentals';
@@ -31,7 +33,7 @@ import vacationRentas from 'schemas/vacationRentas';
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Playacar Homes Realty';
 
-const objectTypes = [heroObject, textWithIllustrationsObject, galleryObject, formObject, videoObject, linkObject, contactObject, picture, pictureTitled];
+const objectTypes = [heroObject, textWithIllustrationsObject, galleryObject, formObject, videoObject, linkObject, contactObject, picture, pictureTitled, whyUsSection, whyUsCard];
 const documentTypes = [pageType, postType, settingsType, listingType, rentals, vacationRentas, agentType, authorType];
 
 export default defineConfig({

@@ -3,7 +3,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 import { infoCardsMock, statsMock } from 'lib/demo.data';
-import Image from 'next/image';
 // import required modules
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -24,7 +23,12 @@ const slideStyle = {
   alignItems: 'center',
 };
 
-export default function WhyUsSlider() {
+interface WhyUsCard {
+  heading: string;
+  text: string;
+}
+
+export default function WhyUsSlider({ slides }: { slides: WhyUsCard[] }) {
   return (
     <section className='mx-0 bg-whitesmoke-100 md:w-[50%] xxl:w-[80%] tablet:w-[100vw] xlSlider:w-[75%] lgSlider:w-[60%]'>
       <Swiper
@@ -57,11 +61,11 @@ export default function WhyUsSlider() {
           }
         }
       >
-        {infoCardsMock.map((card, index) => {
+        {slides.map((card, index) => {
           const bgColor = index === 1 ? 'bg-white' : 'bg-whitesmoke-200';
           return (
             <SwiperSlide key={index} style={slideStyle} id='info-card' className={`flex flex-row items-start justify-start gap-[1.5rem] text-center sm:w-[10px] ${bgColor}`}>
-              <InfoCard title={card.title} description={card.description} position={index} />
+              <InfoCard title={card.heading} description={card.text} position={index} />
             </SwiperSlide>
           );
         })}

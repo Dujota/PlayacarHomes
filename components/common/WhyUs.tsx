@@ -1,13 +1,31 @@
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
+// import './WhyUs.module.css';
 
+import { PortableText, PortableTextComponents } from '@portabletext/react';
 import { statsMock } from 'lib/demo.data';
+import { TypedObject } from 'sanity';
 
 import StatsBanner from './banners/StatsBanner';
 import WhyUsSlider from './WhyUsSlider';
 
-const WhyUsSection = () => {
+// Why Us Section Types
+interface WhyUsCard {
+  heading: string;
+  text: string;
+}
+
+interface WhyUsSection {
+  heading: TypedObject[];
+  subheading: string;
+  whyUsCards: WhyUsCard[];
+}
+
+const components: PortableTextComponents = {
+  marks: {
+    color: ({ children }) => <span className='text-blue'>{children}</span>,
+  },
+};
+
+const WhyUsSection = ({ heading, subheading, whyUsCards }: WhyUsSection) => {
   return (
     <section
       className='font-poppins flex flex-col items-center justify-center self-stretch overflow-hidden
@@ -35,11 +53,13 @@ const WhyUsSection = () => {
           >
             {/* header text */}
             <h2
+              id='why-us-heading'
               className='font-inherit relative m-0 w-[20rem] flex-1 font-medium text-inherit
                         sm:!w-full sm:flex-[unset] sm:self-stretch md:w-auto
                         md:flex-[unset]'
             >
-              We make it easy for <span className='text-blue'>tenants</span> and <span className='text-blue'>landlords</span>.
+              <PortableText value={heading} components={components} />
+              {/* We make it easy for <span className='text-blue'>tenants</span> and <span className='text-blue'>landlords</span>. */}
             </h2>
             {/* description */}
             <p
@@ -47,13 +67,11 @@ const WhyUsSection = () => {
                         text-[1rem] font-light leading-[190%] text-grey
                         sm:!w-full sm:flex-1 sm:text-left md:w-[25rem] '
             >
-              {
-                "At Playacar Homes, we understand that finding the perfect property in the Cancun Mexico area is more than just a transaction; it's about creating a life you love. Here's why we stand out from the rest:"
-              }
+              {subheading}
             </p>
           </div>
         </div>
-        <WhyUsSlider />
+        <WhyUsSlider slides={whyUsCards} />
 
         {/* Stats Container */}
         <StatsBanner stats={statsMock} />

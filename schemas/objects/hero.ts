@@ -21,6 +21,7 @@ export default defineType({
       name: 'image',
       type: 'image',
       options: { hotspot: true },
+      // @ts-ignore
       fields: [
         defineField({
           name: 'alt',
