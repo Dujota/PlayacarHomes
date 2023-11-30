@@ -1,3 +1,5 @@
+import { subscribeUser } from 'lib/api/email';
+import { validateEmail } from 'lib/helpers/string-helpers';
 import React, { useCallback, useState } from 'react';
 
 interface NewsletterProps {
@@ -5,15 +7,27 @@ interface NewsletterProps {
   description?: string;
   isModal?: boolean;
   toggle?: () => void;
+  setFormSubmitted?: (val: boolean) => void;
 }
+
+function Message({ message, success }: { message: string; success: boolean }) {
+  if (!message || !success) return null;
+  return <div className='flex flex-row flex-wrap items-center justify-center gap-[0.31rem] text-lgi text-emerald-400'>{message}</div>;
+}
+
 const Newsletter = ({
   title = 'Stay in the Loop',
   description = 'Sign up for our newsletter to receive the latest updates, exclusive offers, and insider insights on the real estate market in Cancun.',
   isModal = false,
   toggle = () => {},
+  setFormSubmitted = () => {},
 }: NewsletterProps) => {
   // State to capture the email input value
   const [email, setEmail] = useState('');
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const [errors, setErrors] = useState({ email: '' });
 
   // Memoized event handler for input change
   const handleEmailChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,15 +36,33 @@ const Newsletter = ({
 
   // Memoized event handler for form submission
   const handleSubmit = useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
+    async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      window.alert(`Submitted Email: ${email}`);
-      setEmail(''); // Optional: Clear the input after submission
-      if (isModal) {
-        toggle();
+
+      const validate = () => {
+        let hasError = false;
+        let newErrors = { email: '' };
+
+        if (!email.trim() || !validateEmail(email)) {
+          newErrors.email = 'Valid email is required.';
+          hasError = true;
+        }
+
+        setErrors(newErrors);
+        return !hasError;
+      };
+      // window.alert(`Submitted Email: ${email}`);
+      if (validate()) {
+        await subscribeUser(email, setLoading, setMessage, setSuccess);
+        debugger;
+        setEmail(''); // Optional: Clear the input after submission
+        if (isModal) {
+          setFormSubmitted(true);
+          setTimeout(toggle, 3000);
+        }
       }
     },
-    [email, isModal, toggle]
+    [email, isModal, setFormSubmitted, toggle]
   ); // Dependency on the email state
 
   return (
@@ -45,17 +77,25 @@ const Newsletter = ({
           </div>
         </div>
         <form className='flex flex-row flex-wrap items-center justify-center gap-[0.31rem]' onSubmit={handleSubmit} id='news-letter-form'>
-          <input
-            className='font-poppins m-[0.65rem] box-border flex h-[2.75rem] w-[30.63rem] flex-row items-center justify-start bg-[transparent] px-[1rem] py-[0rem] text-[0.88rem] font-light [border:none] md:max-w-[15.5rem] '
-            type='email'
-            placeholder='Email Address'
-            id='newsletter-email'
-            value={email}
-            onChange={handleEmailChange}
-          />
-          <button className='flex cursor-pointer flex-row items-center justify-center bg-blue px-[2rem] pb-[0.69rem] pt-[0.75rem] [border:none]' type='submit'>
-            <div className='font-poppins relative text-left text-[0.88rem] font-medium text-white'>Sign up</div>
-          </button>
+          {success ? (
+            <Message success={success} message={message} />
+          ) : (
+            <>
+              <input
+                className='font-poppins m-[0.65rem] box-border flex h-[2.75rem] w-[30.63rem] flex-row items-center justify-start bg-[transparent] px-[1rem] py-[0rem] text-[0.88rem] font-light [border:none] md:max-w-[15.5rem]'
+                type='email'
+                placeholder='Email Address'
+                id='newsletter-email'
+                value={email}
+                onChange={handleEmailChange}
+              />
+              {errors.email && <div className='text-red-500'>{errors.email}</div>}
+              {!success && <div className='text-red-500'>{message}</div>}
+              <button className='flex cursor-pointer flex-row items-center justify-center bg-blue px-[2rem] pb-[0.69rem] pt-[0.75rem] [border:none]' type='submit'>
+                <div className='font-poppins relative text-left text-[0.88rem] font-medium text-white'>Sign up</div>
+              </button>
+            </>
+          )}
         </form>
       </div>
     </section>

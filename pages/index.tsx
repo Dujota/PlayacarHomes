@@ -1,7 +1,7 @@
 import FeaturedPropertyCardBanner from 'components/common/banners/FeaturedPropertyBanner';
 import LatestNewsBanner from 'components/common/banners/LatestNewsBanner';
 import { Blog } from 'components/common/cards/FeaturedBlogCard';
-import LargeModal from 'components/common/modals/LargeModal';
+import NewsLetterModal from 'components/common/modals/NewsLetterModal';
 import Newsletter from 'components/common/NewsLetter';
 import WhyUsSection from 'components/common/WhyUs';
 // import CustomerTestimonials from '../components/customer-testimonials';
@@ -94,7 +94,7 @@ const Homepage: NextPage = ({ featuredPosts, featuredListings, featuredLongTermR
         {/* <NearbyPropertiesSection /> */}
         {/* <CustomerTestimonials /> */}
       </main>
-      <LargeModal />
+      <NewsLetterModal />
     </div>
   );
 };
