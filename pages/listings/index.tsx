@@ -1,6 +1,6 @@
 // import ListingSearchForm from 'components/common/forms/ListingSearchForm';
 import PageTitle from 'components/common/headers/PageTitle';
-import LargeModal from 'components/common/modals/LargeModal';
+import NewsLetterModal from 'components/common/modals/NewsLetterModal';
 import Newsletter from 'components/common/NewsLetter';
 import PropertyList from 'components/listings/PropertyList';
 import { getAllListings, getSettings } from 'lib/sanity.client';
@@ -36,7 +36,7 @@ const PropertyListingsIndexPage: NextPage = (props: PageProps) => {
         {/* <ListingindexSearch /> */}
         <PropertyList resource='listings' listings={listings} />
         <Newsletter />
-        <LargeModal />
+        <NewsLetterModal />
       </main>
     </div>
   );

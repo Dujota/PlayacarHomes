@@ -12,3 +12,9 @@ export function formatAndCapitalize(text) {
   // Join the words with a space and return
   return capitalizedWords.join(' ');
 }
+
+export const validateEmail = (inputEmail: string) => {
+  // Regular expression to check common email format
+  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return regex.test(inputEmail);
+};

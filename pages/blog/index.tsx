@@ -1,6 +1,6 @@
 import BlogList from 'components/blog/BlogList';
 import PageTitle from 'components/common/headers/PageTitle';
-import LargeModal from 'components/common/modals/LargeModal';
+import NewsLetterModal from 'components/common/modals/NewsLetterModal';
 import Newsletter from 'components/common/NewsLetter';
 import { getAllPosts, getSettings } from 'lib/sanity.client';
 import type { Post } from 'lib/sanity.queries/blog';
@@ -20,7 +20,7 @@ interface PageProps {
 const BlogLandingPage: NextPage = ({ posts }: PageProps) => {
   return (
     <div className='relative flex w-full flex-col items-center justify-center gap-[6.25rem] overflow-hidden bg-white'>
-      <LargeModal />
+      <NewsLetterModal />
       <main className='font-poppins flex flex-col items-center justify-start gap-[2.5rem] self-stretch text-center text-[2.25rem] text-black'>
         <PageTitle title={pageTitle} />
         {/* <TabbingWithArrow />*/}

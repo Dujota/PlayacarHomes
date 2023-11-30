@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 
 import Newsletter from '../NewsLetter';
 
-export default function LargeModal() {
+export default function NewsLetterModal() {
   const [showModal, setShowModal] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   useEffect(() => {
     const closedNewsLetterModal = Cookies.get('closedNewsLetterModal');
@@ -17,14 +18,26 @@ export default function LargeModal() {
     }
   }, []);
 
-  const closeModal = () => {
+  const sleepNewsLetter = () => {
     const oneWeekFromNow = new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000);
     Cookies.set('closedNewsLetterModal', new Date().toISOString(), { expires: oneWeekFromNow, path: '/' });
+  };
+
+  const registeredForNewsLetter = () => {
+    Cookies.set('registeredNewsLetter', 'true', { path: '/' });
+  };
+
+  const closeModal = () => {
+    if (formSubmitted) {
+      registeredForNewsLetter();
+    } else {
+      sleepNewsLetter();
+    }
     setShowModal(false);
   };
 
   const handleNewsLetterModalSubmit = () => {
-    Cookies.set('registeredNewsLetter', 'true', { path: '/' });
+    registeredForNewsLetter();
     setShowModal(false);
   };
 
@@ -44,7 +57,7 @@ export default function LargeModal() {
 
               {/*body*/}
               <div className='relative mb-[1.5rem] flex-auto p-1'>
-                <Newsletter isModal={showModal} toggle={handleNewsLetterModalSubmit} />
+                <Newsletter isModal={showModal} toggle={handleNewsLetterModalSubmit} setFormSubmitted={setFormSubmitted} />
               </div>
             </div>
           </div>
