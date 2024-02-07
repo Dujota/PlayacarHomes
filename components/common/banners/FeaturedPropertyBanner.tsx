@@ -42,7 +42,7 @@ const FeaturedPropertyCardBanner: React.FC<FeaturedPropertyCardBannerProps> = ({
         {/* {listings.map((listing, idx) => (
           <FeaturedPropertyCard resource={resource} key={idx} details={listing} />
         ))} */}
-        <PropertyList resource='listings' listings={listings} featured={true} />
+        <PropertyList resource={resource} listings={listings} featured={true} />
       </div>
       <CTAButton label='See More' href={ctaLink} />
     </section>

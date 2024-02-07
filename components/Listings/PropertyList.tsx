@@ -10,7 +10,7 @@ interface ListingProps {
 
 const PropertyList = ({ listings, resource, featured }: ListingProps) => {
   return (
-    <CardGrid>
+    <CardGrid isFeatured={featured}>
       {listings.map((listing, idx) => (
         <PropertyCard resource={resource} key={idx} details={listing} isFeatured={featured} />
       ))}

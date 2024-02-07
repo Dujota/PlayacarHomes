@@ -15,9 +15,7 @@ export type PropertyCardProps = {
 
 const PropertyCard = ({ details, resource = 'listings', isFeatured = false }: PropertyCardProps) => {
   const { title, slug, coverImage: source, featured } = details;
-  if (isFeatured) {
-    debugger;
-  }
+
   return (
     <Link href={`/${resource}/${slug}`} className={isFeatured ? 'bg-bg' : 'bg-white'}>
       <div
