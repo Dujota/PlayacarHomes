@@ -84,7 +84,7 @@ const Homepage: NextPage = ({ featuredPosts, featuredListings, featuredLongTermR
             </h1>
           </div>
         </section>
-        <FeaturedPropertyCardBanner resource={'listings'} title='Popular Properties For Sale' listings={featuredListings} ctaLink='/listings' />
+        <FeaturedPropertyCardBanner resource='listings' title='Popular Properties For Sale' listings={featuredListings} ctaLink='/listings' />
         <WhyUsSection heading={whyUsSection.heading} subheading={whyUsSection.subheading} whyUsCards={whyUsSection.whyUsCards} />
         <FeaturedPropertyCardBanner resource='rentals' title='Long Term Rentals For You' listings={featuredLongTermRentals} ctaLink='/rentals' />
         <Newsletter title={newsletterForm.label} description={newsletterForm.heading} />

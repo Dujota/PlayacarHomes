@@ -10,13 +10,21 @@ import PropertyCardDetails from './PropertyCardDetails';
 export type PropertyCardProps = {
   details: Listing;
   resource: string;
+  isFeatured?: boolean;
 };
 
-const PropertyCard = ({ details, resource = 'listings' }: PropertyCardProps) => {
+const PropertyCard = ({ details, resource = 'listings', isFeatured = false }: PropertyCardProps) => {
   const { title, slug, coverImage: source, featured } = details;
+  if (isFeatured) {
+    debugger;
+  }
   return (
-    <Link href={`/${resource}/${slug}`}>
-      <div className='font-poppins relative box-border h-[29.5rem] w-[25rem] border-[1.5px] border-solid border-shades-of-purple-purple-96 bg-white text-left text-[1.5rem] text-black'>
+    <Link href={`/${resource}/${slug}`} className={isFeatured ? 'bg-bg' : 'bg-white'}>
+      <div
+        className={`font-poppins relative box-border h-[29.5rem] w-[25rem] border-[1.5px] border-solid border-shades-of-purple-purple-96 ${
+          isFeatured ? 'bg-bg' : 'bg-white'
+        }text-left text-[1.5rem] text-black`}
+      >
         {/* Favourite Icon */}
         <Image width={500} height={500} className='absolute left-[20.56rem] top-[-0.47rem] z-50 h-[5.37rem] w-[5.37rem]' alt='favourite' src='/favorite.svg' />
         {/* Listing Image */}

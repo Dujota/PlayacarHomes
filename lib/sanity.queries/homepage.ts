@@ -36,13 +36,13 @@ export const homepageDataQuery = groq`
     content,
     ${postFields}
   },
-  "featuredListings": *[_type == "listing"] | order(date desc, _updatedAt desc)[0...2] {
+  "featuredListings": *[_type == "listing"] | order(date desc, _updatedAt desc)[0...3] {
     ${listingFields}
   },
-  "featuredLongTermRentals": *[_type == "rentals"] | order(date desc, _updatedAt desc)[0...2] {
+  "featuredLongTermRentals": *[_type == "rentals"] | order(date desc, _updatedAt desc)[0...3] {
     ${longTermRentalFields}
   },
-  "featuredVacationRentals": *[_type == "vacationRentals"] | order(date desc, _updatedAt desc)[0...2] {
+  "featuredVacationRentals": *[_type == "vacationRentals"] | order(date desc, _updatedAt desc)[0...3] {
     ${vacationRetnalFields}
   }
 }`;
