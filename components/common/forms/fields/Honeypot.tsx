@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react';
 
+import styles from './Honeypot.module.css';
 interface HoneypotProps {
-  onHoneypotChange: (isFilled: boolean) => void;
+  onHoneypotChange: (isFilled: any) => void;
   wrapperStyle?: React.CSSProperties;
   labelContent?: string;
   inputName?: string;
@@ -31,9 +32,9 @@ const Honeypot: React.FC<HoneypotProps> = ({ onHoneypotChange, wrapperStyle = {}
   );
 
   return (
-    <div className='field-hp' style={wrapperStyle || {}} aria-hidden='true'>
+    <div className={styles.confirmEmail} style={wrapperStyle || {}} aria-hidden='true'>
       <HoneypotLabel content={labelContent} htmlFor={inputName} />
-      <input type='text' name={inputName} onChange={handleChange} style={inputStyle || {}} className='form-hp' />
+      <input type='text' name={inputName} onChange={handleChange} style={inputStyle || {}} className='form-hp' tabIndex={-1} />
     </div>
   );
 };

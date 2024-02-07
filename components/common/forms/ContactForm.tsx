@@ -2,6 +2,8 @@ import { contactUser } from 'lib/api/email';
 import { validateEmail } from 'lib/helpers/string-helpers';
 import { useState } from 'react';
 
+import Honeypot from './fields/Honeypot';
+
 type ContactFormType = {
   buttonText?: string;
   toggle?: () => void;
@@ -25,6 +27,7 @@ function ContactFormMessage({ message }: { message: string }) {
 const ContactForm = ({ buttonText = 'Send Message', toggle }: ContactFormType) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
+  const [confirmEmail, setConfirmEmail] = useState('');
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState({ email: '', phoneNumber: '', message: '' });
   const [success, setSuccess] = useState(false);
@@ -54,13 +57,15 @@ const ContactForm = ({ buttonText = 'Send Message', toggle }: ContactFormType) =
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    if (confirmEmail) return;
+
     e.preventDefault();
     setErrors({ email: '', phoneNumber: '', message: '' });
     setSuccess(false);
 
     if (validate()) {
       await contactUser({ email, phoneNumber, message }, setLoading, setSubmitMessage, setSuccess);
-      debugger;
+
       if (success) {
         setPhoneNumber('');
         setMessage('');
@@ -104,6 +109,8 @@ const ContactForm = ({ buttonText = 'Send Message', toggle }: ContactFormType) =
                     onChange={(e) => setPhoneNumber(e.target.value)}
                   />
                   {errors.phoneNumber && <div className='text-red-500'>{errors.phoneNumber}</div>}
+
+                  <Honeypot onHoneypotChange={setConfirmEmail} />
 
                   <textarea
                     className={`font-poppins relative h-40 w-[350px] bg-[transparent] text-sm font-light [border:none] ${inputStyles}`}

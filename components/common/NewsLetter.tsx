@@ -2,6 +2,8 @@ import { subscribeUser } from 'lib/api/email';
 import { validateEmail } from 'lib/helpers/string-helpers';
 import React, { useCallback, useState } from 'react';
 
+import Honeypot from './forms/fields/Honeypot';
+
 interface NewsletterProps {
   title?: string;
   description?: string;
@@ -24,6 +26,7 @@ const Newsletter = ({
 }: NewsletterProps) => {
   // State to capture the email input value
   const [email, setEmail] = useState('');
+  const [confirmEmail, setConfirmEmail] = useState('');
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
@@ -40,6 +43,7 @@ const Newsletter = ({
       e.preventDefault();
 
       const validate = () => {
+        if (confirmEmail) return true;
         let hasError = false;
         let newErrors = { email: '' };
 
@@ -54,7 +58,7 @@ const Newsletter = ({
       // window.alert(`Submitted Email: ${email}`);
       if (validate()) {
         await subscribeUser(email, setLoading, setMessage, setSuccess);
-        debugger;
+
         setEmail(''); // Optional: Clear the input after submission
         if (isModal) {
           setFormSubmitted(true);
@@ -62,7 +66,7 @@ const Newsletter = ({
         }
       }
     },
-    [email, isModal, setFormSubmitted, toggle]
+    [confirmEmail, email, isModal, setFormSubmitted, toggle]
   ); // Dependency on the email state
 
   return (
@@ -89,6 +93,7 @@ const Newsletter = ({
                 value={email}
                 onChange={handleEmailChange}
               />
+              <Honeypot onHoneypotChange={setConfirmEmail} />
               {errors.email && <div className='text-red-500'>{errors.email}</div>}
               {!success && <div className='text-red-500'>{message}</div>}
               <button className='flex cursor-pointer flex-row items-center justify-center bg-blue px-[2rem] pb-[0.69rem] pt-[0.75rem] [border:none]' type='submit'>
