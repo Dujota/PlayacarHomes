@@ -29,6 +29,7 @@ export default function CoverImage(props: CoverImageProps) {
         src={urlForImage(source).height(1000).width(2000).url()}
         sizes='100vw'
         priority={priority}
+        loading='eager'
       />
     </div>
   ) : (

@@ -41,6 +41,7 @@ export default function ListingSlider({ listing }: ListingSliderProps) {
               src={urlForImage(image).height(1000).width(2000).url()}
               sizes='100vw'
               placeholder='blur'
+              loading={index === 0 ? 'eager' : 'lazy'}
               blurDataURL={urlForImage(image).width(24).height(24).blur(10).url()}
             />
           </SwiperSlide>

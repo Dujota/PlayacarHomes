@@ -17,7 +17,7 @@ export default function FAB() {
         <div className='animate-fadeIn transition-all duration-500'>
           <div className='absolute right-[1rem] top-[1rem] z-[99999]'>
             <button className='animate-fadeOut transition-all duration-500' onClick={() => setShowForm(false)}>
-              <Image src='/close.svg' width={30} height={30} alt='close contact form icon' aria-label='close contact form icon' />
+              <Image src='/close.svg' width={30} height={30} alt='close contact form icon' aria-label='close contact form icon' loading='lazy' />
             </button>
           </div>
           <ContactForm toggle={() => setShowForm(false)} />
@@ -30,7 +30,7 @@ export default function FAB() {
                     duration-200 ease-in hover:bg-[#53788F] focus:outline-none active:shadow-lg
                     sm:!h-10 sm:!w-10 md:!h-12 md:!w-12'
         >
-          <Image width={50} height={50} className='inline-block h-10 w-10 md:!h-8 md:!w-8' alt='contact floating action button' src='/msg.svg' />
+          <Image width={50} height={50} className='inline-block h-10 w-10 md:!h-8 md:!w-8' alt='contact floating action button' src='/msg.svg' loading='eager' />
         </button>
       )}
     </div>

@@ -40,8 +40,8 @@ const Homepage: NextPage = ({ featuredPosts, featuredListings, featuredLongTermR
             width={800}
             height={600}
             className='absolute right-[-0.01rem] top-[0rem] h-[37.69rem] w-[45.75rem] object-cover opacity-80'
-            alt=''
-            // src='/hero_image.png'
+            alt='Main Cover Image'
+            loading='eager'
             src={urlForImage(heroSection.image).height(600).width(800).url()}
           />
           {/* <HomeSearch /> */}
