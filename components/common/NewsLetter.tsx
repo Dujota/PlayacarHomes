@@ -19,7 +19,7 @@ function Message({ message, success }: { message: string; success: boolean }) {
 
 const Newsletter = ({
   title = 'Stay in the Loop',
-  description = 'Sign up for our newsletter to receive the latest updates, exclusive offers, and insider insights on the real estate market in Cancun.',
+  description = 'Sign up for our newsletter to receive the latest updates, exclusive offers, and insider insights on the real estate market in the Maya Riviera',
   isModal = false,
   toggle = () => {},
   setFormSubmitted = () => {},

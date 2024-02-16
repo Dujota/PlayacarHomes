@@ -1,10 +1,11 @@
 import Avatar from 'components/AuthorAvatar';
+import Price from 'components/common/cards/Price';
 import Date from 'components/common/Date';
 import CoverImage from 'components/CoverImage';
 import type { Listing } from 'lib/sanity.queries/listings';
 import Link from 'next/link';
 
-export default function ListingPreview({ title, coverImage, date, excerpt, author, agent, slug, price }: Omit<Listing, '_id'>) {
+export default function ListingPreview({ title, coverImage, date, excerpt, author, agent, slug, price, mxnPrice }: Omit<Listing, '_id'>) {
   // Format price as currency
   const formattedPrice = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price || 0);
 
@@ -24,7 +25,9 @@ export default function ListingPreview({ title, coverImage, date, excerpt, autho
       <div className='mb-4 text-lg'>
         <Date dateString={date} />
       </div>
-      <div className='mb-4 text-lg'>Price: {formattedPrice}</div>
+      <div className='mb-4 text-lg'>
+        <Price isMxn={mxnPrice} price={price} />
+      </div>
       {excerpt && <p className='mb-4 text-lg leading-relaxed'>{excerpt}</p>}
       {representative && <Avatar name={representative.name} picture={representative.picture} />}
     </div>

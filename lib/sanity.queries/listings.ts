@@ -15,9 +15,11 @@ export const listingFields = groq`
   seoKeywords,
   seoImage,
   price,
+  mxnPrice,
   bedrooms,
   bathrooms,
   area,
+  landArea,
   location,
   amenities,
   tags,
@@ -41,7 +43,7 @@ export const listingAndMoreListingsQuery = groq`
   "listing": *[_type == "listing" && slug.current == $slug] | order(_updatedAt desc) [0] {
     ${listingFields}
   },
-  "moreListings": *[_type == "listing" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
+  "moreListings": *[_type == "listing" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...3] {
     ${listingFields}
   }
 }`;
@@ -90,6 +92,7 @@ export interface Listing {
   bedrooms?: number;
   bathrooms?: number;
   area?: number;
+  landArea?: number;
   location?: any;
   amenities?: string[];
   tags?: string[];
@@ -101,4 +104,5 @@ export interface Listing {
   style?: string;
   agent?: Agent;
   contact?: Contact;
+  mxnPrice?: boolean;
 }

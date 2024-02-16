@@ -25,8 +25,11 @@ export default defineType({
   type: 'document',
   groups: [
     { name: 'content', title: 'Content' },
-    { name: 'detail', title: 'Details' },
     { name: 'media', title: 'Media' },
+    { name: 'pricing', title: 'Pricing' },
+    { name: 'detail', title: 'Property Details' },
+    { name: 'contact', title: 'Contact Info.' },
+    { name: 'location', title: 'Location' },
     { name: 'metadata', title: 'Metadata' },
     { name: 'seo', title: 'SEO' },
   ],
@@ -99,26 +102,20 @@ export default defineType({
       description: 'Add images to the gallery',
       group: 'media',
     }),
-    defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: [{ type: authorType.name }],
-      group: 'content',
-    }),
-    defineField({
-      name: 'agent',
-      title: 'Agent',
-      type: 'reference',
-      to: [{ type: agentType.name }],
-      group: 'detail',
-    }),
+    // Contact fields
     defineField({
       name: 'contact',
       title: 'Contact Information',
       description: 'Add the contact information for the listing if it is different from the agent',
       type: 'contact',
-      group: 'detail',
+      group: 'contact',
+    }),
+    defineField({
+      name: 'agent',
+      title: 'Agent - (Optional)',
+      type: 'reference',
+      to: [{ type: agentType.name }],
+      group: 'contact',
     }),
     // SEO fields
     defineField({
@@ -139,14 +136,22 @@ export default defineType({
       type: 'image',
       group: ['seo', 'media'],
     }),
-    // Details of the listing
+    // Pricing fields
+    defineField({
+      name: 'mxnPrice',
+      title: 'Display Price as MXN',
+      type: 'boolean',
+      group: 'pricing',
+      description: 'Display the price in Mexican Pesos (USD by default)',
+    }),
     defineField({
       name: 'price',
       title: 'Price',
       type: 'number',
-      group: 'detail',
+      group: 'pricing',
       description: 'Add the price of the listing',
     }),
+    // Details of the listing
     defineField({
       name: 'bedrooms',
       title: 'Bedrooms',
@@ -160,27 +165,6 @@ export default defineType({
       type: 'number',
       group: 'detail',
       description: 'Add the number of bathrooms',
-    }),
-    defineField({
-      name: 'area',
-      title: 'Size of Construction',
-      type: 'number',
-      group: 'detail',
-      description: 'Add the area of the listing',
-    }),
-    defineField({
-      name: 'landArea',
-      title: 'Size of Land',
-      type: 'number',
-      group: 'detail',
-      description: 'Add the area in sq meters of the land of the listing',
-    }),
-    defineField({
-      name: 'location',
-      title: 'Location',
-      type: 'geopoint',
-      group: 'detail',
-      description: 'Add the location of the listing',
     }),
     defineField({
       name: 'amenities',
@@ -212,14 +196,6 @@ export default defineType({
       group: 'detail',
       description: 'Add the status of the listing',
     }),
-    // add fields for association fee, type of property, postal code, neighbourhood, style,
-    defineField({
-      name: 'associationFee',
-      title: 'Association Fee',
-      type: 'number',
-      group: 'detail',
-      description: 'Add the association fee of the listing',
-    }),
     defineField({
       name: 'typeOfProperty',
       title: 'Type of Property',
@@ -239,20 +215,6 @@ export default defineType({
       description: 'Add the type of property of the listing',
     }),
     defineField({
-      name: 'postalCode',
-      title: 'Postal Code',
-      type: 'string',
-      group: 'detail',
-      description: 'Add the postal code of the listing',
-    }),
-    defineField({
-      name: 'neighbourhood',
-      title: 'Neighbourhood',
-      type: 'string',
-      group: 'detail',
-      description: 'Add the neighbourhood of the listing',
-    }),
-    defineField({
       name: 'style',
       title: 'Style',
       type: 'string',
@@ -268,6 +230,28 @@ export default defineType({
       },
       group: 'detail',
       description: 'Add the style of the listing',
+    }),
+    // Location fields
+    defineField({
+      name: 'location',
+      title: 'Location',
+      type: 'geopoint',
+      group: 'location',
+      description: 'Add the location of the listing',
+    }),
+    defineField({
+      name: 'postalCode',
+      title: 'Postal Code',
+      type: 'string',
+      group: 'location',
+      description: 'Add the postal code of the listing',
+    }),
+    defineField({
+      name: 'neighbourhood',
+      title: 'Neighbourhood',
+      type: 'string',
+      group: 'location',
+      description: 'Add the neighbourhood of the listing',
     }),
   ],
   preview: {
@@ -285,14 +269,13 @@ export default defineType({
       seoKeywords: 'seoKeywords',
       seoImage: 'seoImage',
       price: 'price',
+      mxnPrice: 'mxnPrice',
       bedrooms: 'bedrooms',
       bathrooms: 'bathrooms',
-      area: 'area',
       location: 'location',
       amenities: 'amenities',
       tags: 'tags',
       status: 'status',
-      associationFee: 'associationFee',
       typeOfProperty: 'typeOfProperty',
       postalCode: 'postalCode',
       neighbourhood: 'neighbourhood',

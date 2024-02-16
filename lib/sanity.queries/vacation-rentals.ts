@@ -62,9 +62,11 @@ export const vacationRetnalFields = groq`
   seoKeywords,
   seoImage,
   price,
+  mxnPrice,
   bedrooms,
   bathrooms,
   area,
+  landArea,
   location,
   amenities,
   tags,
@@ -88,7 +90,7 @@ export const vacationRentalsAndMoreVacationRentalsQuery = groq`
   "vacationRental": *[_type == "vacationRentals" && slug.current == $slug] | order(_updatedAt desc) [0] {
     ${vacationRetnalFields}
   },
-  "moreListings": *[_type == "vacationRentals" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
+  "moreListings": *[_type == "vacationRentals" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...3] {
     ${vacationRetnalFields}
   }
 }`;

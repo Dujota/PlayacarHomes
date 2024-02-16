@@ -9,9 +9,10 @@ import ListingLineBreak from './ListingLineBreak';
 
 type DetailsProps = {
   listing: Listing;
+  resource?: string;
 };
 
-const ListingDetails = ({ listing }: DetailsProps) => {
+const ListingDetails = ({ listing, resource }: DetailsProps) => {
   return (
     <section className='font-poppins mb-[2rem] mt-8 flex flex-row flex-wrap items-start justify-center self-stretch text-left text-[1.5rem] text-black'>
       <div id='listing-details' className='flex w-auto flex-col flex-wrap items-center justify-center gap-[0.5rem]'>
@@ -24,7 +25,7 @@ const ListingDetails = ({ listing }: DetailsProps) => {
         />
         <AboutListing description={listing.description} />
         <ListingLineBreak />
-        <KeyFeatures listing={listing} />
+        <KeyFeatures listing={listing} resource={resource} />
       </div>
       <ContactForm buttonText='Send Message' />
     </section>

@@ -43,7 +43,7 @@ export default function ListingPage(props: ListingPageProps) {
             <>
               <article>
                 <ListingHeaderTitle resource={resource} title={listing.title} location={listing.location} neighbourhood={listing.neighbourhood} postalCode={listing.postalCode} />
-                <ListingBody listing={listing} />
+                <ListingBody resource={resource} listing={listing} />
               </article>
               <SectionSeparator />
             </>

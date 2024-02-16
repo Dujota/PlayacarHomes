@@ -8,13 +8,13 @@ interface PropertyCardDetailsProps extends Listing {
   resource?: string;
 }
 
-const PropertyCardDetails: React.FC<PropertyCardDetailsProps> = ({ title, price, location, neighbourhood, postalCode, resource }) => {
+const PropertyCardDetails: React.FC<PropertyCardDetailsProps> = ({ title, price, location, neighbourhood, postalCode, resource, mxnPrice }) => {
   return (
     <>
       <h5 className='font-inherit relative m-0 inline-block w-[28.5rem] font-medium text-inherit sm:w-auto sm:self-stretch'>{title}</h5>
 
       <div className='flex flex-row items-center justify-start gap-[0.5rem] text-[1.31rem] text-blue'>
-        <Price resource={resource} price={price} />
+        <Price resource={resource} price={price} isMxn={mxnPrice} />
       </div>
 
       <div className='flex flex-row items-center justify-start gap-[0.5rem] text-[0.94rem]'>

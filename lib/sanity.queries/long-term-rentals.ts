@@ -62,9 +62,11 @@ export const longTermRentalFields = groq`
   seoKeywords,
   seoImage,
   price,
+  mxnPrice,
   bedrooms,
   bathrooms,
   area,
+  landArea,
   location,
   amenities,
   tags,
@@ -88,7 +90,7 @@ export const longTermRentalAndMoreLongTermRentalQuery = groq`
   "rental": *[_type == "rentals" && slug.current == $slug] | order(_updatedAt desc) [0] {
     ${longTermRentalFields}
   },
-  "moreListings": *[_type == "rentals" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
+  "moreListings": *[_type == "rentals" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...3] {
     ${longTermRentalFields}
   }
 }`;
