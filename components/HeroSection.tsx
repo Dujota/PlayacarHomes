@@ -19,7 +19,7 @@ export default function HeroSection({ heroSection }: { heroSection: any }) {
                 href='#'
               >
                 Get started
-                <Image alt='arrow' width={24} height={24} src='/right-arrow.svg' />
+                <Image loading='eager' alt='arrow' width={24} height={24} src='/right-arrow.svg' />
               </Link>
               <Link
                 className='border-gray-200 text-gray-800 hover:bg-gray-50  inline-flex items-center justify-center gap-x-2 rounded-lg border bg-white px-4 py-3 text-sm font-medium shadow-sm disabled:pointer-events-none disabled:opacity-50'
