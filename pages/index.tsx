@@ -1,8 +1,9 @@
 import FeaturedPropertyCardBanner from 'components/common/banners/FeaturedPropertyBanner';
 import LatestNewsBanner from 'components/common/banners/LatestNewsBanner';
 import { Blog } from 'components/common/cards/FeaturedBlogCard';
+import Newsletter from 'components/common/forms/NewsLetter';
+import SubscriptionForm from 'components/common/forms/SubscriptionForm';
 import NewsLetterModal from 'components/common/modals/NewsLetterModal';
-import Newsletter from 'components/common/NewsLetter';
 import WhyUsSection from 'components/common/WhyUs';
 import HeroSection from 'components/HeroSection';
 // import CustomerTestimonials from '../components/customer-testimonials';
@@ -29,12 +30,13 @@ interface PageProps {
 }
 
 const Homepage: NextPage = ({ featuredPosts, featuredListings, featuredLongTermRentals, featuredVacationRentals, pageBuilder, settings, preview, token }: PageProps) => {
-  const [heroSection, newsletterForm, whyUsSection] = pageBuilder;
+  const [heroSection, subscriptionForm, newsletterForm, whyUsSection] = pageBuilder;
 
   return (
     <div className='relative flex w-full flex-col items-start justify-start gap-[3.94rem] overflow-hidden bg-white'>
       <main className='flex flex-col items-center justify-center gap-[7.06rem] self-stretch'>
         <HeroSection heroSection={heroSection} />
+        <SubscriptionForm heading={subscriptionForm.label.split('.')} />
         <FeaturedPropertyCardBanner resource='listings' title='Popular Properties For Sale' listings={featuredListings} ctaLink='/listings' />
         <WhyUsSection heading={whyUsSection.heading} subheading={whyUsSection.subheading} whyUsCards={whyUsSection.whyUsCards} />
         <FeaturedPropertyCardBanner resource='rentals' title='Long Term Rentals For You' listings={featuredLongTermRentals} ctaLink='/rentals' />

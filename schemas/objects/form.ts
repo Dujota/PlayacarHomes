@@ -8,10 +8,12 @@ export default defineType({
   icon: FaWpforms,
   fields: [
     defineField({
+      title: 'Title',
       name: 'label',
       type: 'string',
     }),
     defineField({
+      title: 'Description (Optional)',
       name: 'heading',
       type: 'string',
     }),

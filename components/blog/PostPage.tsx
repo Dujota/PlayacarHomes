@@ -7,7 +7,7 @@ import PostPageHead from 'components/blog/PostPageHead';
 import PostTitle from 'components/blog/PostTitle';
 import SectionSeparator from 'components/common/dividers/SectionSeparator';
 import PostHeader from 'components/common/headers/PostHeader';
-import Newsletter from 'components/common/NewsLetter';
+import Newsletter from 'components/common/forms/NewsLetter';
 // Sanity
 import type { Post } from 'lib/sanity.queries/blog';
 import type { Settings } from 'lib/sanity.queries/settings';

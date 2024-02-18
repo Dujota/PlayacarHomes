@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 
-import Newsletter from '../NewsLetter';
+import Newsletter from '../forms/NewsLetter';
 
 export default function NewsLetterModal() {
   const [showModal, setShowModal] = useState(false);
@@ -45,14 +45,14 @@ export default function NewsLetterModal() {
     return (
       <>
         <div className='fixed inset-0 z-[50000] flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none'>
-          <div className='relative mx-auto mb-6 w-auto w-full max-w-4xl'>
+          <div className='relative mx-auto mb-6 w-full max-w-4xl'>
             <div className='relative flex w-full flex-col rounded-lg border-0 bg-bg shadow-lg outline-none focus:outline-none'>
               {/* Close Modal */}
               <button
                 className='float-right ml-auto border-0 bg-transparent p-1 text-3xl font-semibold leading-none text-black outline-none focus:outline-none'
                 onClick={closeModal}
               >
-                <span className='mr-4 block h-6 w-6 bg-transparent text-4xl text-black outline-none focus:outline-none'>×</span>
+                <span className='mr-4 block h-auto w-6 bg-transparent text-4xl text-black outline-none focus:outline-none'>×</span>
               </button>
 
               {/*body*/}

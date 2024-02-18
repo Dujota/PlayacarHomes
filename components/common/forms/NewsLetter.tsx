@@ -2,7 +2,7 @@ import { subscribeUser } from 'lib/api/email';
 import { validateEmail } from 'lib/helpers/string-helpers';
 import React, { useCallback, useState } from 'react';
 
-import Honeypot from './forms/fields/Honeypot';
+import Honeypot from './fields/Honeypot';
 
 interface NewsletterProps {
   title?: string;
@@ -55,7 +55,7 @@ const Newsletter = ({
         setErrors(newErrors);
         return !hasError;
       };
-      // window.alert(`Submitted Email: ${email}`);
+
       if (validate()) {
         await subscribeUser(email, setLoading, setMessage, setSuccess);
 
@@ -67,7 +67,7 @@ const Newsletter = ({
       }
     },
     [confirmEmail, email, isModal, setFormSubmitted, toggle]
-  ); // Dependency on the email state
+  );
 
   return (
     <section className='font-poppins flex flex-row flex-wrap items-center justify-center self-stretch bg-bg px-[0rem] py-[4.69rem] text-center text-[2.25rem] text-black'>
@@ -86,7 +86,7 @@ const Newsletter = ({
           ) : (
             <>
               <input
-                className='font-poppins m-[0.65rem] box-border flex h-[2.75rem] w-[30.63rem] flex-row items-center justify-start bg-[transparent] px-[1rem] py-[0rem] text-[0.88rem] font-light [border:none] md:max-w-[15.5rem]'
+                className='font-poppins m-[0.65rem] box-border flex h-[2.75rem] w-[30.63rem] flex-row items-center justify-start border-0 border-b-2 border-black bg-[transparent] px-[1rem] py-[0rem] text-[0.88rem]  font-light  focus:outline-none md:max-w-[15.5rem]'
                 type='email'
                 placeholder='Email Address'
                 id='newsletter-email'

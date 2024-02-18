@@ -2,7 +2,7 @@
 
 import PageTitle from 'components/common/headers/PageTitle';
 import NewsLetterModal from 'components/common/modals/NewsLetterModal';
-import Newsletter from 'components/common/NewsLetter';
+import Newsletter from 'components/common/forms/NewsLetter';
 import PropertyList from 'components/listings/PropertyList';
 import { getAllVacationRentals, getSettings } from 'lib/sanity.client';
 import type { Settings } from 'lib/sanity.queries/settings';

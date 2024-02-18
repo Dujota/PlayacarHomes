@@ -20,6 +20,7 @@ module.exports = {
         lightslategray: 'rgba(114, 151, 175, 0.25)',
         black: '#000',
         gray: '#fcfcfd',
+        'gray-900': '#d6d6d6',
         grey: '#777e90',
         'paragraph-color': '#6f7487',
         aliceblue: '#eef9fe',

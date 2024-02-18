@@ -1,7 +1,7 @@
 // import ListingSearchForm from 'components/common/forms/ListingSearchForm';
 import PageTitle from 'components/common/headers/PageTitle';
 import NewsLetterModal from 'components/common/modals/NewsLetterModal';
-import Newsletter from 'components/common/NewsLetter';
+import Newsletter from 'components/common/forms/NewsLetter';
 import PropertyList from 'components/listings/PropertyList';
 import { getAllListings, getSettings } from 'lib/sanity.client';
 import { Listing } from 'lib/sanity.queries/listings';

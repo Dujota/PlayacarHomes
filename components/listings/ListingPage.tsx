@@ -1,6 +1,6 @@
 import FeaturedPropertyCardBanner from 'components/common/banners/FeaturedPropertyBanner';
 import SectionSeparator from 'components/common/dividers/SectionSeparator';
-import Newsletter from 'components/common/NewsLetter';
+import Newsletter from 'components/common/forms/NewsLetter';
 import ListingBody from 'components/listings/ListingBody';
 import ListingHeaderTitle from 'components/listings/ListingHeaderTitle';
 import ListingPageHead from 'components/listings/ListingPageHead';

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Newsletter from '../NewsLetter';
+import Newsletter from '../forms/NewsLetter';
 
 export default function SmallModal() {
   const [showModal, setShowModal] = useState(true);

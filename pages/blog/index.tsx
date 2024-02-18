@@ -1,7 +1,7 @@
 import BlogList from 'components/blog/BlogList';
 import PageTitle from 'components/common/headers/PageTitle';
 import NewsLetterModal from 'components/common/modals/NewsLetterModal';
-import Newsletter from 'components/common/NewsLetter';
+import Newsletter from 'components/common/forms/NewsLetter';
 import { getAllPosts, getSettings } from 'lib/sanity.client';
 import type { Post } from 'lib/sanity.queries/blog';
 import type { Settings } from 'lib/sanity.queries/settings';
