@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 import Logo from '../icons/Logo';
 import NavLinks from './NavLinks';
@@ -43,6 +44,10 @@ interface NavBarProps {
 // };
 
 function NavBar({ links, logo }: NavBarProps) {
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  console.log(showMobileMenu);
+
   return (
     <nav className='border-gray-200 bg-white'>
       <div className='max-w-screen-xl mx-auto flex flex-wrap items-center justify-between p-4'>
@@ -56,45 +61,42 @@ function NavBar({ links, logo }: NavBarProps) {
           >
             Get started
           </button>
-          <button
-            data-collapse-toggle='navbar-cta'
-            type='button'
-            className='text-gray-500 hover:bg-gray-100 focus:ring-gray-200 hidden h-10 w-10 items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 md:inline-flex'
-            aria-controls='navbar-cta'
-            aria-expanded='false'
-          >
-            <span className='sr-only'>Open main menu</span>
-            <svg className='h-5 w-5' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 17 14'>
-              <path stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M1 1h15M1 7h15M1 13h15' />
-            </svg>
-          </button>
+          {!showMobileMenu ? (
+            <button
+              data-collapse-toggle='navbar-cta'
+              type='button'
+              className='text-gray-500 hover:bg-gray-100 focus:ring-gray-200 hidden h-10 w-10 items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 md:inline-flex'
+              aria-controls='navbar-cta'
+              aria-expanded='false'
+              onClick={() => {
+                debugger;
+                setShowMobileMenu(true);
+              }}
+            >
+              <span className='sr-only'>Open main menu</span>
+              <svg className='h-5 w-5' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 17 14'>
+                <path stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M1 1h15M1 7h15M1 13h15' />
+              </svg>
+            </button>
+          ) : (
+            <button
+              data-collapse-toggle='navbar-cta'
+              type='button'
+              className='text-gray-500 hover:bg-gray-100 focus:ring-gray-200 hidden h-10 w-10 items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 md:inline-flex'
+              aria-controls='navbar-cta'
+              aria-expanded='true'
+              onClick={() => setShowMobileMenu(false)}
+            >
+              <span className='sr-only'>Close main menu</span>
+              <svg width='36' height='36' viewBox='0 0 36 36' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M27 9L9 27M9 9L27 27' stroke='#101828' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' />
+              </svg>
+            </button>
+          )}
         </div>
 
         {/* Links */}
-        <div className='order-1 flex w-auto items-center justify-between md:hidden md:w-full' id='navbar-cta'>
-          <ul className='border-gray-100 bg-gray-50 mt-0 flex flex-row space-x-8 rounded-lg border-0 bg-white p-0 font-medium rtl:space-x-reverse md:mt-4 md:flex-col md:border md:p-4'>
-            <li>
-              <Link href='#' className='block rounded p-0 hover:text-grey hover:underline md:bg-transparent md:px-3 md:py-2' aria-current='page'>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href='#' className='hover:bg-gray-100 block rounded p-0 hover:text-grey hover:underline  md:px-3 md:py-2 md:hover:bg-transparent'>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href='#' className='hover:bg-gray-100 block rounded p-0 hover:text-grey hover:underline  md:px-3 md:py-2 md:hover:bg-transparent'>
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link href='#' className='hover:bg-gray-100 block rounded p-0 hover:text-grey hover:underline  md:px-3 md:py-2 md:hover:bg-transparent'>
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </div>
+        <NavLinks isMobile={showMobileMenu} links={links} />
       </div>
     </nav>
   );
