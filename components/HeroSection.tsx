@@ -5,15 +5,15 @@ import Link from 'next/link';
 export default function HeroSection({ heroSection }: { heroSection: any }) {
   return (
     <section className='w-[100vw] bg-slate-100'>
-      <article className='mx-auto max-w-[85rem]  px-6 sm:px-4 lg:px-8'>
+      <article className='mx-auto max-w-[110rem]  px-6 sm:px-4 lg:px-8'>
         <div className='grid grid-cols-2 gap-4 md:grid-cols-1 md:items-center md:gap-8 xl:gap-20'>
-          <div className='flex flex-col justify-center md:mt-5'>
+          <div className='flex flex-col items-center justify-center md:mt-5'>
             <h1 className='text-gray-800 e block text-6xl font-bold sm:!text-3xl md:self-center md:text-4xl lg:leading-tight'>
               <span className='heading'>{heroSection.heading}</span>
             </h1>
             <p className='text-gray-800 dark:text-gray-400 mt-3 text-lg sm:text-center md:self-center'>{heroSection.tagline}</p>
 
-            <div className='mt-7 inline-flex w-full gap-3 sm:grid md:justify-center'>
+            <div className='mt-7 inline-flex w-full justify-center gap-3 sm:grid'>
               <Link
                 className='hover:bg-blue-700 dark:focus:ring-gray-600 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue px-4 py-3 text-sm font-semibold text-white disabled:pointer-events-none disabled:opacity-50 dark:focus:outline-none dark:focus:ring-1'
                 href='#'
