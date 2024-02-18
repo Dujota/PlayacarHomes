@@ -1,6 +1,6 @@
 import { subscribeUser } from 'lib/api/email';
 import { validateEmail } from 'lib/helpers/string-helpers';
-import React, { useCallback, useState } from 'react';
+import React, { Fragment, useCallback, useState } from 'react';
 
 import Honeypot from './fields/Honeypot';
 
@@ -53,16 +53,10 @@ const SubscriptionForm = ({ heading }) => {
     <section className='flex h-[400px] w-full flex-col items-center justify-center gap-14 bg-whitesmoke-200 p-4'>
       <div className='flex items-baseline gap-6 space-x-2 sm:!gap-0 md:gap-2'>
         {heading?.map((item: string, index: number) => (
-          <>
-            <h3 key={item} className='text-[1rem] font-semibold text-black'>
-              {item}
-            </h3>
-            {index !== heading.length - 1 && (
-              <p key={index} className='text-[2rem]'>
-                .
-              </p>
-            )}
-          </>
+          <Fragment key={index}>
+            <h3 className='text-[1rem] font-semibold text-black'>{item}</h3>
+            {index !== heading.length - 1 && <p className='text-[2rem]'>.</p>}
+          </Fragment>
         ))}
       </div>
       <form className='mt-4 flex w-full max-w-lg items-center gap-6' onSubmit={handleSubmit}>
