@@ -21,9 +21,9 @@ export const contactInfo = [
 ];
 export const logo = '/logo.png';
 export const socialIcons = [
-  { label: 'facebook', iconSrc: '/facebook.svg' },
-  { label: 'instagram', iconSrc: '/instagram.svg' },
-  { label: 'twitter', iconSrc: '/twitter.svg' },
+  { label: 'Facebook', iconSrc: '/facebook.svg', href: 'https://www.facebook.com/homesplayacar' },
+  { label: 'Instagram', iconSrc: '/instagram.svg', href: 'https://www.instagram.com/playacar_homes' },
+  { label: 'WhatsApp', iconSrc: '/whatsapp.svg', href: 'https://wa.me/529841130567' },
   // { label: 'linkedin', iconSrc: '/linkedin.svg' },
 ];
 
