@@ -36,7 +36,7 @@ const PropertyCard = ({ details, resource = 'listings', isFeatured = false }: Pr
 
           {/* TODO: remove container ???? */}
           <div className='flex flex-row items-center justify-start gap-[3rem] self-stretch text-[0.88rem] sm:gap-[1.25rem]'>
-            <PropertyCardDetailIcon details={details} />
+            <PropertyCardDetailIcon resource={resource} details={details} />
           </div>
         </div>
 

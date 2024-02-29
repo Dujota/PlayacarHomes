@@ -40,4 +40,9 @@ export const navBarLinks = [
 // Property Cards
 
 // Detail Icons
-export const detailIcons = { beds: { icon: '/bed.svg', label: 'Beds' }, baths: { icon: '/bath.svg', label: 'Bathrooms' }, area: { icon: '/area.svg', label: 'm²' } };
+export const detailIcons = {
+  beds: { icon: '/bed.svg', label: 'Beds' },
+  baths: { icon: '/bath.svg', label: 'Bathrooms' },
+  area: { icon: '/area.svg', label: 'm²' },
+  type: { icon: '/paint-black.svg', label: 'Type' },
+};
