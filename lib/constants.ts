@@ -2,7 +2,7 @@ export const footerNavLinks = [
   { href: '/listings?q=buy', text: 'Buy' },
   { href: '/listings?q=rent', text: 'Rent' },
   // { href: '/listings?q=commercial', text: 'Commercial' },
-  { href: '/blog', text: 'Blog' },
+  { href: '/blog', text: 'News' },
   { href: '#contact', text: 'Get An Estimate' },
 ];
 
@@ -15,16 +15,16 @@ export const footerNavAltLinks = [
 ];
 
 export const contactInfo = [
-  { icon: '/phone.svg', title: 'Phone Number', description: '+41 21 616 10 10' },
-  { icon: '/email.svg', title: 'Email Address', description: 'contact@playacarhomes.com' },
-  { icon: '/location.svg', title: 'Our Location', description: 'Playcar' },
+  { type: 'phone', icon: '/phone.svg', title: 'Phone Number', description: '+52 984 113 0567' },
+  { type: 'email', icon: '/email.svg', title: 'Email Address', description: 'playacarrealty@gmail.com' },
+  { type: 'whatsapp', icon: '/whatsapp-white.svg', title: 'Our Location', description: 'WhatsApp', href: 'https://wa.me/529841130567' },
 ];
 export const logo = '/logo.png';
+
 export const socialIcons = [
   { label: 'Facebook', iconSrc: '/facebook.svg', href: 'https://www.facebook.com/homesplayacar' },
   { label: 'Instagram', iconSrc: '/instagram.svg', href: 'https://www.instagram.com/playacar_homes' },
   { label: 'WhatsApp', iconSrc: '/whatsapp.svg', href: 'https://wa.me/529841130567' },
-  // { label: 'linkedin', iconSrc: '/linkedin.svg' },
 ];
 
 export const currentYear = new Date().getFullYear();
@@ -36,8 +36,6 @@ export const navBarLinks = [
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '#contact' },
 ];
-
-// Property Cards
 
 // Detail Icons
 export const detailIcons = {
