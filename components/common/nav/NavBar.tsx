@@ -25,12 +25,14 @@ function NavBar({ links, logo }: NavBarProps) {
 
         {/* CTA LINKS */}
         <div className='order-2 flex space-x-0 rtl:space-x-reverse nav:order-1 nav:space-x-3'>
-          <button
+          <Link
             type='button'
             className='hover:bg-blue-700 dark:focus:ring-gray-600 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue px-4 py-3 text-sm font-semibold text-white disabled:pointer-events-none disabled:opacity-50 dark:focus:outline-none dark:focus:ring-1'
+            href='/#suggested-listings'
+            shallow={true}
           >
             Get started
-          </button>
+          </Link>
           {!showMobileMenu ? (
             <button
               data-collapse-toggle='navbar-cta'

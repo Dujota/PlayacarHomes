@@ -22,7 +22,8 @@ export default function HeroSection({ heroSection }: { heroSection: any }) {
               <div className='mt-7 inline-flex w-full justify-center gap-3 sm:grid'>
                 <Link
                   className='hover:bg-blue-700 dark:focus:ring-gray-600 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue px-4 py-3 text-sm font-semibold text-white disabled:pointer-events-none disabled:opacity-50 dark:focus:outline-none dark:focus:ring-1'
-                  href='#'
+                  href='#suggested-listings'
+                  shallow={true}
                 >
                   Get started
                   <Image loading='eager' alt='arrow' width={24} height={24} src='/right-arrow.svg' />
