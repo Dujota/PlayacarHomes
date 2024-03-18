@@ -12,6 +12,8 @@ type DetailsProps = {
   resource?: string;
 };
 
+const headingMessage = 'Interested in this property? Get in touch with the owner directly using the form below. Submit your inquiry, and the owner will contact you.';
+
 const ListingDetails = ({ listing, resource }: DetailsProps) => {
   return (
     <section className='font-poppins mb-[2rem] mt-8 flex flex-row flex-wrap items-start justify-center self-stretch text-left text-[1.5rem] text-black'>
@@ -27,7 +29,7 @@ const ListingDetails = ({ listing, resource }: DetailsProps) => {
         <ListingLineBreak />
         <KeyFeatures listing={listing} resource={resource} />
       </div>
-      <ContactForm buttonText='Send Message' />
+      <ContactForm buttonText='Send Message' headingMessage={headingMessage} />
     </section>
   );
 };

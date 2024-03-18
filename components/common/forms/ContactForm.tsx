@@ -4,9 +4,10 @@ import { useState } from 'react';
 
 import Honeypot from './fields/Honeypot';
 
-const headingMessage = `Thanks for reaching out to us. Whether you're curious about listings, have a question, or need support on something else, we're here for you. Fill out this quick form, and we'll get back to you promptly. Your journey matters to us, every step of the way.`;
+const defaultMessage = `Thanks for reaching out to us. Whether you're curious about listings, have a question, or need support on something else, we're here for you. Fill out this quick form, and we'll get back to you promptly. Your journey matters to us, every step of the way.`;
 
 type ContactFormType = {
+  headingMessage?: string;
   buttonText?: string;
   toggle?: () => void;
 };
@@ -26,7 +27,7 @@ function ContactFormMessage({ message }: { message: string }) {
   );
 }
 
-const ContactForm = ({ buttonText = 'Send Message', toggle }: ContactFormType) => {
+const ContactForm = ({ buttonText = 'Send Message', headingMessage = defaultMessage, toggle }: ContactFormType) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
   const [confirmEmail, setConfirmEmail] = useState('');
