@@ -4,6 +4,8 @@ import { useState } from 'react';
 
 import Honeypot from './fields/Honeypot';
 
+const headingMessage = `Thanks for reaching out to us. Whether you're curious about listings, have a question, or need support on something else, we're here for you. Fill out this quick form, and we'll get back to you promptly. Your journey matters to us, every step of the way.`;
+
 type ContactFormType = {
   buttonText?: string;
   toggle?: () => void;
@@ -85,15 +87,13 @@ const ContactForm = ({ buttonText = 'Send Message', toggle }: ContactFormType) =
           {!success && (
             <>
               <div className='flex flex-col items-start justify-start gap-[16px]'>
-                <h2 className='font-inherit relative m-0 inline-block w-[350px] font-medium text-inherit'>Ask More Details</h2>
-                <div className='relative inline-block w-[350px] text-sm leading-[170%] text-grey'>
-                  Interested in this property? Get in touch with the owner directly using the form below. Submit your inquiry, and the owner will contact you.
-                </div>
+                <h2 className='font-inherit relative m-0 inline-block w-[350px] font-medium text-inherit'>Ask For More Details</h2>
+                <div className='relative inline-block w-[350px] text-sm leading-[170%] text-grey'>{headingMessage}</div>
               </div>
               <div className='flex flex-col items-start justify-start gap-[32px] text-sm text-grey'>
                 <div className='flex flex-col items-start justify-start gap-[12px]'>
                   <input
-                    className={`font-poppins relative h-[60px] w-[350px] bg-[transparent] text-sm font-light [border:none] ${inputStyles}`}
+                    className={`font-poppins relative h-[60px] w-[350px] border border-slategray-100 bg-[transparent] text-sm font-light ${inputStyles}`}
                     type='email'
                     placeholder='Email'
                     value={email}
@@ -102,7 +102,7 @@ const ContactForm = ({ buttonText = 'Send Message', toggle }: ContactFormType) =
                   {errors.email && <div className='text-red-500'>{errors.email}</div>}
 
                   <input
-                    className={`font-poppins relative h-[60px] w-[350px] bg-[transparent] text-sm font-light [border:none] ${inputStyles}`}
+                    className={`font-poppins relative h-[60px] w-[350px] border border-slategray-100 bg-[transparent] text-sm font-light ${inputStyles}`}
                     type='tel'
                     placeholder='Phone Number'
                     value={phoneNumber}
@@ -113,7 +113,7 @@ const ContactForm = ({ buttonText = 'Send Message', toggle }: ContactFormType) =
                   <Honeypot onHoneypotChange={setConfirmEmail} />
 
                   <textarea
-                    className={`font-poppins relative h-40 w-[350px] bg-[transparent] text-sm font-light [border:none] ${inputStyles}`}
+                    className={`font-poppins relative h-40 w-[350px] border border-slategray-100 bg-[transparent] text-sm font-light ${inputStyles}`}
                     placeholder='Your Message'
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}

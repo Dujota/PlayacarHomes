@@ -1,17 +1,16 @@
-// import ListingSearchForm from 'components/common/forms/ListingSearchForm';
-
+// Components
+import Newsletter from 'components/common/forms/NewsLetter';
 import PageTitle from 'components/common/headers/PageTitle';
 import NewsLetterModal from 'components/common/modals/NewsLetterModal';
-import Newsletter from 'components/common/forms/NewsLetter';
 import PropertyList from 'components/listings/PropertyList';
+// Sanity
 import { getAllVacationRentals, getSettings } from 'lib/sanity.client';
+// Types
 import type { Settings } from 'lib/sanity.queries/settings';
 import type { VacationRental } from 'lib/sanity.queries/vacation-rentals';
 import type { GetStaticProps, NextPage, PreviewData } from 'next';
 import type { Query } from 'types/sanity-queries';
 
-// import CardGridContainer from '../components/card-grid-container';
-// import ListingindexSearch from '../components/listingindex-search';
 const pageTitle = 'Vacation Rentals For You';
 
 const VacationRentalsIndexPage: NextPage = ({ vacationRentals, settings }: PageProps) => {
@@ -19,7 +18,6 @@ const VacationRentalsIndexPage: NextPage = ({ vacationRentals, settings }: PageP
     <div className='relative flex w-full flex-col items-center justify-center gap-[6.5rem] overflow-hidden bg-white'>
       <main className='font-poppins flex flex-col items-center justify-center gap-[4.94rem] self-stretch text-center text-[2.25rem] text-black'>
         <PageTitle title={pageTitle} />
-        {/* <ListingindexSearch /> */}
         <PropertyList resource='vacation-rentals' listings={vacationRentals} />
         <Newsletter />
         <NewsLetterModal />
