@@ -38,6 +38,9 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      options: {
+        maxLength: 33,
+      },
       validation: (rule) => rule.required(),
       group: 'content',
     }),
