@@ -32,17 +32,17 @@ export const homepageDataQuery = groq`
       },
     }
   },
-  "featuredPosts": *[_type == "post"] | order(date desc, _updatedAt desc)[0...2] {
+  "featuredPosts": *[_type == "post"] | order(orderRank)[0...2] {
     content,
     ${postFields}
   },
-  "featuredListings": *[_type == "listing"] | order(date desc, _updatedAt desc)[0...3] {
+  "featuredListings": *[_type == "listing"] | order(orderRank)[0...3] {
     ${listingFields}
   },
-  "featuredLongTermRentals": *[_type == "rentals"] | order(date desc, _updatedAt desc)[0...3] {
+  "featuredLongTermRentals": *[_type == "rentals"] | order(orderRank)[0...3] {
     ${longTermRentalFields}
   },
-  "featuredVacationRentals": *[_type == "vacationRentals"] | order(date desc, _updatedAt desc)[0...3] {
+  "featuredVacationRentals": *[_type == "vacationRentals"] | order(orderRank)[0...3] {
     ${vacationRetnalFields}
   }
 }`;

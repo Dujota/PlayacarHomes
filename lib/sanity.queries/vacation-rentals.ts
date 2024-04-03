@@ -81,16 +81,16 @@ export const vacationRetnalFields = groq`
 `;
 
 export const vacationRentalsIndexQuery = groq`
-*[_type == "vacationRentals"] | order(date desc, _updatedAt desc) {
+*[_type == "vacationRentals"] | order(orderRank) {
   ${vacationRetnalFields}
 }`;
 
 export const vacationRentalsAndMoreVacationRentalsQuery = groq`
 {
-  "vacationRental": *[_type == "vacationRentals" && slug.current == $slug] | order(_updatedAt desc) [0] {
+  "vacationRental": *[_type == "vacationRentals" && slug.current == $slug] | order(orderRank) [0] {
     ${vacationRetnalFields}
   },
-  "moreListings": *[_type == "vacationRentals" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...3] {
+  "moreListings": *[_type == "vacationRentals" && slug.current != $slug] | order(orderRank) [0...3] {
     ${vacationRetnalFields}
   }
 }`;

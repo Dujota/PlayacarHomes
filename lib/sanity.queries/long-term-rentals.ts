@@ -81,16 +81,16 @@ export const longTermRentalFields = groq`
 `;
 
 export const longTermRentalIndexQuery = groq`
-*[_type == "rentals"] | order(date desc, _updatedAt desc) {
+*[_type == "rentals"] | order(orderRank) {
   ${longTermRentalFields}
 }`;
 
 export const longTermRentalAndMoreLongTermRentalQuery = groq`
 {
-  "rental": *[_type == "rentals" && slug.current == $slug] | order(_updatedAt desc) [0] {
+  "rental": *[_type == "rentals" && slug.current == $slug] | order(orderRank) [0] {
     ${longTermRentalFields}
   },
-  "moreListings": *[_type == "rentals" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...3] {
+  "moreListings": *[_type == "rentals" && slug.current != $slug] | order(orderRank) [0...3] {
     ${longTermRentalFields}
   }
 }`;

@@ -1,3 +1,4 @@
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list';
 import { format, parseISO } from 'date-fns';
 import { GiFamilyHouse } from 'react-icons/gi';
 import { defineField, defineType } from 'sanity';
@@ -32,15 +33,14 @@ export default defineType({
     { name: 'metadata', title: 'Metadata' },
     { name: 'seo', title: 'SEO' },
   ],
+  orderings: [orderRankOrdering],
   fields: [
+    orderRankField({ type: '_id' }),
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
-      options: {
-        maxLength: 33,
-      },
-      validation: (rule) => rule.required(),
+      validation: (rule) => rule.required().min(10).max(33),
       group: 'content',
     }),
     defineField({
@@ -56,13 +56,13 @@ export default defineType({
       group: 'seo',
       validation: (rule) => rule.required(),
     }),
-    defineField({
-      name: 'featured',
-      title: 'Featured',
-      type: 'boolean',
-      group: 'content',
-      description: 'Add the featured status of the listing',
-    }),
+    // defineField({
+    //   name: 'featured',
+    //   title: 'Featured',
+    //   type: 'boolean',
+    //   group: 'content',
+    //   description: 'Add the featured status of the listing',
+    // }),
     defineField({
       name: 'description',
       title: 'Description',
@@ -261,7 +261,7 @@ export default defineType({
     select: {
       title: 'title',
       slug: 'slug.current',
-      featured: 'featured',
+      // featured: 'featured',
       description: 'description',
       excerpt: 'excerpt',
       coverImage: 'coverImage',

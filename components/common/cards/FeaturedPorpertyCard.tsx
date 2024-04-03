@@ -30,7 +30,7 @@ const FeaturedPropertyCard: React.FC<FeaturedPropertyCardProps> = ({ details, re
           <PropertyCardDetails {...details} />
           <CardLineBreak />
           <div className='flex flex-row items-center justify-start gap-[3rem] self-stretch text-[0.88rem] sm:gap-[1.25rem]'>
-            <PropertyCardDetailIcon details={details} />
+            <PropertyCardDetailIcon details={details} resource={resource} />
           </div>
         </div>
       </div>
