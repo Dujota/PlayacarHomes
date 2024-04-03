@@ -34,16 +34,16 @@ export const listingFields = groq`
 `;
 
 export const listingsIndexQuery = groq`
-*[_type == "listing"] | order(date desc, _updatedAt desc) {
+*[_type == "listing"] | order(orderRank) {
   ${listingFields}
 }`;
 
 export const listingAndMoreListingsQuery = groq`
 {
-  "listing": *[_type == "listing" && slug.current == $slug] | order(_updatedAt desc) [0] {
+  "listing": *[_type == "listing" && slug.current == $slug] | order(orderRank) [0] {
     ${listingFields}
   },
-  "moreListings": *[_type == "listing" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...3] {
+  "moreListings": *[_type == "listing" && slug.current != $slug] | order(orderRank) [0...3] {
     ${listingFields}
   }
 }`;

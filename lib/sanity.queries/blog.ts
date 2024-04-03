@@ -11,17 +11,17 @@ export const postFields = groq`
 `;
 
 export const indexQuery = groq`
-*[_type == "post"] | order(date desc, _updatedAt desc) {
+*[_type == "post"] | order(orderRank) {
   ${postFields}
 }`;
 
 export const postAndMoreStoriesQuery = groq`
 {
-  "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
+  "post": *[_type == "post" && slug.current == $slug] | order(orderRank) [0] {
     content,
     ${postFields}
   },
-  "morePosts": *[_type == "post" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
+  "morePosts": *[_type == "post" && slug.current != $slug] | order(orderRank) [0...2] {
     content,
     ${postFields}
   }

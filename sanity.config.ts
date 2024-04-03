@@ -8,7 +8,7 @@ import { previewDocumentNode } from 'plugins/previewPane';
 import { productionUrl } from 'plugins/productionUrl';
 import { settingsPlugin, settingsStructure } from 'plugins/settings';
 import { defineConfig } from 'sanity';
-import { deskTool } from 'sanity/desk';
+import { StructureBuilder, structureTool } from 'sanity/structure';
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash';
 // Sanity Schema types
 import agentType from 'schemas/agent';
@@ -46,7 +46,7 @@ export default defineConfig({
     types: [...documentTypes, ...objectTypes],
   },
   plugins: [
-    deskTool({
+    structureTool({
       structure: settingsStructure(settingsType),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),

@@ -7,7 +7,7 @@ const { beds, baths, area, type } = detailIcons;
 
 interface PropertyCardDetailIconProps {
   details: Listing;
-  resource: string;
+  resource?: string;
 }
 
 const PropertyCardDetailIcon = ({ details, resource = 'listing' }: PropertyCardDetailIconProps) => {
