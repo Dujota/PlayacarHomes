@@ -1,7 +1,7 @@
 // import ListingSearchForm from 'components/common/forms/ListingSearchForm';
+import Newsletter from 'components/common/forms/NewsLetter';
 import PageTitle from 'components/common/headers/PageTitle';
 import NewsLetterModal from 'components/common/modals/NewsLetterModal';
-import Newsletter from 'components/common/forms/NewsLetter';
 import PropertyList from 'components/listings/PropertyList';
 import { getAllLongTermRentals, getSettings } from 'lib/sanity.client';
 import type { LongTermRental } from 'lib/sanity.queries/long-term-rentals';
@@ -11,7 +11,7 @@ import type { Query } from 'types/sanity-queries';
 
 // import CardGridContainer from '../components/card-grid-container';
 // import ListingindexSearch from '../components/listingindex-search';
-const pageTitle = 'Popular Properties For You';
+const pageTitle = 'Long Term Rentals For You';
 
 interface PageProps {
   longTermRentals: LongTermRental[];

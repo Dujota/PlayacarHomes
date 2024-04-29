@@ -1,36 +1,46 @@
+import { sendMail } from 'lib/api/nodemailer';
+import { newSubscriberAdminMessage } from 'lib/email-templates/newsletter-sub';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
   message: string;
 };
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const email = req.body.mail;
-  const url = `https://api.sendgrid.com/v3/marketing/contacts`;
+const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  try {
+    const { method } = req;
+    const email = req.body.mail;
 
-  const data = {
-    contacts: [{ email: email }],
-    list_ids: [process.env.SENDGRID_MAILING_ID],
-  };
-  const headers = {
-    Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
-    'Content-Type': 'application/json',
-  };
-
-  const options = {
-    method: 'PUT',
-    headers: headers,
-    body: JSON.stringify(data),
-  };
-  const response = await fetch(url, options);
-  const json = await response.json();
-  if (json.errors) {
+    switch (method) {
+      case 'POST': {
+        const info = await sendMail({
+          subject: 'New Subscriber 🎉 -> Playacar Homes Website',
+          toEmail: process.env.NODEMAILER_EMAIL,
+          fromEmail: email,
+          otpText: 'NEW USER SUBSCRIBED TO THE MAILING LIST - PLAYACAR HOMES WEBSITE, EMAIL ADDRESS: ' + email,
+          emailHtml: newSubscriberAdminMessage(email),
+        });
+        console.log('INFO', info);
+        res.status(200).json({
+          message: 'Your email has been succesfully added to the mailing list. Welcome 👋',
+        });
+        break;
+      }
+      // case 'GET': {
+      //   res.status(200).send(req.auth_data);
+      //   break;
+      // }
+      default:
+        res.setHeader('Allow', ['POST', 'GET', 'PUT', 'DELETE']);
+        res.status(405).end(`Method ${method} Not Allowed`);
+        break;
+    }
+  } catch (err) {
+    console.log(err);
     res.status(500).json({
       message: 'Oops, there was a problem with your subscription, please try again or contact us',
     });
-  } else {
-    res.status(200).json({
-      message: 'Your email has been succesfully added to the mailing list. Welcome 👋',
-    });
   }
-}
+};
+
+export default handler;

@@ -1,23 +1,46 @@
-import sendgrid from '@sendgrid/mail';
+import { sendMail } from 'lib/api/nodemailer';
+import { newSubscriberAdminMessage } from 'lib/email-templates/newsletter-sub';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+type Data = {
+  message: string;
+};
 
-async function sendEmail(req, res) {
+const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   try {
-    // console.log("REQ.BODY", req.body);
-    await sendgrid.send({
-      to: 'denisdujota@gmail.com', // Your email where you'll receive emails
-      from: 'denisdujota@gmail.com', // your website email address here
-      subject: 'CONTACT FORM SUBMISSION',
-      html: `<div>You've got a mail</div>`,
+    const { method } = req;
+    const email = req.body.mail;
+
+    switch (method) {
+      case 'POST': {
+        await sendMail({
+          subject: 'New Subscriber 🎉 -> Playacar Homes Website',
+          toEmail: process.env.NODEMAILER_EMAIL,
+          fromEmail: email,
+          otpText: 'NEW USER SUBSCRIBED TO THE MAILING LIST - PLAYACAR HOMES WEBSITE, EMAIL ADDRESS: ' + email,
+          emailHtml: newSubscriberAdminMessage(email),
+        });
+
+        res.status(200).json({
+          message: 'Your email has been succesfully added to the mailing list. Welcome 👋',
+        });
+        break;
+      }
+      // case 'GET': {
+      //   res.status(200).send(req.auth_data);
+      //   break;
+      // }
+      default:
+        res.setHeader('Allow', ['POST', 'GET', 'PUT', 'DELETE']);
+        res.status(405).end(`Method ${method} Not Allowed`);
+        break;
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: 'Oops, there was a problem with your subscription, please try again or contact us',
     });
-    debugger;
-  } catch (error) {
-    debugger;
-    return res.status(error.statusCode || 500).json({ error: error.message, message: 'Oops, there was a problem on our end, please try again.' });
   }
+};
 
-  return res.status(200).json({ error: '', message: 'Thanks for reaching out! We will get back to you shortly.' });
-}
-
-export default sendEmail;
+export default handler;
