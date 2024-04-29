@@ -1,5 +1,5 @@
 import { sendMail } from 'lib/api/nodemailer';
-import { newSubscriberAdminMessage } from 'lib/email-templates/newsletter-sub';
+import { adminEmailTemplate } from 'lib/email-templates/contact-admin';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
@@ -9,20 +9,22 @@ type Data = {
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   try {
     const { method } = req;
-    const email = req.body.mail;
+    const email = req.body.email;
+    const phoneNumber = req.body.phoneNumber;
+    const message = req.body.message;
 
     switch (method) {
       case 'POST': {
         await sendMail({
-          subject: 'New Subscriber 🎉 -> Playacar Homes Website',
+          subject: 'New Inquiry 🎉 -> Playacar Homes Website',
           toEmail: process.env.NODEMAILER_EMAIL,
           fromEmail: email,
-          otpText: 'NEW USER SUBSCRIBED TO THE MAILING LIST - PLAYACAR HOMES WEBSITE, EMAIL ADDRESS: ' + email,
-          emailHtml: newSubscriberAdminMessage(email),
+          otpText: `INQUIRY --> CONTACT FORMPLAYACAR HOMES WEBSITE, EMAIL ADDRESS: ${email}, PHONE NUMBER: ${phoneNumber}, MESSAGE: ${message}`,
+          emailHtml: adminEmailTemplate({ phoneNumber, email, message }),
         });
 
         res.status(200).json({
-          message: 'Your email has been succesfully added to the mailing list. Welcome 👋',
+          message: 'Thanks for reaching out! We will get back to you shortly.',
         });
         break;
       }

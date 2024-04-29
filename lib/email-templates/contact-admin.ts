@@ -1,4 +1,4 @@
-export function adminEmailTemplate({ fullname, email, message }) {
+export function adminEmailTemplate({ phoneNumber, email, message }) {
   return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html lang="en">
   <head>
@@ -13,10 +13,11 @@ export function adminEmailTemplate({ fullname, email, message }) {
     <div class="img-container" style="display: flex;justify-content: center;align-items: center;border-radius: 5px;overflow: hidden; font-family: 'helvetica', 'ui-sans';">
           </div>
           <div class="container" style="margin-left: 20px;margin-right: 20px;">
-          <h3>You've got a new mail from ${fullname}, their email is: ✉️${email} </h3>
+          <h3>You've got a new mail from ✉️${email} </h3>
+          <h4>Contact Number: ${phoneNumber ?? 'not provided'}</h4>
           <div style="font-size: 16px;">
           <p>Message:</p>
-          <p>${message}</p>
+          <p>${message ?? 'no message provided'}</p>
           <br>
           </div>
           <img src="https://manuarora.in/logo.png" class="logo-image" style="height: 50px;width: 50px;border-radius: 5px;overflow: hidden;">

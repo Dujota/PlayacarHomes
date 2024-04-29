@@ -5,7 +5,7 @@ export const subscribeUser = async (mail, setLoading, setMessage, setSuccess) =>
     const res = await axios.put('/api/subscribe', {
       mail: mail,
     });
-    debugger;
+
     if (res.status === 200) {
       setLoading(false);
       setSuccess(true);
@@ -23,7 +23,7 @@ export const subscribeUser = async (mail, setLoading, setMessage, setSuccess) =>
 export const contactUser = async (data, setLoading, setMessage, setSuccess) => {
   try {
     const res = await axios.post('/api/contact', data);
-    debugger;
+
     if (res.status === 200) {
       setLoading(false);
       setSuccess(true);
@@ -33,7 +33,6 @@ export const contactUser = async (data, setLoading, setMessage, setSuccess) => {
       setMessage(res.data.message);
     }
   } catch (error) {
-    debugger;
     setLoading(false);
     setMessage(String(error.message));
   }
