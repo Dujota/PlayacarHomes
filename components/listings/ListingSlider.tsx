@@ -16,7 +16,7 @@ export default function ListingSlider({ listing }: ListingSliderProps) {
   const images = useMemo(
     () =>
       listing.gallery.images.map((image, idx) => ({
-        fullscreen: urlForImage(image).height(1000).width(2000).url(),
+        fullscreen: urlForImage(image).url(),
         original: urlForImage(image).height(400).width(800).url(),
         thumbnail: urlForImage(image).height(100).width(200).url(),
         originalAlt: `${listing.title} image ${idx + 1} of ${listing.gallery.images.length}`,
