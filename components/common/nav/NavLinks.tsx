@@ -38,9 +38,12 @@ const NavLinks = ({ links, isMobile }) => {
 
   if (isMobile) {
     return (
-      <div className='order-1 w-full items-center justify-between' id='navbar-cta'>
-        <ul className='border-gray-100 bg-gray-50 mt-4 flex  flex-col space-x-8 rounded-lg border-0 bg-white p-4 font-medium rtl:space-x-reverse'>{navLinks}</ul>
-      </div>
+      <>
+        <div className='order-1 w-full items-center justify-between' id='navbar-cta'>
+          <ul className='border-gray-100 bg-gray-50 mt-4 flex  flex-col space-x-8 rounded-lg border-0 bg-white p-4 font-medium rtl:space-x-reverse'>{navLinks}</ul>
+        </div>
+        <ContactFormModal showModal={showModal} setShowModal={setShowModal} />
+      </>
     );
   }
 
