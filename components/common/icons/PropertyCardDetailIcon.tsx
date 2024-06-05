@@ -40,17 +40,3 @@ const PropertyCardDetailIcon = ({ details, resource = 'listing' }: PropertyCardD
 };
 
 export default PropertyCardDetailIcon;
-
-// export type PropertyCardDetailIconProps = {
-//   iconSrc: string;
-//   label: string;
-// };
-
-// const PropertyCardDetailIcon: React.FC<PropertyCardDetailIconProps> = ({ iconSrc, label }) => {
-//   return (
-//     <div className='flex flex-row items-center justify-start gap-[0.5rem]'>
-//       <Image width={200} height={200} className='relative h-[1.5rem] w-[1.5rem] shrink-0 overflow-hidden' alt='' src={iconSrc} />
-//       <span className='relative font-medium leading-[140%]'>{label}</span>
-//     </div>
-//   );
-// };

@@ -59,7 +59,6 @@ const WhyUsSection = ({ heading, subheading, whyUsCards }: WhyUsSection) => {
                         md:flex-[unset]'
             >
               <PortableText value={heading} components={components} />
-              {/* We make it easy for <span className='text-blue'>tenants</span> and <span className='text-blue'>landlords</span>. */}
             </h2>
             {/* description */}
             <p

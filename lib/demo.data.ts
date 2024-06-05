@@ -557,6 +557,6 @@ export const statsMock = [
   },
   {
     stat: '2,540',
-    description: 'Daily Completed Transactions',
+    description: 'Completed Transactions',
   },
 ];

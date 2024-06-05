@@ -2,8 +2,6 @@
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import { infoCardsMock, statsMock } from 'lib/demo.data';
-// import required modules
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -15,7 +13,6 @@ const slideStyle = {
   maxWidth: '30rem',
   height: '200px',
   fontSize: '18px',
-  // background: 'red',
 
   /* Center slide text vertically */
   display: 'flex',
