@@ -85,6 +85,9 @@ export const longTermRentalIndexQuery = groq`
   ${longTermRentalFields}
 }`;
 
+export const longTermRentalSitemapSlugs = groq`
+*[_type == "rentals"] | order(orderRank) {slug}`;
+
 export const longTermRentalAndMoreLongTermRentalQuery = groq`
 {
   "rental": *[_type == "rentals" && slug.current == $slug] | order(orderRank) [0] {

@@ -1,6 +1,6 @@
 import { apiVersion, dataset, projectId, useCdn } from 'lib/sanity.api';
-import { indexQuery, type Post, postAndMoreStoriesQuery, postBySlugQuery, postSlugsQuery } from 'lib/sanity.queries/blog';
-import { type Listing, listingAndMoreListingsQuery, listingBySlugQuery, listingsIndexQuery, listingSlugsQuery } from 'lib/sanity.queries/listings';
+import { indexQuery, type Post, postAllSlugs, postAndMoreStoriesQuery, postBySlugQuery, postSlugsQuery } from 'lib/sanity.queries/blog';
+import { type Listing, listingAndMoreListingsQuery, listingBySlugQuery, listingsAllSlugs, listingsIndexQuery, listingSlugsQuery } from 'lib/sanity.queries/listings';
 import { type Settings, settingsQuery } from 'lib/sanity.queries/settings';
 import { createClient } from 'next-sanity';
 
@@ -10,6 +10,7 @@ import {
   longTermRentalAndMoreLongTermRentalQuery,
   longTermRentalBySlugQuery,
   longTermRentalIndexQuery,
+  longTermRentalSitemapSlugs,
   longTermRentalSlugsQuery,
 } from './sanity.queries/long-term-rentals';
 import {
@@ -17,6 +18,7 @@ import {
   vacationRentalsAndMoreVacationRentalsQuery,
   vacationRentalsBySlugQuery,
   vacationRentalsIndexQuery,
+  vacationRentalsSitemapSlugsQuery,
   vacationRentalsSlugsQuery,
 } from './sanity.queries/vacation-rentals';
 
@@ -189,4 +191,37 @@ export async function getHomepageSectionData(): Promise<any> {
     return (await client.fetch(homepageDataQuery)) || {};
   }
   return {};
+}
+
+// Sitemap
+interface SitemapItem {
+  _id: string;
+  slug?: { current?: string };
+}
+export async function getPostSitemapSlugs(): Promise<SitemapItem[]> {
+  if (client) {
+    return (await client.fetch(postAllSlugs)) || [];
+  }
+  return [];
+}
+
+export async function getListingsSitemapSlugs(): Promise<SitemapItem[]> {
+  if (client) {
+    return (await client.fetch(listingsAllSlugs)) || [];
+  }
+  return [];
+}
+
+export async function getLongTermRentalsSitemapSlugs(): Promise<SitemapItem[]> {
+  if (client) {
+    return (await client.fetch(longTermRentalSitemapSlugs)) || [];
+  }
+  return [];
+}
+
+export async function getVacationRentalsSitemapSlugs(): Promise<SitemapItem[]> {
+  if (client) {
+    return (await client.fetch(vacationRentalsSitemapSlugsQuery)) || [];
+  }
+  return [];
 }

@@ -37,7 +37,8 @@
     "styled-components": "^6.1.8",
     "suspend-react": "0.0.9",
     "swiper": "^10.2.0",
-    "swr": "2.1.1"
+    "swr": "2.1.1",
+    "xml": "^1.0.1"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.4",

@@ -38,6 +38,9 @@ export const listingsIndexQuery = groq`
   ${listingFields}
 }`;
 
+export const listingsAllSlugs = groq`
+*[_type == "listing"] | order(orderRank) {slug}`;
+
 export const listingAndMoreListingsQuery = groq`
 {
   "listing": *[_type == "listing" && slug.current == $slug] | order(orderRank) [0] {

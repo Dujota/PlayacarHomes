@@ -15,6 +15,10 @@ export const indexQuery = groq`
   ${postFields}
 }`;
 
+// sitemap
+export const postAllSlugs = groq`
+*[_type == "post"] | order(orderRank) {slug}`;
+
 export const postAndMoreStoriesQuery = groq`
 {
   "post": *[_type == "post" && slug.current == $slug] | order(orderRank) [0] {

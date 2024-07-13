@@ -40,7 +40,7 @@ export const socialIcons = [
 export const currentYear = new Date().getFullYear();
 
 export const navBarLinks = [
-  { label: 'For Sale', href: '/listings?q=buy' },
+  { label: 'For Sale', href: '/listings' },
   { label: 'Rentals', href: '/rentals' },
   { label: 'Vacation Rentals', href: '/vacation-rentals' },
   { label: 'Blog', href: '/blog' },
@@ -54,3 +54,12 @@ export const detailIcons = {
   area: { icon: '/area.svg', label: 'm²' },
   type: { icon: '/paint-black.svg', label: 'Type' },
 };
+
+export const sitemapStaticPaths = [
+  { current: '', label: 'Homepage' },
+  { current: 'listings', label: 'Listings' },
+  { current: 'rentals', label: 'Rentals' },
+  { current: 'vacation-rentals', label: 'Vacation Rentals' },
+  { current: 'blog', label: 'Blog' },
+  { current: '#contact', label: 'Contact' },
+];

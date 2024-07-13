@@ -85,6 +85,9 @@ export const vacationRentalsIndexQuery = groq`
   ${vacationRetnalFields}
 }`;
 
+export const vacationRentalsSitemapSlugsQuery = groq`
+*[_type == "vacationRentals"] | order(orderRank) {slug}`;
+
 export const vacationRentalsAndMoreVacationRentalsQuery = groq`
 {
   "vacationRental": *[_type == "vacationRentals" && slug.current == $slug] | order(orderRank) [0] {
