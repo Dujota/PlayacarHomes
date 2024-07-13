@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   ]);
 
   const urls = [
-    ...sitemapStaticPaths.map((slug) => ({ url: [{ loc: `https://www.playacarhomes.com/listings/${slug.current}` }] })),
+    ...sitemapStaticPaths.map((slug) => ({ url: [{ loc: `https://www.playacarhomes.com/${slug.current}` }] })),
     ...listings.map(({ slug }) => ({ url: [{ loc: `https://www.playacarhomes.com/listings/${slug.current}` }] })),
     ...rentals.map(({ slug }) => ({ url: [{ loc: `https://www.playacarhomes.com/rentals/${slug.current}` }] })),
     ...vacationRentals.map(({ slug }) => ({ url: [{ loc: `https://www.playacarhomes.com/vacation-rentals/${slug.current}` }] })),
