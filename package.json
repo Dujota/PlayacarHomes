@@ -20,7 +20,7 @@
     "@sanity/vision": "3.8.2",
     "@sendgrid/mail": "^8.1.1",
     "@vercel/og": "0.5.0",
-    "axios": "^1.6.2",
+    "axios": "^1.7.7",
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
     "intl-segmenter-polyfill": "0.4.4",
