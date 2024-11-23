@@ -32,7 +32,7 @@ const PropertyCardDetailIcon = ({ details, resource = 'listing' }: PropertyCardD
       ) : (
         <div className='flex flex-row items-center justify-start gap-[0.5rem]'>
           <Image width={200} height={200} className='relative h-[1.5rem] w-[1.5rem] shrink-0 overflow-hidden' alt={area.label} src={area.icon} />
-          <span className='relative font-medium leading-[140%]'>{`${details.area} ${area.label}`}</span>
+          <span className='relative font-medium leading-[140%]'>{`${details.landArea || details.area} ${area.label}`}</span>
         </div>
       )}
     </div>
