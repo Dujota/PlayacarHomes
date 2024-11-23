@@ -1,6 +1,6 @@
 import { urlForImage } from 'lib/sanity.image';
 
-export async function createListingStructuredData(listing: any, type: 'listing' | 'rental' | 'vacationRentals') {
+export function createListingStructuredData(listing: any, type: 'listing' | 'rental' | 'vacationRentals') {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.playacarhomes.com';
   const listingUrl = `${baseUrl}/${type}s/${listing.slug}`;
 
