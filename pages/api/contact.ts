@@ -12,6 +12,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     const email = req.body.email;
     const phoneNumber = req.body.phoneNumber;
     const message = req.body.message;
+    const page = req.body.page;
 
     switch (method) {
       case 'POST': {
@@ -20,7 +21,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
           toEmail: process.env.NODEMAILER_EMAIL,
           fromEmail: email,
           otpText: `INQUIRY --> CONTACT FORMPLAYACAR HOMES WEBSITE, EMAIL ADDRESS: ${email}, PHONE NUMBER: ${phoneNumber}, MESSAGE: ${message}`,
-          emailHtml: adminEmailTemplate({ phoneNumber, email, message }),
+          emailHtml: adminEmailTemplate({ phoneNumber, email, message, page }),
         });
 
         res.status(200).json({

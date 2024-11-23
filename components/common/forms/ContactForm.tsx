@@ -1,5 +1,6 @@
 import { contactUser } from 'lib/api/email';
 import { validateEmail } from 'lib/helpers/string-helpers';
+import { useMounted } from 'lib/hooks/useMounted';
 import { useState } from 'react';
 
 import Honeypot from './fields/Honeypot';
@@ -36,6 +37,7 @@ const ContactForm = ({ buttonText = 'Send Message', headingMessage = defaultMess
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+  const mounted = useMounted();
 
   const validate = () => {
     let hasError = false;
@@ -67,7 +69,7 @@ const ContactForm = ({ buttonText = 'Send Message', headingMessage = defaultMess
     setSuccess(false);
 
     if (validate()) {
-      await contactUser({ email, phoneNumber, message }, setLoading, setSubmitMessage, setSuccess);
+      await contactUser({ email, phoneNumber, message, page: window?.location?.href }, setLoading, setSubmitMessage, setSuccess);
 
       if (success) {
         setPhoneNumber('');
@@ -79,6 +81,8 @@ const ContactForm = ({ buttonText = 'Send Message', headingMessage = defaultMess
       }
     }
   };
+
+  if (!mounted) return null;
 
   return (
     <div id='contact-form' className={`font-poppins relative w-[403px] rounded-2xl p-[32px] text-left text-5xl text-black ${bg} ${sticky} ${toggle ? 'sm:!w-full' : ''}`}>
