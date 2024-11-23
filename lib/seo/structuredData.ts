@@ -4,7 +4,7 @@ export function createListingStructuredData(listing: any, type: 'listing' | 'ren
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.playacarhomes.com';
   const listingUrl = `${baseUrl}/${type}s/${listing.slug}`;
 
-  // const images = [listing.coverImage?.asset?.url, ...(listing.gallery?.images?.map((img: any) => img.asset.url) || [])].filter(Boolean);
+  const images = [urlForImage(listing.coverImage).url(), ...(listing.gallery?.images?.map((img: any) => urlForImage(img).url()) || [])].filter(Boolean);
 
   const baseStructuredData = {
     '@context': 'https://schema.org',
@@ -12,7 +12,7 @@ export function createListingStructuredData(listing: any, type: 'listing' | 'ren
     name: listing.title,
     description: listing.excerpt,
     url: listingUrl,
-    image: urlForImage(listing.coverImage).url(),
+    image: images,
     primaryImageOfPage: urlForImage(listing.coverImage).url(),
     address: {
       '@type': 'PostalAddress',
