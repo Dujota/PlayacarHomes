@@ -1,10 +1,12 @@
 // Components
 import { PreviewSuspense } from '@sanity/preview-kit';
+import JsonLd from 'components/common/seo/JSONLD';
 import ListingPage from 'components/listings/ListingPage';
 // Sanity Client
 import { getAllLongTermRentalsSlugs, getLongTermRentalsAndMoreLongTermRentals, getSettings } from 'lib/sanity.client';
 import { LongTermRental } from 'lib/sanity.queries/long-term-rentals';
 import { Settings } from 'lib/sanity.queries/settings';
+import { createListingStructuredData } from 'lib/seo/structuredData';
 // React & Next
 import { GetStaticProps } from 'next';
 import { lazy } from 'react';
@@ -38,7 +40,12 @@ export default function RentalShowPage(props: PageProps) {
     );
   }
 
-  return <ListingPage resource='rentals' listing={rental} moreListings={moreListings} settings={settings} />;
+  return (
+    <>
+      <JsonLd data={createListingStructuredData(rental, 'rental')} />
+      <ListingPage resource='rentals' listing={rental} moreListings={moreListings} settings={settings} />;
+    </>
+  );
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = async (ctx) => {

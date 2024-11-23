@@ -1,10 +1,12 @@
 // Components
 import { PreviewSuspense } from '@sanity/preview-kit';
+import JsonLd from 'components/common/seo/JSONLD';
 import ListingPage from 'components/listings/ListingPage';
 // Sanity Client
 import { getAllListingsSlugs, getListingAndMoreListings, getSettings } from 'lib/sanity.client';
 import { Listing } from 'lib/sanity.queries/listings';
 import { Settings } from 'lib/sanity.queries/settings';
+import { createListingStructuredData } from 'lib/seo/structuredData';
 // React & Next
 import { GetStaticProps } from 'next';
 import { lazy } from 'react';
@@ -38,7 +40,12 @@ export default function ListingShowPage(props: PageProps) {
     );
   }
 
-  return <ListingPage resource='listings' listing={listing} moreListings={moreListings} settings={settings} />;
+  return (
+    <>
+      <JsonLd data={createListingStructuredData(listing, 'listing')} />
+      <ListingPage resource='listings' listing={listing} moreListings={moreListings} settings={settings} />;
+    </>
+  );
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = async (ctx) => {
