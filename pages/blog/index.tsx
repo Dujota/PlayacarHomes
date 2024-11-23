@@ -2,9 +2,11 @@ import BlogList from 'components/blog/BlogList';
 import Newsletter from 'components/common/forms/NewsLetter';
 import PageTitle from 'components/common/headers/PageTitle';
 import NewsLetterModal from 'components/common/modals/NewsLetterModal';
+import JsonLd from 'components/common/seo/JSONLD';
 import { getAllPosts, getSettings } from 'lib/sanity.client';
 import type { Post } from 'lib/sanity.queries/blog';
 import type { Settings } from 'lib/sanity.queries/settings';
+import { createBlogIndexStructuredData } from 'lib/seo/blogStructuredData';
 import type { GetStaticProps, NextPage } from 'next';
 import type { PreviewData, Query } from 'types/sanity-queries';
 
@@ -19,15 +21,18 @@ interface PageProps {
 
 const BlogLandingPage: NextPage = ({ posts }: PageProps) => {
   return (
-    <div className='relative flex w-full flex-col items-center justify-center gap-[6.25rem] overflow-hidden bg-white'>
-      <NewsLetterModal />
-      <main className='font-poppins flex flex-col items-center justify-start gap-[2.5rem] self-stretch text-center text-[2.25rem] text-black'>
-        <PageTitle title={pageTitle} />
-        {/* <TabbingWithArrow />*/}
-        <BlogList cards={posts} />
-        <Newsletter />
-      </main>
-    </div>
+    <>
+      <JsonLd data={createBlogIndexStructuredData(posts)} />
+      <div className='relative flex w-full flex-col items-center justify-center gap-[6.25rem] overflow-hidden bg-white'>
+        <NewsLetterModal />
+        <main className='font-poppins flex flex-col items-center justify-start gap-[2.5rem] self-stretch text-center text-[2.25rem] text-black'>
+          <PageTitle title={pageTitle} />
+          {/* <TabbingWithArrow />*/}
+          <BlogList cards={posts} />
+          <Newsletter />
+        </main>
+      </div>
+    </>
   );
 };
 

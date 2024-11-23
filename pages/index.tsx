@@ -4,6 +4,7 @@ import { Blog } from 'components/common/cards/FeaturedBlogCard';
 import Newsletter from 'components/common/forms/NewsLetter';
 import SubscriptionForm from 'components/common/forms/SubscriptionForm';
 import NewsLetterModal from 'components/common/modals/NewsLetterModal';
+import JsonLd from 'components/common/seo/JSONLD';
 import WhyUsSection from 'components/common/WhyUs';
 import HeroSection from 'components/HeroSection';
 // import CustomerTestimonials from '../components/customer-testimonials';
@@ -15,6 +16,7 @@ import type { Listing } from 'lib/sanity.queries/listings';
 import type { LongTermRental } from 'lib/sanity.queries/long-term-rentals';
 import type { Settings } from 'lib/sanity.queries/settings';
 import type { VacationRental } from 'lib/sanity.queries/vacation-rentals';
+import { createHomePageStructuredData } from 'lib/seo/homepageStructuredData';
 import type { GetStaticProps, NextPage } from 'next';
 import type { PreviewData, Query } from 'types/sanity-queries';
 
@@ -33,22 +35,25 @@ const Homepage: NextPage = ({ featuredPosts, featuredListings, featuredLongTermR
   const [heroSection, subscriptionForm, newsletterForm, whyUsSection] = pageBuilder;
 
   return (
-    <div className='relative flex w-full flex-col items-start justify-start gap-[3.94rem] overflow-hidden bg-white'>
-      <main className='flex flex-col items-center justify-center gap-[7.06rem] self-stretch'>
-        <HeroSection heroSection={heroSection} />
-        <SubscriptionForm heading={subscriptionForm.label.split('.')} />
-        <FeaturedPropertyCardBanner resource='listings' title='Popular Properties For Sale' listings={featuredListings} ctaLink='/listings' />
-        <WhyUsSection heading={whyUsSection.heading} subheading={whyUsSection.subheading} whyUsCards={whyUsSection.whyUsCards} />
-        <FeaturedPropertyCardBanner resource='rentals' title='Long Term Rentals For You' listings={featuredLongTermRentals} ctaLink='/rentals' />
-        <Newsletter title={newsletterForm.label} description={newsletterForm.heading} />
-        <FeaturedPropertyCardBanner resource='vacation-rentals' title='Vacation Rentals For You' listings={featuredVacationRentals} ctaLink='/vacation-rentals' />
-        {/* <PropertiesByCategorySection /> */}
-        <LatestNewsBanner featuredBlogCards={featuredPosts} />
-        {/* <NearbyPropertiesSection /> */}
-        {/* <CustomerTestimonials /> */}
-      </main>
-      <NewsLetterModal />
-    </div>
+    <>
+      <JsonLd data={createHomePageStructuredData({ featuredPosts, featuredListings, featuredLongTermRentals, featuredVacationRentals, sections: { pageBuilder } })} />
+      <div className='relative flex w-full flex-col items-start justify-start gap-[3.94rem] overflow-hidden bg-white'>
+        <main className='flex flex-col items-center justify-center gap-[7.06rem] self-stretch'>
+          <HeroSection heroSection={heroSection} />
+          <SubscriptionForm heading={subscriptionForm.label.split('.')} />
+          <FeaturedPropertyCardBanner resource='listings' title='Popular Properties For Sale' listings={featuredListings} ctaLink='/listings' />
+          <WhyUsSection heading={whyUsSection.heading} subheading={whyUsSection.subheading} whyUsCards={whyUsSection.whyUsCards} />
+          <FeaturedPropertyCardBanner resource='rentals' title='Long Term Rentals For You' listings={featuredLongTermRentals} ctaLink='/rentals' />
+          <Newsletter title={newsletterForm.label} description={newsletterForm.heading} />
+          <FeaturedPropertyCardBanner resource='vacation-rentals' title='Vacation Rentals For You' listings={featuredVacationRentals} ctaLink='/vacation-rentals' />
+          {/* <PropertiesByCategorySection /> */}
+          <LatestNewsBanner featuredBlogCards={featuredPosts} />
+          {/* <NearbyPropertiesSection /> */}
+          {/* <CustomerTestimonials /> */}
+        </main>
+        <NewsLetterModal />
+      </div>
+    </>
   );
 };
 

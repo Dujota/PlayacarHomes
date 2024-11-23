@@ -1,8 +1,10 @@
 import { PreviewSuspense } from '@sanity/preview-kit';
 import PostPage from 'components/blog/PostPage';
+import JsonLd from 'components/common/seo/JSONLD';
 import { getAllPostsSlugs, getPostAndMoreStories, getSettings } from 'lib/sanity.client';
 import { Post } from 'lib/sanity.queries/blog';
 import { Settings } from 'lib/sanity.queries/settings';
+import { createBlogPostStructuredData } from 'lib/seo/blogStructuredData';
 import { GetStaticProps } from 'next';
 import { lazy } from 'react';
 
@@ -35,7 +37,12 @@ export default function BlogPost(props: PageProps) {
     );
   }
 
-  return <PostPage post={post} morePosts={morePosts} settings={settings} />;
+  return (
+    <>
+      <JsonLd data={createBlogPostStructuredData(post)} />
+      <PostPage post={post} morePosts={morePosts} settings={settings} />;
+    </>
+  );
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = async (ctx) => {
