@@ -1,3 +1,5 @@
+import { urlForImage } from 'lib/sanity.image';
+
 import { Post } from './blogStructuredData';
 import { Listing } from './structuredData';
 
@@ -38,8 +40,8 @@ function createFeaturedItems(items: Listing[], type: 'listing' | 'rental' | 'vac
       ...(item.excerpt && {
         description: item.excerpt,
       }),
-      ...(item.coverImage?.asset?.url && {
-        image: item.coverImage.asset.url,
+      ...(item.coverImage && {
+        image: urlForImage(item.coverImage).url(),
       }),
       ...(item.price && {
         offers: {
@@ -63,14 +65,14 @@ function createFeaturedItems(items: Listing[], type: 'listing' | 'rental' | 'vac
         floorSize: {
           '@type': 'QuantitativeValue',
           value: item.area,
-          unitCode: 'SQF',
+          unitCode: 'MKT',
         },
       }),
       ...(item.landArea && {
         lotSize: {
           '@type': 'QuantitativeValue',
           value: item.landArea,
-          unitCode: 'SQF',
+          unitCode: 'MKT',
         },
       }),
       ...((item.bedrooms || item.bathrooms) && {
@@ -93,8 +95,8 @@ function createFeaturedBlogPosts(posts: Post[]) {
       headline: post.title,
       url: `${baseUrl}/blog/${post.slug}`,
       description: post.excerpt,
-      ...(post.coverImage?.asset?.url && {
-        image: post.coverImage.asset.url,
+      ...(post.coverImage && {
+        image: urlForImage(post.coverImage).url(),
       }),
       datePublished: post.date,
       ...(post.author && {
