@@ -76,8 +76,8 @@ export default defineType({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
-      group: 'content',
-      description: 'This will display on listing tiles as a preview of the listing',
+      group: ['content', 'seo'],
+      description: 'This will display on listing tiles as a preview of the listing and SEO',
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -152,6 +152,13 @@ export default defineType({
       type: 'number',
       group: 'pricing',
       description: 'Add the price of the listing',
+    }),
+    defineField({
+      name: 'leaseLength',
+      title: 'Lease Length',
+      type: 'number',
+      group: ['pricing', 'seo'],
+      description: 'Length of Lease Term in months',
     }),
 
     // Details of the listing
@@ -248,6 +255,13 @@ export default defineType({
       type: 'string',
       group: 'location',
       description: 'Add the postal code of the listing',
+    }),
+    defineField({
+      name: 'city',
+      title: 'City',
+      type: 'string',
+      group: 'location',
+      description: 'Add the city of the listing',
     }),
     defineField({
       name: 'neighbourhood',

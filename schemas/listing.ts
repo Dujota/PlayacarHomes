@@ -269,6 +269,13 @@ export default defineType({
       description: 'Add the postal code of the listing',
     }),
     defineField({
+      name: 'city',
+      title: 'City',
+      type: 'string',
+      group: 'location',
+      description: 'Add the city of the listing',
+    }),
+    defineField({
       name: 'neighbourhood',
       title: 'Neighbourhood',
       type: 'string',
