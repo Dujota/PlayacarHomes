@@ -31,7 +31,7 @@ export function createListingStructuredData(listing: any, type: 'listing' | 'ren
       seller: {
         '@type': 'RealEstateAgent',
         name: listing.agent?.name || 'Playacar Homes',
-        url: baseUrl,
+        url: listingUrl,
         logo: `${baseUrl}/logo.png`,
         telephone: listing.agent?.contact?.phone || listing.contact?.phone,
         address: {
