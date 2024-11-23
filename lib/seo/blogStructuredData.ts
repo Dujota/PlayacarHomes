@@ -1,3 +1,5 @@
+import { urlForImage } from 'lib/sanity.image';
+
 export interface Author {
   name?: string;
   picture?: any;
@@ -27,8 +29,8 @@ export function createBlogPostStructuredData(post: Post) {
     },
     headline: post.title,
     description: post.excerpt,
-    ...(post.coverImage?.asset?.url && {
-      image: post.coverImage.asset.url,
+    ...(post.coverImage && {
+      image: urlForImage(post.coverImage).url(),
     }),
     datePublished: post.date,
     dateModified: post.date,
