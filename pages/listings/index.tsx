@@ -2,10 +2,12 @@
 import Newsletter from 'components/common/forms/NewsLetter';
 import PageTitle from 'components/common/headers/PageTitle';
 import NewsLetterModal from 'components/common/modals/NewsLetterModal';
+import JsonLd from 'components/common/seo/JSONLD';
 import PropertyList from 'components/listings/PropertyList';
 import { getAllListings, getSettings } from 'lib/sanity.client';
 import { Listing } from 'lib/sanity.queries/listings';
 import { Settings } from 'lib/sanity.queries/settings';
+import { createListingCollectionStructuredData } from 'lib/seo/structuredData';
 import type { NextPage } from 'next';
 import { GetStaticProps } from 'next';
 
@@ -30,15 +32,18 @@ const PropertyListingsIndexPage: NextPage = (props: PageProps) => {
   const { listings, settings, preview, token } = props;
 
   return (
-    <div className='relative flex w-full flex-col items-center justify-center gap-[6.5rem] overflow-hidden bg-white'>
-      <main className='font-poppins flex flex-col items-center justify-center gap-[4.94rem] self-stretch text-center text-[2.25rem] text-black'>
-        <PageTitle title={pageTitle} />
-        {/* <ListingindexSearch /> */}
-        <PropertyList resource='listings' listings={listings} />
-        <Newsletter />
-        <NewsLetterModal />
-      </main>
-    </div>
+    <>
+      <JsonLd data={createListingCollectionStructuredData(listings, 'listing')} />
+      <div className='relative flex w-full flex-col items-center justify-center gap-[6.5rem] overflow-hidden bg-white'>
+        <main className='font-poppins flex flex-col items-center justify-center gap-[4.94rem] self-stretch text-center text-[2.25rem] text-black'>
+          <PageTitle title={pageTitle} />
+          {/* <ListingindexSearch /> */}
+          <PropertyList resource='listings' listings={listings} />
+          <Newsletter />
+          <NewsLetterModal />
+        </main>
+      </div>
+    </>
   );
 };
 
