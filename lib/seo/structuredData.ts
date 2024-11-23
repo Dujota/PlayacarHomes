@@ -1,8 +1,10 @@
-export function createListingStructuredData(listing: any, type: 'listing' | 'rental' | 'vacationRentals') {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.playacarhomes.com';
-  const listingUrl = `${baseUrl}/${type}s/${listing.slug.current}`;
+import { urlForImage } from 'lib/sanity.image';
 
-  const images = [listing.coverImage?.asset?.url, ...(listing.gallery?.images?.map((img: any) => img.asset.url) || [])].filter(Boolean);
+export async function createListingStructuredData(listing: any, type: 'listing' | 'rental' | 'vacationRentals') {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.playacarhomes.com';
+  const listingUrl = `${baseUrl}/${type}s/${listing.slug}`;
+
+  // const images = [listing.coverImage?.asset?.url, ...(listing.gallery?.images?.map((img: any) => img.asset.url) || [])].filter(Boolean);
 
   const baseStructuredData = {
     '@context': 'https://schema.org',
@@ -10,7 +12,8 @@ export function createListingStructuredData(listing: any, type: 'listing' | 'ren
     name: listing.title,
     description: listing.excerpt,
     url: listingUrl,
-    image: images,
+    image: urlForImage(listing.coverImage).url(),
+    primaryImageOfPage: urlForImage(listing.coverImage).url(),
     address: {
       '@type': 'PostalAddress',
       streetAddress: listing.neighbourhood,
@@ -155,8 +158,9 @@ export function createListingCollectionStructuredData(listings: Listing[], pageT
       url: `${baseUrl}/${urlPrefix}/${listing.slug}`,
       ...(listing.excerpt && { description: listing.excerpt }),
       ...(listing.coverImage?.asset?.url && {
-        image: listing.coverImage.asset.url,
+        image: urlForImage(listing.coverImage).url(),
       }),
+      primaryImageOfPage: urlForImage(listing.coverImage).url(),
       ...(listing.price && {
         offers: {
           '@type': 'Offer',
