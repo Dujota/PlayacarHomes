@@ -62,8 +62,8 @@ export function createBlogIndexStructuredData(posts: Post[]) {
       headline: post.title,
       url: `${baseUrl}/blog/${post.slug}`,
       description: post.excerpt,
-      ...(post.coverImage?.asset?.url && {
-        image: post.coverImage.asset.url,
+      ...(post.coverImage && {
+        image: urlForImage(post.coverImage).url(),
       }),
       datePublished: post.date,
       ...(post.author && {
