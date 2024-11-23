@@ -45,8 +45,8 @@ export function createListingStructuredData(listing: any, type: 'listing' | 'ren
       },
     },
     numberOfRooms: (listing.bedrooms || 0) + (listing.bathrooms || 0),
-    bedrooms: listing.bedrooms,
-    bathrooms: listing.bathrooms,
+    numberOfBedrooms: listing.bedrooms,
+    numberOfFullBathrooms: listing.bathrooms,
     permittedUsage: 'Perfectly suitable for a family with kids.',
     petsAllowed: 'Pets are allowed, but check with agent on any additional restrictions',
     leaseLength: {
@@ -170,8 +170,8 @@ export function createListingCollectionStructuredData(listings: Listing[], pageT
       }),
       ...((listing.bedrooms || listing.bathrooms) && {
         numberOfRooms: (listing.bedrooms || 0) + (listing.bathrooms || 0),
-        ...(listing.bedrooms && { bedrooms: listing.bedrooms }),
-        ...(listing.bathrooms && { bathrooms: listing.bathrooms }),
+        ...(listing.bedrooms && { numberOfBedrooms: listing.bedrooms }),
+        ...(listing.bathrooms && { numberOfFullBathrooms: listing.bathrooms }),
       }),
       ...(listing.area && {
         floorSize: {
