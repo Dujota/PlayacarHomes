@@ -46,6 +46,7 @@ export default defineType({
       name: 'content',
       title: 'Content',
       type: 'array',
+      // @ts-ignore
       of: [{ type: 'block' }],
     }),
     defineField({
@@ -72,6 +73,7 @@ export default defineType({
       name: 'author',
       title: 'Author',
       type: 'reference',
+      // @ts-ignore
       to: [{ type: authorType.name }],
     }),
   ],

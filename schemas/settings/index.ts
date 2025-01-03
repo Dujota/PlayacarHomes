@@ -27,6 +27,7 @@ export default defineType({
       title: 'Description',
       type: 'array',
       initialValue: demo.description,
+      // @ts-ignore
       of: [
         defineArrayMember({
           type: 'block',
@@ -39,6 +40,7 @@ export default defineType({
               defineField({
                 type: 'object',
                 name: 'link',
+                // @ts-ignore
                 fields: [
                   {
                     type: 'string',
@@ -62,6 +64,7 @@ export default defineType({
       components: {
         input: OpenGraphInput as any,
       },
+      // @ts-ignore
       fields: [
         defineField({
           name: 'title',

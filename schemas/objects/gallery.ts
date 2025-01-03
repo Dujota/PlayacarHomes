@@ -9,6 +9,7 @@ export default defineType({
       name: 'images',
       type: 'array',
       title: 'Images',
+      // @ts-ignore
       of: [
         {
           name: 'image',

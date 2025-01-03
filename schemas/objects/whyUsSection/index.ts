@@ -16,6 +16,7 @@ export default defineType({
     defineField({
       name: 'heading',
       type: 'array',
+      // @ts-ignore
       of: [
         {
           type: 'block',

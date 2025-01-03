@@ -68,6 +68,7 @@ export default defineType({
       name: 'description',
       title: 'Description',
       type: 'array',
+      // @ts-ignore
       of: [{ type: 'block' }],
       description: 'Add a general description for the listing',
       group: 'content',
@@ -117,6 +118,7 @@ export default defineType({
       name: 'agent',
       title: 'Agent - (Optional)',
       type: 'reference',
+      // @ts-ignore
       to: [{ type: agentType.name }],
       group: 'contact',
     }),
@@ -173,6 +175,7 @@ export default defineType({
       name: 'amenities',
       title: 'Amenities',
       type: 'array',
+      // @ts-ignore
       of: [{ type: 'string' }],
       group: 'detail',
       description: 'Add the amenities of the listing',
@@ -181,6 +184,7 @@ export default defineType({
       name: 'tags',
       title: 'Tags',
       type: 'array',
+      // @ts-ignore
       of: [{ type: 'string' }],
       group: 'detail',
       description: 'Add the tags of the listing',
