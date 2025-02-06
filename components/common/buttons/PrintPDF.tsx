@@ -22,6 +22,7 @@ const PDFButton = ({ listing, resource }) => {
         useCORS: true,
         allowTaint: true,
         logging: false,
+        // @ts-ignore
         windowWidth: element.scrollWidth,
       });
 
