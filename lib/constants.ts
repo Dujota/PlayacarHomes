@@ -35,6 +35,7 @@ export const socialIcons = [
     iconSrc: '/whatsapp.svg',
     href: 'https://wa.me/529841130567?text=Hello%2C%20I%27m%20interested%20in%20learning%20more%20about%20your%20available%20properties%20and%20services.',
   },
+  { label: 'YouTube', iconSrc: '/youtube.png', href: 'https://www.youtube.com/@playacarhomes' },
 ];
 
 export const currentYear = new Date().getFullYear();
