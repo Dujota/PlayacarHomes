@@ -19,7 +19,7 @@ const ListingDetails = ({ listing, resource }: DetailsProps) => {
   return (
     <section className='font-poppins mb-[2rem] mt-8 flex flex-row flex-wrap items-start justify-center self-stretch text-left text-[1.5rem] text-black'>
       <div id='listing-details' className='flex w-auto flex-col flex-wrap items-center justify-center gap-[0.5rem]'>
-        <div className='mb-4 flex w-full justify-end'>
+        <div className='mb-4 flex w-full justify-center'>
           <PDFButton listing={listing} resource={resource} />
         </div>
         <ListingDetailsIcons
@@ -32,6 +32,9 @@ const ListingDetails = ({ listing, resource }: DetailsProps) => {
         <AboutListing description={listing.description} />
         <ListingLineBreak />
         <KeyFeatures listing={listing} resource={resource} />
+        <div className='mb-4 flex w-full justify-center'>
+          <PDFButton listing={listing} resource={resource} />
+        </div>
       </div>
       <ContactForm buttonText='Send Message' headingMessage={headingMessage} />
     </section>
